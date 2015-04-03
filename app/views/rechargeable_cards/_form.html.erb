@@ -1,0 +1,57 @@
+<%= form_for(@rechargeable_card) do |f| %>
+  <% if @rechargeable_card.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rechargeable_card.errors.count, "error") %> prohibited this rechargeable_card from being saved:</h2>
+
+      <ul>
+      <% @rechargeable_card.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :pwd %><br>
+    <%= f.text_field :pwd %>
+  </div>
+  <div class="field">
+    <%= f.label :make_card_id %><br>
+    <%= f.number_field :make_card_id %>
+  </div>
+  <div class="field">
+    <%= f.label :card_number %><br>
+    <%= f.text_field :card_number %>
+  </div>
+  <div class="field">
+    <%= f.label :card_sum %><br>
+    <%= f.number_field :card_sum %>
+  </div>
+  <div class="field">
+    <%= f.label :effective_time %><br>
+    <%= f.text_field :effective_time %>
+  </div>
+  <div class="field">
+    <%= f.label :card_type %><br>
+    <%= f.number_field :card_type %>
+  </div>
+  <div class="field">
+    <%= f.label :end_time %><br>
+    <%= f.datetime_select :end_time %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_field :content %>
+  </div>
+  <div class="field">
+    <%= f.label :giving %><br>
+    <%= f.number_field :giving %>
+  </div>
+  <div class="field">
+    <%= f.label :failure %><br>
+    <%= f.number_field :failure %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

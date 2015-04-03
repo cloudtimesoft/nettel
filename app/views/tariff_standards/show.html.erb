@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @tariff_standard.name %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @tariff_standard.content %>
+</p>
+
+<p>
+  <strong>Minus amount:</strong>
+  <%= @tariff_standard.minus_amount %>
+</p>
+
+<%= link_to 'Edit', edit_tariff_standard_path(@tariff_standard) %> |
+<%= link_to 'Back', tariff_standards_path %>

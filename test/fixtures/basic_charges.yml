@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tariff_standard_id: 1
+  s_charges: 
+  c_charges: 
+
+two:
+  tariff_standard_id: 1
+  s_charges: 
+  c_charges: 

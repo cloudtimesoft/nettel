@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @call_cach.user_id %>
+</p>
+
+<p>
+  <strong>Begin time:</strong>
+  <%= @call_cach.begin_time %>
+</p>
+
+<%= link_to 'Edit', edit_call_cach_path(@call_cach) %> |
+<%= link_to 'Back', call_caches_path %>

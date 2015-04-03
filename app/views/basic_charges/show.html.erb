@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tariff standard:</strong>
+  <%= @basic_charge.tariff_standard_id %>
+</p>
+
+<p>
+  <strong>S charges:</strong>
+  <%= @basic_charge.s_charges %>
+</p>
+
+<p>
+  <strong>C charges:</strong>
+  <%= @basic_charge.c_charges %>
+</p>
+
+<%= link_to 'Edit', edit_basic_charge_path(@basic_charge) %> |
+<%= link_to 'Back', basic_charges_path %>

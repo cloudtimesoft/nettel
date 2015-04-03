@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Pwd:</strong>
+  <%= @rechargeable_card.pwd %>
+</p>
+
+<p>
+  <strong>Make card:</strong>
+  <%= @rechargeable_card.make_card_id %>
+</p>
+
+<p>
+  <strong>Card number:</strong>
+  <%= @rechargeable_card.card_number %>
+</p>
+
+<p>
+  <strong>Card sum:</strong>
+  <%= @rechargeable_card.card_sum %>
+</p>
+
+<p>
+  <strong>Effective time:</strong>
+  <%= @rechargeable_card.effective_time %>
+</p>
+
+<p>
+  <strong>Card type:</strong>
+  <%= @rechargeable_card.card_type %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @rechargeable_card.end_time %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @rechargeable_card.content %>
+</p>
+
+<p>
+  <strong>Giving:</strong>
+  <%= @rechargeable_card.giving %>
+</p>
+
+<p>
+  <strong>Failure:</strong>
+  <%= @rechargeable_card.failure %>
+</p>
+
+<%= link_to 'Edit', edit_rechargeable_card_path(@rechargeable_card) %> |
+<%= link_to 'Back', rechargeable_cards_path %>

@@ -1,0 +1,43 @@
+<h1>Listing rechargeable_cards</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Pwd</th>
+      <th>Make card</th>
+      <th>Card number</th>
+      <th>Card sum</th>
+      <th>Effective time</th>
+      <th>Card type</th>
+      <th>End time</th>
+      <th>Content</th>
+      <th>Giving</th>
+      <th>Failure</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rechargeable_cards.each do |rechargeable_card| %>
+      <tr>
+        <td><%= rechargeable_card.pwd %></td>
+        <td><%= rechargeable_card.make_card_id %></td>
+        <td><%= rechargeable_card.card_number %></td>
+        <td><%= rechargeable_card.card_sum %></td>
+        <td><%= rechargeable_card.effective_time %></td>
+        <td><%= rechargeable_card.card_type %></td>
+        <td><%= rechargeable_card.end_time %></td>
+        <td><%= rechargeable_card.content %></td>
+        <td><%= rechargeable_card.giving %></td>
+        <td><%= rechargeable_card.failure %></td>
+        <td><%= link_to 'Show', rechargeable_card %></td>
+        <td><%= link_to 'Edit', edit_rechargeable_card_path(rechargeable_card) %></td>
+        <td><%= link_to 'Destroy', rechargeable_card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rechargeable card', new_rechargeable_card_path %>

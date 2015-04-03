@@ -1,0 +1,37 @@
+<h1>Listing rechargeable_records</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Prepaid time</th>
+      <th>Balance</th>
+      <th>Type</th>
+      <th>Content</th>
+      <th>End time</th>
+      <th>Card num</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @rechargeable_records.each do |rechargeable_record| %>
+      <tr>
+        <td><%= rechargeable_record.user_id %></td>
+        <td><%= rechargeable_record.prepaid_time %></td>
+        <td><%= rechargeable_record.balance %></td>
+        <td><%= rechargeable_record.type %></td>
+        <td><%= rechargeable_record.content %></td>
+        <td><%= rechargeable_record.end_time %></td>
+        <td><%= rechargeable_record.card_num %></td>
+        <td><%= link_to 'Show', rechargeable_record %></td>
+        <td><%= link_to 'Edit', edit_rechargeable_record_path(rechargeable_record) %></td>
+        <td><%= link_to 'Destroy', rechargeable_record, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Rechargeable record', new_rechargeable_record_path %>

@@ -1,0 +1,53 @@
+<%= form_for(@make_card) do |f| %>
+  <% if @make_card.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@make_card.errors.count, "error") %> prohibited this make_card from being saved:</h2>
+
+      <ul>
+      <% @make_card.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :admin_id %><br>
+    <%= f.number_field :admin_id %>
+  </div>
+  <div class="field">
+    <%= f.label :card_type %><br>
+    <%= f.number_field :card_type %>
+  </div>
+  <div class="field">
+    <%= f.label :batch %><br>
+    <%= f.text_field :batch %>
+  </div>
+  <div class="field">
+    <%= f.label :card_len %><br>
+    <%= f.number_field :card_len %>
+  </div>
+  <div class="field">
+    <%= f.label :time %><br>
+    <%= f.datetime_select :time %>
+  </div>
+  <div class="field">
+    <%= f.label :card_sum %><br>
+    <%= f.text_field :card_sum %>
+  </div>
+  <div class="field">
+    <%= f.label :amount %><br>
+    <%= f.number_field :amount %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_field :content %>
+  </div>
+  <div class="field">
+    <%= f.label :giving %><br>
+    <%= f.number_field :giving %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

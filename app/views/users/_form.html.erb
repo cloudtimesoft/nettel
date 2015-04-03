@@ -1,0 +1,57 @@
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tariff_standard_id %><br>
+    <%= f.number_field :tariff_standard_id %>
+  </div>
+  <div class="field">
+    <%= f.label :user_name %><br>
+    <%= f.text_field :user_name %>
+  </div>
+  <div class="field">
+    <%= f.label :password_digest %><br>
+    <%= f.text_field :password_digest %>
+  </div>
+  <div class="field">
+    <%= f.label :usr_status %><br>
+    <%= f.number_field :usr_status %>
+  </div>
+  <div class="field">
+    <%= f.label :auth_code %><br>
+    <%= f.text_field :auth_code %>
+  </div>
+  <div class="field">
+    <%= f.label :auth_code_time %><br>
+    <%= f.datetime_select :auth_code_time %>
+  </div>
+  <div class="field">
+    <%= f.label :dial_way %><br>
+    <%= f.number_field :dial_way %>
+  </div>
+  <div class="field">
+    <%= f.label :show_num %><br>
+    <%= f.number_field :show_num %>
+  </div>
+  <div class="field">
+    <%= f.label :area_code %><br>
+    <%= f.text_field :area_code %>
+  </div>
+  <div class="field">
+    <%= f.label :balance %><br>
+    <%= f.text_field :balance %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

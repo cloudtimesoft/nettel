@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tariff standard:</strong>
+  <%= @user.tariff_standard_id %>
+</p>
+
+<p>
+  <strong>User name:</strong>
+  <%= @user.user_name %>
+</p>
+
+<p>
+  <strong>Password digest:</strong>
+  <%= @user.password_digest %>
+</p>
+
+<p>
+  <strong>Usr status:</strong>
+  <%= @user.usr_status %>
+</p>
+
+<p>
+  <strong>Auth code:</strong>
+  <%= @user.auth_code %>
+</p>
+
+<p>
+  <strong>Auth code time:</strong>
+  <%= @user.auth_code_time %>
+</p>
+
+<p>
+  <strong>Dial way:</strong>
+  <%= @user.dial_way %>
+</p>
+
+<p>
+  <strong>Show num:</strong>
+  <%= @user.show_num %>
+</p>
+
+<p>
+  <strong>Area code:</strong>
+  <%= @user.area_code %>
+</p>
+
+<p>
+  <strong>Balance:</strong>
+  <%= @user.balance %>
+</p>
+
+<%= link_to 'Edit', edit_user_path(@user) %> |
+<%= link_to 'Back', users_path %>

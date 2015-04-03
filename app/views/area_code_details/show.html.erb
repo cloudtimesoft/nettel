@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Province:</strong>
+  <%= @area_code_detail.province_id %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @area_code_detail.name %>
+</p>
+
+<p>
+  <strong>Area code:</strong>
+  <%= @area_code_detail.area_code %>
+</p>
+
+<%= link_to 'Edit', edit_area_code_detail_path(@area_code_detail) %> |
+<%= link_to 'Back', area_code_details_path %>

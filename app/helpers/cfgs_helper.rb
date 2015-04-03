@@ -1,0 +1,2 @@
+module CfgsHelper
+end

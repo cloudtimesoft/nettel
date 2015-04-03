@@ -1,0 +1,25 @@
+<%= form_for(@admin_role_ref) do |f| %>
+  <% if @admin_role_ref.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_role_ref.errors.count, "error") %> prohibited this admin_role_ref from being saved:</h2>
+
+      <ul>
+      <% @admin_role_ref.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :admin_id %><br>
+    <%= f.number_field :admin_id %>
+  </div>
+  <div class="field">
+    <%= f.label :role_id %><br>
+    <%= f.number_field :role_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

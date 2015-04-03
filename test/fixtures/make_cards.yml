@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  admin_id: 1
+  card_type: 1
+  batch: MyString
+  card_len: 1
+  time: 2015-04-03 09:56:01
+  card_sum: 
+  amount: 1
+  content: MyString
+  giving: 1
+
+two:
+  admin_id: 1
+  card_type: 1
+  batch: MyString
+  card_len: 1
+  time: 2015-04-03 09:56:01
+  card_sum: 
+  amount: 1
+  content: MyString
+  giving: 1

@@ -1,0 +1,29 @@
+<h1>Listing tariff_standards</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Content</th>
+      <th>Minus amount</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tariff_standards.each do |tariff_standard| %>
+      <tr>
+        <td><%= tariff_standard.name %></td>
+        <td><%= tariff_standard.content %></td>
+        <td><%= tariff_standard.minus_amount %></td>
+        <td><%= link_to 'Show', tariff_standard %></td>
+        <td><%= link_to 'Edit', edit_tariff_standard_path(tariff_standard) %></td>
+        <td><%= link_to 'Destroy', tariff_standard, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tariff standard', new_tariff_standard_path %>

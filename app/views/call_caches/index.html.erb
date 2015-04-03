@@ -1,0 +1,27 @@
+<h1>Listing call_caches</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>User</th>
+      <th>Begin time</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @call_caches.each do |call_cach| %>
+      <tr>
+        <td><%= call_cach.user_id %></td>
+        <td><%= call_cach.begin_time %></td>
+        <td><%= link_to 'Show', call_cach %></td>
+        <td><%= link_to 'Edit', edit_call_cach_path(call_cach) %></td>
+        <td><%= link_to 'Destroy', call_cach, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Call cache', new_call_cach_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  content: MyString
+  is_admin: 1
+  role_status: 1
+
+two:
+  name: MyString
+  content: MyString
+  is_admin: 1
+  role_status: 1

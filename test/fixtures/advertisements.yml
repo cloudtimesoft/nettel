@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pic_str: MyString
+  link_str: MyString
+  start_time: 2015-04-03 10:25:12
+  end_time: 2015-04-03 10:25:12
+  status: 1
+  type: 1
+
+two:
+  pic_str: MyString
+  link_str: MyString
+  start_time: 2015-04-03 10:25:12
+  end_time: 2015-04-03 10:25:12
+  status: 1
+  type: 1

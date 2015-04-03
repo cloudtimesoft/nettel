@@ -1,0 +1,35 @@
+<h1>Listing cfgs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Give cost</th>
+      <th>Company name</th>
+      <th>Sales tel</th>
+      <th>Service tel</th>
+      <th>Gateway</th>
+      <th>Content</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cfgs.each do |cfg| %>
+      <tr>
+        <td><%= cfg.give_cost %></td>
+        <td><%= cfg.company_name %></td>
+        <td><%= cfg.sales_tel %></td>
+        <td><%= cfg.service_tel %></td>
+        <td><%= cfg.gateway %></td>
+        <td><%= cfg.content %></td>
+        <td><%= link_to 'Show', cfg %></td>
+        <td><%= link_to 'Edit', edit_cfg_path(cfg) %></td>
+        <td><%= link_to 'Destroy', cfg, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Cfg', new_cfg_path %>

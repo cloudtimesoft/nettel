@@ -1,0 +1,41 @@
+<h1>Listing make_cards</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Admin</th>
+      <th>Card type</th>
+      <th>Batch</th>
+      <th>Card len</th>
+      <th>Time</th>
+      <th>Card sum</th>
+      <th>Amount</th>
+      <th>Content</th>
+      <th>Giving</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @make_cards.each do |make_card| %>
+      <tr>
+        <td><%= make_card.admin_id %></td>
+        <td><%= make_card.card_type %></td>
+        <td><%= make_card.batch %></td>
+        <td><%= make_card.card_len %></td>
+        <td><%= make_card.time %></td>
+        <td><%= make_card.card_sum %></td>
+        <td><%= make_card.amount %></td>
+        <td><%= make_card.content %></td>
+        <td><%= make_card.giving %></td>
+        <td><%= link_to 'Show', make_card %></td>
+        <td><%= link_to 'Edit', edit_make_card_path(make_card) %></td>
+        <td><%= link_to 'Destroy', make_card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Make card', new_make_card_path %>

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @phone_num.contact_id %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @phone_num.type %>
+</p>
+
+<p>
+  <strong>Is primary:</strong>
+  <%= @phone_num.is_primary %>
+</p>
+
+<p>
+  <strong>Attribution:</strong>
+  <%= @phone_num.attribution %>
+</p>
+
+<p>
+  <strong>Operator:</strong>
+  <%= @phone_num.operator %>
+</p>
+
+<%= link_to 'Edit', edit_phone_num_path(@phone_num) %> |
+<%= link_to 'Back', phone_nums_path %>

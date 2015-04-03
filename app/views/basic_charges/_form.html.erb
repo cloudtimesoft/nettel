@@ -1,0 +1,29 @@
+<%= form_for(@basic_charge) do |f| %>
+  <% if @basic_charge.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@basic_charge.errors.count, "error") %> prohibited this basic_charge from being saved:</h2>
+
+      <ul>
+      <% @basic_charge.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :tariff_standard_id %><br>
+    <%= f.number_field :tariff_standard_id %>
+  </div>
+  <div class="field">
+    <%= f.label :s_charges %><br>
+    <%= f.text_field :s_charges %>
+  </div>
+  <div class="field">
+    <%= f.label :c_charges %><br>
+    <%= f.text_field :c_charges %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

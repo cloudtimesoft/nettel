@@ -1,0 +1,41 @@
+<%= form_for(@cfg) do |f| %>
+  <% if @cfg.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@cfg.errors.count, "error") %> prohibited this cfg from being saved:</h2>
+
+      <ul>
+      <% @cfg.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :give_cost %><br>
+    <%= f.text_field :give_cost %>
+  </div>
+  <div class="field">
+    <%= f.label :company_name %><br>
+    <%= f.text_field :company_name %>
+  </div>
+  <div class="field">
+    <%= f.label :sales_tel %><br>
+    <%= f.text_field :sales_tel %>
+  </div>
+  <div class="field">
+    <%= f.label :service_tel %><br>
+    <%= f.text_field :service_tel %>
+  </div>
+  <div class="field">
+    <%= f.label :gateway %><br>
+    <%= f.text_field :gateway %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

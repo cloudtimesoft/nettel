@@ -1,0 +1,29 @@
+<%= form_for(@tariff_standard) do |f| %>
+  <% if @tariff_standard.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tariff_standard.errors.count, "error") %> prohibited this tariff_standard from being saved:</h2>
+
+      <ul>
+      <% @tariff_standard.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br>
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </div>
+  <div class="field">
+    <%= f.label :minus_amount %><br>
+    <%= f.text_field :minus_amount %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @pub.title %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @pub.type %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @pub.content %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @pub.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @pub.end_time %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @pub.status %>
+</p>
+
+<p>
+  <strong>Sort:</strong>
+  <%= @pub.sort %>
+</p>
+
+<%= link_to 'Edit', edit_pub_path(@pub) %> |
+<%= link_to 'Back', pubs_path %>

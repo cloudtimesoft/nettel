@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  give_cost: 
+  company_name: MyString
+  sales_tel: MyString
+  service_tel: MyString
+  gateway: MyString
+  content: MyText
+
+two:
+  give_cost: 
+  company_name: MyString
+  sales_tel: MyString
+  service_tel: MyString
+  gateway: MyString
+  content: MyText

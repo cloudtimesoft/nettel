@@ -1,0 +1,29 @@
+<h1>Listing basic_charges</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Tariff standard</th>
+      <th>S charges</th>
+      <th>C charges</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @basic_charges.each do |basic_charge| %>
+      <tr>
+        <td><%= basic_charge.tariff_standard_id %></td>
+        <td><%= basic_charge.s_charges %></td>
+        <td><%= basic_charge.c_charges %></td>
+        <td><%= link_to 'Show', basic_charge %></td>
+        <td><%= link_to 'Edit', edit_basic_charge_path(basic_charge) %></td>
+        <td><%= link_to 'Destroy', basic_charge, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Basic charge', new_basic_charge_path %>

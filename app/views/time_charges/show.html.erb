@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Tariff standard:</strong>
+  <%= @time_charge.tariff_standard_id %>
+</p>
+
+<p>
+  <strong>S charges:</strong>
+  <%= @time_charge.s_charges %>
+</p>
+
+<p>
+  <strong>C charges:</strong>
+  <%= @time_charge.c_charges %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @time_charge.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @time_charge.end_time %>
+</p>
+
+<%= link_to 'Edit', edit_time_charge_path(@time_charge) %> |
+<%= link_to 'Back', time_charges_path %>

@@ -1,0 +1,2 @@
+module RechargeableRecordsHelper
+end

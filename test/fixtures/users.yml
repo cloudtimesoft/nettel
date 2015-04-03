@@ -1,0 +1,25 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  tariff_standard_id: 1
+  user_name: MyString
+  password_digest: MyString
+  usr_status: 1
+  auth_code: MyString
+  auth_code_time: 2015-04-03 10:14:55
+  dial_way: 1
+  show_num: 1
+  area_code: MyString
+  balance: 
+
+two:
+  tariff_standard_id: 1
+  user_name: MyString
+  password_digest: MyString
+  usr_status: 1
+  auth_code: MyString
+  auth_code_time: 2015-04-03 10:14:55
+  dial_way: 1
+  show_num: 1
+  area_code: MyString
+  balance: 

@@ -1,0 +1,27 @@
+<h1>Listing role_auth_refs</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Role</th>
+      <th>Auth</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @role_auth_refs.each do |role_auth_ref| %>
+      <tr>
+        <td><%= role_auth_ref.role_id %></td>
+        <td><%= role_auth_ref.auth_id %></td>
+        <td><%= link_to 'Show', role_auth_ref %></td>
+        <td><%= link_to 'Edit', edit_role_auth_ref_path(role_auth_ref) %></td>
+        <td><%= link_to 'Destroy', role_auth_ref, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Role auth ref', new_role_auth_ref_path %>

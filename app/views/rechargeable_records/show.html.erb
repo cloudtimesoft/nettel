@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @rechargeable_record.user_id %>
+</p>
+
+<p>
+  <strong>Prepaid time:</strong>
+  <%= @rechargeable_record.prepaid_time %>
+</p>
+
+<p>
+  <strong>Balance:</strong>
+  <%= @rechargeable_record.balance %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @rechargeable_record.type %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @rechargeable_record.content %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @rechargeable_record.end_time %>
+</p>
+
+<p>
+  <strong>Card num:</strong>
+  <%= @rechargeable_record.card_num %>
+</p>
+
+<%= link_to 'Edit', edit_rechargeable_record_path(@rechargeable_record) %> |
+<%= link_to 'Back', rechargeable_records_path %>

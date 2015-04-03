@@ -1,0 +1,49 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Admin:</strong>
+  <%= @make_card.admin_id %>
+</p>
+
+<p>
+  <strong>Card type:</strong>
+  <%= @make_card.card_type %>
+</p>
+
+<p>
+  <strong>Batch:</strong>
+  <%= @make_card.batch %>
+</p>
+
+<p>
+  <strong>Card len:</strong>
+  <%= @make_card.card_len %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @make_card.time %>
+</p>
+
+<p>
+  <strong>Card sum:</strong>
+  <%= @make_card.card_sum %>
+</p>
+
+<p>
+  <strong>Amount:</strong>
+  <%= @make_card.amount %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @make_card.content %>
+</p>
+
+<p>
+  <strong>Giving:</strong>
+  <%= @make_card.giving %>
+</p>
+
+<%= link_to 'Edit', edit_make_card_path(@make_card) %> |
+<%= link_to 'Back', make_cards_path %>

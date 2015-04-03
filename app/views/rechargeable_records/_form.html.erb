@@ -1,0 +1,45 @@
+<%= form_for(@rechargeable_record) do |f| %>
+  <% if @rechargeable_record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@rechargeable_record.errors.count, "error") %> prohibited this rechargeable_record from being saved:</h2>
+
+      <ul>
+      <% @rechargeable_record.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :prepaid_time %><br>
+    <%= f.datetime_select :prepaid_time %>
+  </div>
+  <div class="field">
+    <%= f.label :balance %><br>
+    <%= f.text_field :balance %>
+  </div>
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.number_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_field :content %>
+  </div>
+  <div class="field">
+    <%= f.label :end_time %><br>
+    <%= f.datetime_select :end_time %>
+  </div>
+  <div class="field">
+    <%= f.label :card_num %><br>
+    <%= f.text_field :card_num %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
