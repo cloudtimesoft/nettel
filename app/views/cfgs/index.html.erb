@@ -22,9 +22,9 @@
         <td><%= cfg.service_tel %></td>
         <td><%= cfg.gateway %></td>
         <td><%= cfg.content %></td>
-        <td><%= link_to 'Show', cfg %></td>
+
         <td><%= link_to 'Edit', edit_cfg_path(cfg) %></td>
-        <td><%= link_to 'Destroy', cfg, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,3 @@
 
 <br>
 
-<%= link_to 'New Cfg', new_cfg_path %>

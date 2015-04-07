@@ -1,10 +1,11 @@
 class CfgsController < ApplicationController
   before_action :set_cfg, only: [:show, :edit, :update, :destroy]
-
+  before_action :cfg_count, only: [:show, :edit, :update, :destroy]
   # GET /cfgs
   # GET /cfgs.json
   def index
     @cfgs = Cfg.all
+    cfg_count
   end
 
   # GET /cfgs/1
@@ -49,7 +50,7 @@ class CfgsController < ApplicationController
         format.json { render json: @cfg.errors, status: :unprocessable_entity }
       end
     end
-  end
+   end
 
   # DELETE /cfgs/1
   # DELETE /cfgs/1.json
@@ -71,4 +72,13 @@ class CfgsController < ApplicationController
     def cfg_params
       params.require(:cfg).permit(:give_cost, :company_name, :sales_tel, :service_tel, :gateway, :content)
     end
+
+    def cfg_count
+      if Cfg.count == 0
+        Cfg.create(give_cost:"0",company_name:"aa",sales_tel:"132321",service_tel:"123546",gateway:"45465",content:"45645")
+      end
+
+
+    end
+
 end

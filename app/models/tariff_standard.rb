@@ -1,5 +1,5 @@
 class TariffStandard < ActiveRecord::Base
-  has_many :basic_charge
-  has_many :time_charge
-  has_many :uesr
+  has_many :basic_charges
+  has_many :time_charges
+  has_many :uesrs
 end

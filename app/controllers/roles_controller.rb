@@ -51,6 +51,10 @@ class RolesController < ApplicationController
     end
   end
 
+  def showauth(authlist)
+    authlist=role_auth_refs.find(params[:id] where)
+  end
+
   # DELETE /roles/1
   # DELETE /roles/1.json
   def destroy

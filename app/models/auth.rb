@@ -1,3 +1,3 @@
 class Auth < ActiveRecord::Base
-  has_many :role_auth_ref
+  has_many :role_auth_refs
 end

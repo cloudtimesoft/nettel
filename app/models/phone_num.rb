@@ -1,4 +1,4 @@
 class PhoneNum < ActiveRecord::Base
-  has_many :record
+  has_many :records
   belongs_to :contact
 end

@@ -1,4 +1,4 @@
 class Contact < ActiveRecord::Base
-  has_many :phone_num
+  has_many :phone_nums
   belongs_to :user
 end
