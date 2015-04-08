@@ -13,7 +13,7 @@
 
 <body>
 
-<div class="modal-shiftfix">
+
 <!-- Navigation -->
 <div class="navbar navbar-fixed-top scroll-hide">
   <div class="container-fluid top-bar">
@@ -82,7 +82,10 @@
 
             </li>
             <li>
-              <%= link_to "管理员", admins_path %>
+              <%= link_to "管理员设置", admins_path %>
+            </li>
+            <li>
+              <%= link_to "角色设置", roles_path %>
             </li>
           </ul>
         </li>
@@ -127,70 +130,11 @@
         <li><a href="social.html">
           <span aria-hidden="true" class="icon-question-sign"></span>帮助</a>
         </li>
-
-
-
-
-
-
-
-
-
-
-
-
-
       </ul>
     </div>
   </div>
 </div>
 <!-- End Navigation -->
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 <%= yield %>
-
-
-</div>
 </body>
 </html>

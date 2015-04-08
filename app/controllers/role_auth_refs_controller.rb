@@ -69,6 +69,6 @@ class RoleAuthRefsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def role_auth_ref_params
-      params.require(:role_auth_ref).permit(:role_id, :auth_id)
+      params.require(:role_auth_ref).permit(:role_id, :auth_id, :status)
     end
 end

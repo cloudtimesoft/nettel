@@ -5,6 +5,7 @@
     <tr>
       <th>Role</th>
       <th>Auth</th>
+      <th>Status</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,6 +15,7 @@
       <tr>
         <td><%= role_auth_ref.role_id %></td>
         <td><%= role_auth_ref.auth_id %></td>
+        <td><%= role_auth_ref.status %></td>
         <td><%= link_to 'Show', role_auth_ref %></td>
         <td><%= link_to 'Edit', edit_role_auth_ref_path(role_auth_ref) %></td>
         <td><%= link_to 'Destroy', role_auth_ref, method: :delete, data: { confirm: 'Are you sure?' } %></td>

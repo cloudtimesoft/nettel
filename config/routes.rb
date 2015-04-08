@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :role_auth_refs
+
   resources :admin_role_refs
 
   resources :tariff_standards
@@ -10,8 +12,6 @@ Rails.application.routes.draw do
   resources :roles
 
   resources :auths
-
-  resources :role_auth_refs
 
   resources :pubs
 

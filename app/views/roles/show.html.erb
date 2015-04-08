@@ -1,24 +1,105 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @role.name %>
-</p>
+<script type="text/javascript">
+    function showlablediv(){
+        document.getElementById("lablediv").style.display="block";
+        document.getElementById("formdiv").style.display="none";
+    }
+    function showformdiv(){
+        document.getElementById("lablediv").style.display="none";
+       document.getElementById("formdiv").style.display="block";
+     //document.getElementById("formdiv").style.display =  document.getElementById("formdiv").style.display=="none"?"block":"none";
 
-<p>
-  <strong>Content:</strong>
-  <%= @role.content %>
-</p>
+    }
+</script>
 
-<p>
-  <strong>Is admin:</strong>
-  <%= @role.is_admin %>
-</p>
 
-<p>
-  <strong>Role status:</strong>
-  <%= @role.role_status %>
-</p>
 
-<%= link_to 'Edit', edit_role_path(@role) %> |
-<%= link_to 'Back', roles_path %>
+
+
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="widget-container fluid-height clearfix">
+
+<!--左边样式-->
+      <div class="col-sm-3">
+        <div class="list-group">
+
+            <div id="lablediv"  >
+
+              <p id="notice"><%= notice %></p>
+              <p>
+                <strong>Name:</strong>
+                <%= @role.name %>
+              </p>
+
+              <p>
+                <strong>Content:</strong>
+                <%= @role.content %>
+              </p>
+
+              <p>
+                <strong>Is admin:</strong>
+                <%= @role.is_admin %>
+              </p>
+
+              <p>
+                <strong>Role status:</strong>
+                <%= @role.role_status %>
+              </p>
+
+
+
+   
+              <input type="button" onclick="showformdiv()" value="编辑角色信息">
+            </div>
+
+            <div id="formdiv" style="display: none;">
+              <%= render 'form' %>
+              <input type="button" onclick="showlablediv()" value="取消">
+            </div>
+
+
+        </div>
+      </div>
+      <!--左边样式结束-->
+
+<!-- 右边样式-->
+      <div class="col-sm-9">
+        <div class="widget-container fluid-height">
+          <div class="widget-content">
+            <div class="panel-group" id="accordion">
+              <div class="panel">
+
+
+                <table>
+
+                  <% showauth.each do |aa|  %>
+                      <tr>
+                        <td><label class="checkbox-inline"><input type="checkbox"><span>只读</span></label><label class="checkbox-inline"><input type="checkbox"><span>完全控制</span></label>
+                          <%= aa.name %>
+                          <%= aa.url %>
+                        </td>
+                      </tr>
+                  <% end %>
+
+
+                </table>
+
+
+
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--右边样式结束-->
+
+
+
+
+    </div>
+  </div>
+</div>

@@ -10,5 +10,10 @@
   <%= @role_auth_ref.auth_id %>
 </p>
 
+<p>
+  <strong>Status:</strong>
+  <%= @role_auth_ref.status %>
+</p>
+
 <%= link_to 'Edit', edit_role_auth_ref_path(@role_auth_ref) %> |
 <%= link_to 'Back', role_auth_refs_path %>

@@ -7,6 +7,8 @@ class RolesController < ApplicationController
     @roles = Role.all
   end
 
+
+
   # GET /roles/1
   # GET /roles/1.json
   def show
@@ -42,7 +44,7 @@ class RolesController < ApplicationController
   def update
     respond_to do |format|
       if @role.update(role_params)
-        format.html { redirect_to @role, notice: 'Role was successfully updated.' }
+       format.html { redirect_to @role, notice: 'Role was successfully updated.' }
         format.json { render :show, status: :ok, location: @role }
       else
         format.html { render :edit }
@@ -51,9 +53,7 @@ class RolesController < ApplicationController
     end
   end
 
-  def showauth(authlist)
-    authlist=role_auth_refs.find(params[:id] where)
-  end
+
 
   # DELETE /roles/1
   # DELETE /roles/1.json

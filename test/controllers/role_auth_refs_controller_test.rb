@@ -18,7 +18,7 @@ class RoleAuthRefsControllerTest < ActionController::TestCase
 
   test "should create role_auth_ref" do
     assert_difference('RoleAuthRef.count') do
-      post :create, role_auth_ref: { auth_id: @role_auth_ref.auth_id, role_id: @role_auth_ref.role_id }
+      post :create, role_auth_ref: { auth_id: @role_auth_ref.auth_id, role_id: @role_auth_ref.role_id, status: @role_auth_ref.status }
     end
 
     assert_redirected_to role_auth_ref_path(assigns(:role_auth_ref))
@@ -35,7 +35,7 @@ class RoleAuthRefsControllerTest < ActionController::TestCase
   end
 
   test "should update role_auth_ref" do
-    patch :update, id: @role_auth_ref, role_auth_ref: { auth_id: @role_auth_ref.auth_id, role_id: @role_auth_ref.role_id }
+    patch :update, id: @role_auth_ref, role_auth_ref: { auth_id: @role_auth_ref.auth_id, role_id: @role_auth_ref.role_id, status: @role_auth_ref.status }
     assert_redirected_to role_auth_ref_path(assigns(:role_auth_ref))
   end
 

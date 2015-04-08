@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150403035616) do
+ActiveRecord::Schema.define(version: 20150407084011) do
 
   create_table "admin_role_refs", force: true do |t|
     t.integer  "admin_id"
@@ -197,12 +197,10 @@ ActiveRecord::Schema.define(version: 20150403035616) do
   create_table "role_auth_refs", force: true do |t|
     t.integer  "role_id"
     t.integer  "auth_id"
+    t.integer  "status"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "role_auth_refs", ["auth_id"], name: "index_role_auth_refs_on_auth_id", using: :btree
-  add_index "role_auth_refs", ["role_id"], name: "index_role_auth_refs_on_role_id", using: :btree
 
   create_table "roles", force: true do |t|
     t.string   "name"
