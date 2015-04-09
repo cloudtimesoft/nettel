@@ -12,6 +12,7 @@ class RolesController < ApplicationController
   # GET /roles/1
   # GET /roles/1.json
   def show
+
   end
 
   # GET /roles/new
@@ -38,6 +39,10 @@ class RolesController < ApplicationController
       end
     end
   end
+
+def mul_create
+  ref = Role.role_auth_refs.build(params[:auth_ids])
+end
 
   # PATCH/PUT /roles/1
   # PATCH/PUT /roles/1.json

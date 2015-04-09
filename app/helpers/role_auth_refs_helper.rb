@@ -1,2 +1,3 @@
 module RoleAuthRefsHelper
+
 end
