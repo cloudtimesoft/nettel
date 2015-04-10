@@ -1,3 +1,4 @@
+<!--
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -22,3 +23,140 @@
 
 <%= link_to 'Edit', edit_admin_path(@admin) %> |
 <%= link_to 'Back', admins_path %>
+-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+    function showlablediv(){
+        document.getElementById("lablediv").style.display="block";
+        document.getElementById("formdiv").style.display="none";
+    }
+    function showformdiv(){
+        document.getElementById("lablediv").style.display="none";
+        document.getElementById("formdiv").style.display="block";
+        //document.getElementById("formdiv").style.display =  document.getElementById("formdiv").style.display=="none"?"block":"none";
+
+    }
+</script>
+
+
+
+
+
+
+<div class="row">
+  <div class="col-lg-12">
+    <div class="widget-container fluid-height clearfix">
+
+      <!--左边样式-->
+      <div class="col-sm-3">
+        <div class="list-group">
+
+          <div id="lablediv"  >
+
+
+            <p id="notice"><%= notice %></p>
+
+            <p>
+              <strong>Name:</strong>
+              <%= @admin.name %>
+            </p>
+
+            <p>
+              <strong>Password digest:</strong>
+              <%= @admin.password_digest %>
+            </p>
+
+            <p>
+              <strong>Content:</strong>
+              <%= @admin.content %>
+            </p>
+
+            <p>
+              <strong>Status:</strong>
+              <%= @admin.status %>
+            </p>
+
+
+
+
+            <input type="button" onclick="showformdiv()" value="编辑角色信息">
+          </div>
+
+          <div id="formdiv" style="display: none;">
+            <%= render 'form' %>
+            <input type="button" onclick="showlablediv()" value="取消">
+          </div>
+
+
+        </div>
+      </div>
+      <!--左边样式结束-->
+
+      <!-- 右边样式-->
+      <div class="col-sm-9">
+        <div class="widget-container fluid-height">
+          <div class="widget-content">
+            <div class="panel-group" id="accordion">
+              <div class="panel">
+
+
+
+
+
+
+
+                <%= form_tag destroy_multiple_admins_path, method: :delete do %>
+                    <%= submit_tag "保存" %>
+                    <div style="display: none;">
+                      <%= text_area_tag  :aid,@admin.id %>
+                    </div>
+                    <% @role.each  do |f| %>
+                        <label class="checkbox-inline"><%= check_box_tag "role_ids[]", f.id, @had_role_ids.include?(f.id),  class:"checkbox-inline" %><span></span></label>
+
+                        <%= f.name %>
+                    <% end %>
+                <% end %>
+
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--右边样式结束-->
+
+
+
+
+    </div>
+  </div>
+</div>
+

@@ -12,6 +12,9 @@ class RolesController < ApplicationController
   # GET /roles/1
   # GET /roles/1.json
   def show
+    @role = Role.find(params[:id])
+    @auth = Auth.all
+    @had_auth_ids = @role.auths.map(&:id)
 
   end
 
@@ -40,9 +43,18 @@ class RolesController < ApplicationController
     end
   end
 
-def mul_create
-  ref = Role.role_auth_refs.build(params[:auth_ids])
-end
+  def destroy_multiple
+
+    @role = Role.find(params[:rid])
+    @ref = @role.role_auth_refs
+    RoleAuthRef.delete_all("role_id = "+ params[:rid])
+    params[:auth_ids].each do |t|
+      RoleAuthRef.create(role_id:params[:rid],auth_id:t)
+    end
+   # RoleAuthRef.save
+   # render 'show'
+    redirect_to @role
+  end
 
   # PATCH/PUT /roles/1
   # PATCH/PUT /roles/1.json

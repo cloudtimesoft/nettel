@@ -9,7 +9,9 @@ Rails.application.routes.draw do
 
   resources :basic_charges
 
-  resources :roles
+  resources :roles do
+    delete 'destroy_multiple', on: :collection
+  end
 
   resources :auths
 
@@ -33,7 +35,9 @@ Rails.application.routes.draw do
 
   resources :call_caches
 
-  resources :admins
+  resources :admins do
+    delete 'destroy_multiple', on: :collection
+  end
 
   resources :make_cards
 

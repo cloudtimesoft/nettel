@@ -86,7 +86,17 @@
 
 
 
+                <%= form_tag destroy_multiple_roles_path, method: :delete do %>
+                  <%= submit_tag "保存" %>
+                    <div style="display: none;">
+                    <%= text_area_tag  :rid,@role.id %>
+                      </div>
+                  <% @auth.each  do |f| %>
+                 <label class="checkbox-inline"><%= check_box_tag "auth_ids[]", f.id, @had_auth_ids.include?(f.id),  class:"checkbox-inline" %><span></span></label>
 
+                    <%= f.name %>
+                  <% end %>
+            <% end %>
 
 
               </div>

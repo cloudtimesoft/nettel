@@ -10,6 +10,9 @@ class AdminsController < ApplicationController
   # GET /admins/1
   # GET /admins/1.json
   def show
+    @admin = Admin.find(params[:id])
+    @role = Role.all
+    @had_role_ids = @admin.roles.map(&:id)
   end
 
   # GET /admins/new
@@ -50,6 +53,21 @@ class AdminsController < ApplicationController
       end
     end
   end
+
+
+  def destroy_multiple
+
+    @admin= Admin.find(params[:aid])
+  #  @ref = @role.role_auth_refs
+    AdminRoleRef.delete_all("admin_id = "+ params[:aid])
+    params[:role_ids].each do |t|
+      AdminRoleRef.create(admin_id:params[:aid],role_id:t)
+    end
+    # RoleAuthRef.save
+    # render 'show'
+    redirect_to @admin
+  end
+
 
   # DELETE /admins/1
   # DELETE /admins/1.json
