@@ -18,8 +18,8 @@
         <td><%= role.content %></td>
         <td><%= role.is_admin %></td>
         <td><%= role.role_status %></td>
-        <td><%= link_to 'Show', role %></td>
-        <td><%= link_to 'Edit', edit_role_path(role) %></td>
+        <td><%= link_to '编辑', role %></td>
+
         <td><%= link_to 'Destroy', role, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>

@@ -94,21 +94,21 @@
           <span aria-hidden="true" ><i class="icon-user"></i></span>用户<b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li>
-              <a href="buttons.html">用户信息</a>
+              <%= link_to "用户信息", users_path %>
             </li>
             <li>
-              <a href="fontawesome.html">通话记录</a>
+              <%= link_to "通话记录", records_path %>
             </li>
           </ul>
         </li>
 
 
-        <li><a href="social.html">
+        <li><a href="tariff_standards">
           <span aria-hidden="true" class="icon-jpy"></span>套餐</a>
         </li>
 
 
-        <li><a href="social.html">
+        <li><a href="make_cards">
           <span aria-hidden="true" class="icon-credit-card"></span>制卡</a>
         </li>
 
@@ -117,17 +117,17 @@
           <span aria-hidden="true" ><i class="icon-bullhorn"></i></span>广告<b class="caret"></b></a>
           <ul class="dropdown-menu">
             <li>
-              <a href="buttons.html">广告</a>
+              <%= link_to "广告", advertisements_path %>
             </li>
             <li>
-              <a href="fontawesome.html">公告</a>
+              <%= link_to "公告", pubs_path %>
             </li>
           </ul>
         </li>
 
 
 
-        <li><a href="social.html">
+        <li><a href="#">
           <span aria-hidden="true" class="icon-question-sign"></span>帮助</a>
         </li>
       </ul>
