@@ -48,8 +48,10 @@ class RolesController < ApplicationController
     @role = Role.find(params[:rid])
     @ref = @role.role_auth_refs
     RoleAuthRef.delete_all("role_id = "+ params[:rid])
-    params[:auth_ids].each do |t|
-      RoleAuthRef.create(role_id:params[:rid],auth_id:t)
+    if params[:auth_ids]
+      params[:auth_ids].each do |t|
+        RoleAuthRef.create(role_id:params[:rid],auth_id:t)
+      end
     end
    # RoleAuthRef.save
    # render 'show'

@@ -1,4 +1,3 @@
 module ApplicationHelper
-  include AuthsHelper
-  include RoleAuthRefsHelper
+  include LoginsHelper
 end

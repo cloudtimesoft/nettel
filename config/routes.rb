@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'login/index'
+
   resources :role_auth_refs
 
   resources :admin_role_refs
@@ -44,6 +46,7 @@ Rails.application.routes.draw do
   resources :rechargeable_cards
 
   resources :rechargeable_records
+  resources :logins
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

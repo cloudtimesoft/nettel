@@ -60,8 +60,10 @@ class AdminsController < ApplicationController
     @admin= Admin.find(params[:aid])
   #  @ref = @role.role_auth_refs
     AdminRoleRef.delete_all("admin_id = "+ params[:aid])
-    params[:role_ids].each do |t|
-      AdminRoleRef.create(admin_id:params[:aid],role_id:t)
+    if params[:role_ids]
+      params[:role_ids].each do |t|
+        AdminRoleRef.create(admin_id:params[:aid],role_id:t)
+      end
     end
     # RoleAuthRef.save
     # render 'show'

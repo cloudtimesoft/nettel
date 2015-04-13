@@ -51,7 +51,7 @@
 
 
 
-
+<%=render 'head' %>
 
 <script type="text/javascript">
     function showlablediv(){
@@ -136,7 +136,6 @@
                     </div>
                     <% @role.each  do |f| %>
                         <label class="checkbox-inline"><%= check_box_tag "role_ids[]", f.id, @had_role_ids.include?(f.id),  class:"checkbox-inline" %><span></span></label>
-
                         <%= f.name %>
                     <% end %>
                 <% end %>
