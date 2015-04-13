@@ -10,6 +10,7 @@ class TariffStandardsController < ApplicationController
   # GET /tariff_standards/1
   # GET /tariff_standards/1.json
   def show
+
   end
 
   # GET /tariff_standards/new

@@ -24,31 +24,30 @@ class BasicChargesController < ApplicationController
   # POST /basic_charges
   # POST /basic_charges.json
   def create
-    @basic_charge = BasicCharge.new(basic_charge_params)
+    #@basic_charge = BasicCharge.new(basic_charge_params)
+    @tariff_standard = TariffStandard.find(session[:tempid])
+    @basic_charge = @tariff_standard.basic_charges.create(basic_charge_params)
+    redirect_to (session[:return_to])
 
-    respond_to do |format|
-      if @basic_charge.save
-        format.html { redirect_to @basic_charge, notice: 'Basic charge was successfully created.' }
-        format.json { render :show, status: :created, location: @basic_charge }
-      else
-        format.html { render :new }
-        format.json { render json: @basic_charge.errors, status: :unprocessable_entity }
-      end
-    end
+
+
+
   end
 
   # PATCH/PUT /basic_charges/1
   # PATCH/PUT /basic_charges/1.json
   def update
-    respond_to do |format|
+    #respond_to do |format|
       if @basic_charge.update(basic_charge_params)
-        format.html { redirect_to @basic_charge, notice: 'Basic charge was successfully updated.' }
-        format.json { render :show, status: :ok, location: @basic_charge }
+        redirect_to (session[:return_to])
+
+        #format.html { redirect_to @basic_charge, notice: 'Basic charge was successfully updated.' }
+        #format.json { render :show, status: :ok, location: @basic_charge }
       else
         format.html { render :edit }
         format.json { render json: @basic_charge.errors, status: :unprocessable_entity }
       end
-    end
+    #end
   end
 
   # DELETE /basic_charges/1

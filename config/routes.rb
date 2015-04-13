@@ -7,6 +7,8 @@ Rails.application.routes.draw do
 
   resources :tariff_standards
 
+
+
   resources :time_charges
 
   resources :basic_charges
