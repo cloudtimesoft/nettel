@@ -1,3 +1,6 @@
+
+<%= render 'head'%>
+
 <h1>Listing rechargeable_cards</h1>
 
 <table>
@@ -35,9 +38,13 @@
         <td><%= link_to 'Destroy', rechargeable_card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
-  </tbody>
-</table>
 
+  </tbody>
+
+</table>
+<div class="digg_pagination">
+   <%= will_paginate @rechargeable_cards, :previous_label => '上一页', :next_label => '下一页' %>
+</div>
 <br>
 
 <%= link_to 'New Rechargeable card', new_rechargeable_card_path %>

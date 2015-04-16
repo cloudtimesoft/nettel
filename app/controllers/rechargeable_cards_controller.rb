@@ -3,8 +3,59 @@ class RechargeableCardsController < ApplicationController
 
   # GET /rechargeable_cards
   # GET /rechargeable_cards.json
-  def index
+
+  def makecard
     @rechargeable_cards = RechargeableCard.all
+    @cid = params[:id]
+    @ctype = params[:card_type]
+    @cbatch = params[:batch]
+    @clen = params[:card_len].to_i
+    @ctime = DateTime.parse(params[:time])
+    @ceffective = params[:effective].to_i
+    @csum = params[:card_sum]
+    @camount = params[:amount]
+    @cgiving = params[:giving]
+    @lenstr=""
+    (@clen-@cbatch.length).times{@lenstr+="_"}
+    @lenstr= "\'"+@cbatch+@lenstr+"\'"
+    @rechargeable_cards.find_by_sql("select * from rechargeable_cards where card_number like "+@lenstr)
+    @rcount=0
+    if !@rechargeable_cards.count
+      @rcount = @rechargeable_cards.count
+    end
+    if (@clen-@cbatch.length).times{@lenstr+="9"}.to_i - @rcount > @camout.to_i
+      @rechargeable_card=@rechargeable_cards.last
+      @lastnum=@clen-@cbatch.length
+      @maxnum=@rechargeable_card.card_number[-@lastnum,@lastnum].to_i
+      RechargeableCard.transaction do
+      (@camount.to_i).times do
+        @maxnum+=1
+        @carnum=""
+        if(@maxnum.to_s).length<@lastnum
+          (@lastnum-(@maxnum.to_s).length).times{@carnum+="0"}
+        end
+        @carnum+=@maxnum.to_s
+        @crand=""
+        6.times{@crand += rand(9).to_s}
+         RechargeableCard.create(pwd: @crand, make_card_id: @cid, card_number:@cbatch+@carnum, card_sum: @csum.to_i, effective_time:Time.now, card_type: @ctype, end_time:@ctime+@ceffective.months, content:"" , giving: @cgiving, failure:0)
+      end
+
+      #@rechargeable_cards.save
+      end
+    else
+      #error
+    end
+
+  end
+
+  def index
+    #@rechargeable_cards = RechargeableCard.all
+
+    @rechargeable_cards = RechargeableCard.paginate(page: params[:page])
+
+
+
+
   end
 
   # GET /rechargeable_cards/1

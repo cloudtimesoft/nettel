@@ -20,7 +20,6 @@ class AdvertisementsController < ApplicationController
   # GET /advertisements/1/edit
   def edit
   end
-
   # POST /advertisements
   # POST /advertisements.json
   def create

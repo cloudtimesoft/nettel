@@ -24,17 +24,12 @@ class TimeChargesController < ApplicationController
   # POST /time_charges
   # POST /time_charges.json
   def create
-    @time_charge = TimeCharge.new(time_charge_params)
+   # @time_charge = TimeCharge.new(time_charge_params)
+    @tariff_standard = TariffStandard.find(session[:tempid])
+    @time_charge = @tariff_standard.time_charges.create(time_charge_params)
+    redirect_to (session[:return_to])
 
-    respond_to do |format|
-      if @time_charge.save
-        format.html { redirect_to @time_charge, notice: 'Time charge was successfully created.' }
-        format.json { render :show, status: :created, location: @time_charge }
-      else
-        format.html { render :new }
-        format.json { render json: @time_charge.errors, status: :unprocessable_entity }
-      end
-    end
+
   end
 
   # PATCH/PUT /time_charges/1

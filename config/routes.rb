@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
 
 
+
+
   resources :time_charges
 
   resources :basic_charges
@@ -47,7 +49,11 @@ Rails.application.routes.draw do
 
   resources :rechargeable_cards
 
+
+  post 'rechargeable_cards/makecard'
+
   resources :rechargeable_records
+
   resources :logins
 
   # The priority is based upon order of creation: first created -> highest priority.

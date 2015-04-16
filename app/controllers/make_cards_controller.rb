@@ -4,12 +4,16 @@ class MakeCardsController < ApplicationController
   # GET /make_cards
   # GET /make_cards.json
   def index
-    @make_cards = MakeCard.all
+   @make_cards = MakeCard.all
   end
 
   # GET /make_cards/1
   # GET /make_cards/1.json
   def show
+    @make_card = MakeCard.find(params[:id])
+    @rechargeable_cards_ids = @make_card.rechargeable_cards.ids
+    @rechargeable_cards = RechargeableCard.find(@rechargeable_cards_ids)
+    @rechargeable_cards = RechargeableCard.paginate(page: params[:page])
   end
 
   # GET /make_cards/new
@@ -55,6 +59,7 @@ class MakeCardsController < ApplicationController
   # DELETE /make_cards/1.json
   def destroy
     @make_card.destroy
+    RechargeableCard.where(make_card_id: params[:id]).delete_all
     respond_to do |format|
       format.html { redirect_to make_cards_url, notice: 'Make card was successfully destroyed.' }
       format.json { head :no_content }

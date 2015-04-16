@@ -3,7 +3,11 @@ source 'https://ruby.taobao.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.8'
+#gem 'bootstrap-sass'
 gem 'bcrypt-ruby'
+gem 'will_paginate'
+#gem 'bootstrap-will_paginate'
+
 # Use mysql as the database for Active Record
 gem 'mysql2'
 # Use SCSS for stylesheets

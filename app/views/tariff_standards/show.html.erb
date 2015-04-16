@@ -1,3 +1,4 @@
+
 <!--
 <p id="notice"><%= notice %></p>
 
@@ -25,7 +26,7 @@
 
 
 
-
+<%= render 'head'%>
 
 
 
@@ -34,6 +35,11 @@
 <%=render 'head' %>
 
 <script type="text/javascript">
+    function show(){
+        document.getElementById("hidediv").style.display="none";
+        document.getElementById("showdiv").style.display="block";
+    }
+
     function showlablediv(){
         document.getElementById("lablediv").style.display="block";
         document.getElementById("formdiv").style.display="none";
@@ -101,14 +107,16 @@
             <div class="panel-group" id="accordion">
 
 
-              <div class="panel">
-                <% session[:tempid]=params[:id] %>
-                <% session[:return_to]=request.fullpath %>
-                <%= form_for([@basic_charge, @tariff_standard.basic_charges.build]) do |f| %>
-                    <%= f.text_field :s_charges %>
-                    <%= f.text_field :c_charges %>
-                    <%= f.submit %>
-                <% end %>
+              <div class="panel" id ="hidediv">
+                    <% session[:tempid]=params[:id] %>
+                    <% session[:return_to]=request.fullpath %>
+                <% if !(@tariff_standard.basic_charges && @tariff_standard.basic_charges.ids.count > 0) %>
+                    <%= form_for([@basic_charge, @tariff_standard.basic_charges.build]) do |f| %>
+                        <%= f.text_field :s_charges %>
+                        <%= f.text_field :c_charges %>
+                        <%= f.submit %>
+                        <% end %>
+                    <% end %>
               </div>
 
 
@@ -126,13 +134,64 @@
                       <%= f.c_charges %>
                     </p>
                         <%= link_to 'Edit', edit_basic_charge_path(f.id) %>
+
+
               <% end %>
-                <% end %>
+              <% end %>
                 <%#debugger%>
                 </div>
 
 
 
+
+
+
+
+
+                  <div class="panel">
+                    <% @tariff_standard.time_charges.each do |f| %>
+                        <% if f.created_at %>
+                            <p>
+                              <strong>直播费用:</strong>
+                              <%= f.s_charges %>
+                            </p>
+
+                            <p>
+                              <strong>回拨:</strong>
+                              <%= f.c_charges %>
+                            </p>
+                            <p>
+                              <strong>开始时间:</strong>
+                              <%= f.start_time %>
+                            </p>
+                            <p>
+                              <strong>结束时间:</strong>
+                              <%= f.end_time %>
+                            </p>
+                            <%= link_to 'Edit', edit_time_charge_path(f.id) %>
+                        <% end %>
+                    <% end %>
+                    <%#debugger%>
+                  </div>
+
+
+
+              <div id = "showdiv" style="display: none;" class="panel">
+                <% session[:tempid]=params[:id] %>
+                <% session[:return_to]=request.fullpath %>
+                <%= form_for([@time_charges, @tariff_standard.time_charges.build]) do |f| %>
+                    <%= f.text_field :s_charges %>
+                    <%= f.text_field :c_charges %>
+                    <%= f.datetime_select :start_time%>
+                    <%= f.datetime_select :end_time %>
+                    <%= f.submit %>
+                <% end %>
+              </div>
+
+
+                <div>
+                  <input type="button" onclick="show()" value="添加时段">
+                </div>
 
 
 
