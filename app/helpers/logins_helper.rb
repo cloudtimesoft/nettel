@@ -22,7 +22,7 @@ module LoginsHelper
     #debugger
 
    end
-   if @authidarr.include?urls
+   if session[:admin_name] == "admin" or @authidarr.include?urls
      return true
    else
      return false
