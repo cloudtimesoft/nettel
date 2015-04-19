@@ -49,7 +49,14 @@ a {
   color: #007aff; }
   a:hover {
     color: #666666;
+      background: none;
     text-decoration: none; }
+
+a:visited {
+    color: #007aff;
+    text-decoration: none
+}
+
 
 ul.no-style {
   list-style: none;
@@ -471,6 +478,7 @@ body.login2 {
 /*  Buttons */
 /*----------------------------------------------------------------------------------- */
 .btn {
+
   font-weight: 300;
   margin: 0 10px 10px 0;
   -webkit-transition: all 0.15s;
@@ -487,7 +495,7 @@ body.login2 {
 .btn-default {
   background: #bbbbbb;
   border-color: #bbbbbb;
-  color: white; }
+  }
   .btn-default .caret {
     border-top-color: white; }
   .btn-default:hover, .btn-default.active {
@@ -499,7 +507,9 @@ body.login2 {
 
 .btn-primary {
   background: #007aff;
-  border-color: #007aff; }
+  border-color: #007aff;
+
+  }
   .btn-primary:hover, .btn-primary.active {
     background: transparent;
     color: #007aff;
@@ -894,14 +904,14 @@ th:active {
   .widget-container.gallery {
     min-height: 400px; }
   .widget-container .heading {
-    background: rgba(255, 255, 255, 0.94);
-    height: 50px;
-    padding: 15px 15px;
+    /*background: rgba(255, 255, 255, 0.94);*/
+    /*height: 50px;*/
+    /*padding: 15px 15px;*/
     color: #007aff;
-    font-size: 15px;
-    width: 100%;
-    font-weight: 400;
-    margin: 0; }
+    /*font-size: 15px;*/
+    /*width: 100%;*/
+    /*font-weight: 400;*/
+    /*margin: 0;*/ }
     .widget-container .heading [class^="icon-"], .widget-container .heading [class*="icon-"] {
       margin-right: 10px;
       font-size: 14px; }
@@ -3117,6 +3127,48 @@ body.fourofour {
     ul.timeline.animated li.active:nth-child(odd) .timeline-content {
       left: 0; } }
 
+
+
+
+
+
+.container .heading {
+
+
+
+    color: #007aff;
+
+
+
+     }
+
+.container .white-btn {
+
+
+
+    color: #ffffff;
+
+
+
+}
+
+
+.usricons  {
+    cursor: pointer;
+    margin: 5px;
+    -webkit-transition: all 0.2s;
+    -moz-transition: all 0.2s;
+    transition: all 0.2s; }
+.usricons [class^="icon-"], .icons [class*="icon-"] {
+    font-size: 16px;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-transition: all 0.12s;
+    -moz-transition: all 0.12s;
+    transition: all 0.12s; }
+.usricons:hover[class^="icon-"], .usricons:hover [class*="icon-"]{
+    font-size: 20px;
+     }
 
 
 

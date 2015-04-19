@@ -2,6 +2,7 @@
 <!-- Navigation -->
 <div class="navbar navbar-fixed-top scroll-hide">
   <div class="container-fluid top-bar">
+
     <div class="pull-right">
       <ul class="nav navbar-nav pull-right">
 
@@ -49,7 +50,7 @@
         </li>
       </ul>
     </div>
-    <!--logo<button class="navbar-toggle"><span class="icon-bar"></span><span class="icon-bar"></span><span class="icon-bar"></span></button><a class="logo" href="index-2.html">se7en</a>-->
+    <button class="navbar-toggle"></button><a  href="#"><h3 class="heading" style="padding: 6px;">广博通</h3></a>
 
   </div>
   <div class="container-fluid main-nav clearfix">
@@ -59,19 +60,34 @@
                  <a class="current" href="index-2.html"><span aria-hidden="true"><i class="icon-gears"></i>System</span></a>
                </li>
                -->
-
+    <% if request.fullpath.include?'cfgs' or request.fullpath.include?'admins' or request.fullpath.include?'roles' %>
         <li class="dropdown"><a class="current" data-toggle="dropdown" href="#">
+        <% else %>
+            <li class="dropdown"><a data-toggle="dropdown" href="#">
+        <% end %>
           <span aria-hidden="true" ><i class="icon-gears"></i></span>系统<b class="caret"></b></a>
           <ul class="dropdown-menu">
 
+
+
+
             <% if checkauth('cfgs') %>
                 <li>
-                    <%= link_to "参数设置", cfgs_path %>
+                  <% if request.fullpath.include?'cfgs' %>
+                    <%= link_to "参数设置", cfgs_path, class:"current" %>
+                      <% else %>
+                      <%= link_to "参数设置", cfgs_path %>
+                      <% end %>
                  </li>
+
             <% end %>
             <% if checkauth('admins') %>
             <li>
-              <%= link_to "管理员设置", admins_path %>
+              <% if request.fullpath.include?'admins' %>
+                <%= link_to "管理员设置", admins_path , class:"current" %>
+              <% else %>
+                  <%= link_to "管理员设置", admins_path %>
+              <% end %>
             </li>
             <% end %>
             <li>

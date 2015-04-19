@@ -4,7 +4,7 @@ class CfgsController < ApplicationController
   # GET /cfgs.json
   def index
     @cfgs = Cfg.all
-    cfg_count
+    #cfg_count
   end
 
   # GET /cfgs/1
