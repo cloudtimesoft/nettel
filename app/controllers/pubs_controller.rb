@@ -69,6 +69,6 @@ class PubsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def pub_params
-      params.require(:pub).permit(:title, :type, :content, :start_time, :end_time, :status, :sort)
+      params.require(:pub).permit(:title, :types, :content, :starttime, :endtime, :status, :sort)
     end
 end

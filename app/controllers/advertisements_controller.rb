@@ -20,6 +20,7 @@ class AdvertisementsController < ApplicationController
   # GET /advertisements/1/edit
   def edit
   end
+
   # POST /advertisements
   # POST /advertisements.json
   def create
@@ -68,6 +69,6 @@ class AdvertisementsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def advertisement_params
-      params.require(:advertisement).permit(:pic_str, :link_str, :start_time, :end_time, :status, :type)
+      params.require(:advertisement).permit(:picstr, :linkstr, :starttime, :endtime, :status, :types, :avatar)
     end
 end

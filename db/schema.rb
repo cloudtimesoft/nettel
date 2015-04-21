@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150407084011) do
+ActiveRecord::Schema.define(version: 20150421054740) do
 
   create_table "admin_role_refs", force: true do |t|
     t.integer  "admin_id"
@@ -33,14 +33,18 @@ ActiveRecord::Schema.define(version: 20150407084011) do
   end
 
   create_table "advertisements", force: true do |t|
-    t.string   "pic_str"
-    t.string   "link_str"
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.string   "picstr"
+    t.string   "linkstr"
+    t.datetime "starttime"
+    t.datetime "endtime"
     t.integer  "status"
-    t.integer  "type"
+    t.integer  "types"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   create_table "area_code_details", force: true do |t|
@@ -139,11 +143,11 @@ ActiveRecord::Schema.define(version: 20150407084011) do
   end
 
   create_table "pubs", force: true do |t|
-    t.string   "title"
-    t.integer  "type"
+    t.integer  "title"
+    t.integer  "types"
     t.text     "content"
-    t.datetime "start_time"
-    t.datetime "end_time"
+    t.datetime "starttime"
+    t.datetime "endtime"
     t.integer  "status"
     t.integer  "sort"
     t.datetime "created_at"
@@ -169,17 +173,15 @@ ActiveRecord::Schema.define(version: 20150407084011) do
 
   create_table "rechargeable_records", force: true do |t|
     t.integer  "user_id"
-    t.datetime "prepaid_time"
-    t.float    "balance",      limit: 24
-    t.integer  "type"
+    t.datetime "preaidtime"
+    t.float    "balance",    limit: 24
+    t.integer  "types"
     t.string   "content"
-    t.datetime "end_time"
-    t.string   "card_num"
+    t.datetime "endtime"
+    t.string   "cardnum"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "rechargeable_records", ["user_id"], name: "index_rechargeable_records_on_user_id", using: :btree
 
   create_table "records", force: true do |t|
     t.integer  "phone_num_id"

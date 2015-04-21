@@ -20,8 +20,12 @@
         <td class="hidden-xs"><%= admin.name %></td>
         <td><%= admin.status %></td>
         <td><%= admin.content %></td>
-        <td width="100px" align="center"><%= link_to "", admin,  class:"icon-pencil usricons" %>&nbsp;&nbsp;
-        <%= link_to '', admin, method: :delete, data: { confirm: '确认删除？' },class:"icon-trash usricons" %></td>
+        <% if admin.name  != 'admin' %>
+        <td width="100px" align="center"><%= link_to "", admin,  class:"icon-pencil usricons", title: "编辑" %>&nbsp;&nbsp;
+        <%= link_to '', admin, method: :delete, data: { confirm: '确认删除？' },class:"icon-trash usricons", title:"删除" %></td>
+            <% else %>
+        <td>&nbsp;</td>
+            <% end %>
       </tr>
     <% end %>
 

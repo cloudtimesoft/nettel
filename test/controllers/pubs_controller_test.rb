@@ -18,7 +18,7 @@ class PubsControllerTest < ActionController::TestCase
 
   test "should create pub" do
     assert_difference('Pub.count') do
-      post :create, pub: { content: @pub.content, end_time: @pub.end_time, sort: @pub.sort, start_time: @pub.start_time, status: @pub.status, title: @pub.title, type: @pub.type }
+      post :create, pub: { content: @pub.content, endtime: @pub.endtime, sort: @pub.sort, starttime: @pub.starttime, status: @pub.status, title: @pub.title, types: @pub.types }
     end
 
     assert_redirected_to pub_path(assigns(:pub))
@@ -35,7 +35,7 @@ class PubsControllerTest < ActionController::TestCase
   end
 
   test "should update pub" do
-    patch :update, id: @pub, pub: { content: @pub.content, end_time: @pub.end_time, sort: @pub.sort, start_time: @pub.start_time, status: @pub.status, title: @pub.title, type: @pub.type }
+    patch :update, id: @pub, pub: { content: @pub.content, endtime: @pub.endtime, sort: @pub.sort, starttime: @pub.starttime, status: @pub.status, title: @pub.title, types: @pub.types }
     assert_redirected_to pub_path(assigns(:pub))
   end
 
