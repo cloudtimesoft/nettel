@@ -1,3 +1,23 @@
+
+<script type="text/javascript" language="javascript">
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                $('#img1')
+                        .attr('src', e.target.result)
+                //.width(300)
+                //.height(200);
+            };
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+</script>
+
+
+
 <%= form_for(@advertisement) do |f| %>
   <% if @advertisement.errors.any? %>
     <div id="error_explanation">
@@ -15,10 +35,22 @@
     <%= f.label :picstr %><br>
     <%= f.text_field :picstr %>
   </div>
+
   <div class="field">
     <%= f.label :linkstr %><br>
     <%= f.text_field :linkstr %>
   </div>
+
+    <div class="field">
+      <%= f.label :avatar %><br>
+      <%= f.file_field :avatar, :onchange => "readURL(this)"%>
+    </div>
+
+    <div>
+      <img id="img1" src=<%= @advertisement.avatar.url%> />
+    </div>
+
+
   <div class="field">
     <%= f.label :starttime %><br>
     <%= f.datetime_select :starttime %>

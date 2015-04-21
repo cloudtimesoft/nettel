@@ -4,6 +4,7 @@
   <thead>
     <tr>
       <th>Picstr</th>
+      <th>图片</th>
       <th>Linkstr</th>
       <th>Starttime</th>
       <th>Endtime</th>
@@ -18,6 +19,7 @@
       <tr>
         <td><%= advertisement.picstr %></td>
         <td><%= advertisement.linkstr %></td>
+        <td><%= image_tag advertisement.avatar.url,width:'100'%></td>
         <td><%= advertisement.starttime %></td>
         <td><%= advertisement.endtime %></td>
         <td><%= advertisement.status %></td>
