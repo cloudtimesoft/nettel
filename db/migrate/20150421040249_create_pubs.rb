@@ -1,11 +1,11 @@
 class CreatePubs < ActiveRecord::Migration
   def change
     create_table :pubs do |t|
-      t.string :title
-      t.integer :type
+      t.integer :title
+      t.integer :types
       t.text :content
-      t.timestamp :start_time
-      t.timestamp :end_time
+      t.timestamp :starttime
+      t.timestamp :endtime
       t.integer :status
       t.integer :sort
 

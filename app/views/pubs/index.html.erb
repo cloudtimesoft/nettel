@@ -1,14 +1,13 @@
-<%= render 'head'%>
 <h1>Listing pubs</h1>
 
 <table>
   <thead>
     <tr>
       <th>Title</th>
-      <th>Type</th>
+      <th>Types</th>
       <th>Content</th>
-      <th>Start time</th>
-      <th>End time</th>
+      <th>Starttime</th>
+      <th>Endtime</th>
       <th>Status</th>
       <th>Sort</th>
       <th colspan="3"></th>
@@ -19,10 +18,10 @@
     <% @pubs.each do |pub| %>
       <tr>
         <td><%= pub.title %></td>
-        <td><%= pub.type %></td>
+        <td><%= pub.types %></td>
         <td><%= pub.content %></td>
-        <td><%= pub.start_time %></td>
-        <td><%= pub.end_time %></td>
+        <td><%= pub.starttime %></td>
+        <td><%= pub.endtime %></td>
         <td><%= pub.status %></td>
         <td><%= pub.sort %></td>
         <td><%= link_to 'Show', pub %></td>

@@ -18,7 +18,7 @@ class RechargeableRecordsControllerTest < ActionController::TestCase
 
   test "should create rechargeable_record" do
     assert_difference('RechargeableRecord.count') do
-      post :create, rechargeable_record: { balance: @rechargeable_record.balance, card_num: @rechargeable_record.card_num, content: @rechargeable_record.content, end_time: @rechargeable_record.end_time, prepaid_time: @rechargeable_record.prepaid_time, type: @rechargeable_record.type, user_id: @rechargeable_record.user_id }
+      post :create, rechargeable_record: { balance: @rechargeable_record.balance, cardnum: @rechargeable_record.cardnum, content: @rechargeable_record.content, endtime: @rechargeable_record.endtime, preaidtime: @rechargeable_record.preaidtime, types: @rechargeable_record.types, user_id: @rechargeable_record.user_id }
     end
 
     assert_redirected_to rechargeable_record_path(assigns(:rechargeable_record))
@@ -35,7 +35,7 @@ class RechargeableRecordsControllerTest < ActionController::TestCase
   end
 
   test "should update rechargeable_record" do
-    patch :update, id: @rechargeable_record, rechargeable_record: { balance: @rechargeable_record.balance, card_num: @rechargeable_record.card_num, content: @rechargeable_record.content, end_time: @rechargeable_record.end_time, prepaid_time: @rechargeable_record.prepaid_time, type: @rechargeable_record.type, user_id: @rechargeable_record.user_id }
+    patch :update, id: @rechargeable_record, rechargeable_record: { balance: @rechargeable_record.balance, cardnum: @rechargeable_record.cardnum, content: @rechargeable_record.content, endtime: @rechargeable_record.endtime, preaidtime: @rechargeable_record.preaidtime, types: @rechargeable_record.types, user_id: @rechargeable_record.user_id }
     assert_redirected_to rechargeable_record_path(assigns(:rechargeable_record))
   end
 

@@ -1,17 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  pic_str: MyString
-  link_str: MyString
-  start_time: 2015-04-03 10:25:12
-  end_time: 2015-04-03 10:25:12
+  picstr: MyString
+  linkstr: MyString
+  starttime: 2015-04-21 13:34:10
+  endtime: 2015-04-21 13:34:10
   status: 1
-  type: 1
+  types: 1
 
 two:
-  pic_str: MyString
-  link_str: MyString
-  start_time: 2015-04-03 10:25:12
-  end_time: 2015-04-03 10:25:12
+  picstr: MyString
+  linkstr: MyString
+  starttime: 2015-04-21 13:34:10
+  endtime: 2015-04-21 13:34:10
   status: 1
-  type: 1
+  types: 1

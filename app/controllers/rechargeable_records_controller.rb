@@ -69,6 +69,6 @@ class RechargeableRecordsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def rechargeable_record_params
-      params.require(:rechargeable_record).permit(:user_id, :prepaid_time, :balance, :type, :content, :end_time, :card_num)
+      params.require(:rechargeable_record).permit(:user_id, :preaidtime, :balance, :types, :content, :endtime, :cardnum)
     end
 end

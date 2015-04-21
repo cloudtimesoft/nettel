@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :advertisements
+
+  resources :rechargeable_records
+
+  resources :pubs
+
   get 'login/index'
 
   resources :role_auth_refs
@@ -20,10 +26,6 @@ Rails.application.routes.draw do
   end
 
   resources :auths
-
-  resources :pubs
-
-  resources :advertisements
 
   resources :cfgs
 
@@ -51,8 +53,6 @@ Rails.application.routes.draw do
 
 
   post 'rechargeable_cards/makecard'
-
-  resources :rechargeable_records
 
   resources :logins
 

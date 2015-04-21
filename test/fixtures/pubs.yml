@@ -1,19 +1,19 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  title: MyString
-  type: 1
+  title: 1
+  types: 1
   content: MyText
-  start_time: 2015-04-03 10:27:22
-  end_time: 
+  starttime: 2015-04-21 12:02:49
+  endtime: 2015-04-21 12:02:49
   status: 1
   sort: 1
 
 two:
-  title: MyString
-  type: 1
+  title: 1
+  types: 1
   content: MyText
-  start_time: 2015-04-03 10:27:22
-  end_time: 
+  starttime: 2015-04-21 12:02:49
+  endtime: 2015-04-21 12:02:49
   status: 1
   sort: 1

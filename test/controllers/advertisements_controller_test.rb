@@ -18,7 +18,7 @@ class AdvertisementsControllerTest < ActionController::TestCase
 
   test "should create advertisement" do
     assert_difference('Advertisement.count') do
-      post :create, advertisement: { end_time: @advertisement.end_time, link_str: @advertisement.link_str, pic_str: @advertisement.pic_str, start_time: @advertisement.start_time, status: @advertisement.status, type: @advertisement.type }
+      post :create, advertisement: { endtime: @advertisement.endtime, linkstr: @advertisement.linkstr, picstr: @advertisement.picstr, starttime: @advertisement.starttime, status: @advertisement.status, types: @advertisement.types }
     end
 
     assert_redirected_to advertisement_path(assigns(:advertisement))
@@ -35,7 +35,7 @@ class AdvertisementsControllerTest < ActionController::TestCase
   end
 
   test "should update advertisement" do
-    patch :update, id: @advertisement, advertisement: { end_time: @advertisement.end_time, link_str: @advertisement.link_str, pic_str: @advertisement.pic_str, start_time: @advertisement.start_time, status: @advertisement.status, type: @advertisement.type }
+    patch :update, id: @advertisement, advertisement: { endtime: @advertisement.endtime, linkstr: @advertisement.linkstr, picstr: @advertisement.picstr, starttime: @advertisement.starttime, status: @advertisement.status, types: @advertisement.types }
     assert_redirected_to advertisement_path(assigns(:advertisement))
   end
 

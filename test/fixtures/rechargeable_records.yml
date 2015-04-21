@@ -2,18 +2,18 @@
 
 one:
   user_id: 1
-  prepaid_time: 2015-04-03 09:45:42
-  balance: 
-  type: 1
+  preaidtime: 2015-04-21 12:09:11
+  balance: 1.5
+  types: 1
   content: MyString
-  end_time: 2015-04-03 09:45:42
-  card_num: MyString
+  endtime: 2015-04-21 12:09:11
+  cardnum: MyString
 
 two:
   user_id: 1
-  prepaid_time: 2015-04-03 09:45:42
-  balance: 
-  type: 1
+  preaidtime: 2015-04-21 12:09:11
+  balance: 1.5
+  types: 1
   content: MyString
-  end_time: 2015-04-03 09:45:42
-  card_num: MyString
+  endtime: 2015-04-21 12:09:11
+  cardnum: MyString
