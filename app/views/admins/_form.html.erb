@@ -1,4 +1,10 @@
+
+
+
+
+
 <%= form_for(@admin) do |f| %>
+    <fieldset>
   <% if @admin.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@admin.errors.count, "error") %> prohibited this admin from being saved:</h2>
@@ -11,27 +17,63 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
+<table class="col-md-6">
+
+
+        <tr>
+  <div class="form-group">
+    <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;"><%= f.label :账号 %></td>
+    <td><%= f.text_field :name, class:"form-control" %></td>
   </div>
-  <div class="field">
-    <%= f.label :password %><br>
-    <%= f.password_field :password %>
+        </tr>
+
+
+<tr>
+  <div class="form-group">
+    <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :密码 %></td>
+    <td><%= f.password_field :password, class:"form-control" %></td>
   </div>
-    <div class="field">
-      <%= f.label :password_confirmation, "Confirmation" %><br>
-      <%= f.password_field :password_confirmation %>
+</tr>
+
+<tr>
+    <div class="form-group">
+      <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :password_confirmation, "确认密码" %></td>
+      <td><%= f.password_field :password_confirmation, class:"form-control" %></td>
     </div>
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_field :content %>
+  </tr>
+
+  <tr>
+  <div class="form-group">
+    <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :备注 %></td>
+    <td ><%= f.text_area :content, class:"form-control", size:'20' %></td>
   </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.number_field :status %>
+    </tr>
+
+  <tr>
+  <div>
+    <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :状态 %></td>
+    <td >
+      <div style="display: none;">
+      <%= f.number_field :status, value:1, class:"form-control" %>
+        </div>
+
+      <div class="toggle-switch text-toggle-switch" data-off-label="停用" data-on="primary" data-on-label="正常">
+        <input id="statuschange" name="statuschange" type="checkbox" onclick="javascript:adminstatuschange()">
+      </div>
+    </td>
   </div>
-  <div class="actions">
-    <%= f.button :"确定", class:"btn btn-primary" %>
+    </tr>
+<tr>
+  <td align="right" colspan="2" style="padding: 20px;"><div class="actions">
+    <%= f.submit :"确定", class:"btn btn-primary" %></td>
   </div>
+  </tr>
+    </table>
+</fieldset>
 <% end %>
+
+
+
+
+
+
