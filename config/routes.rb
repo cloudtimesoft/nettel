@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+
   resources :advertisements
 
   resources :rechargeable_records
@@ -55,6 +56,7 @@ Rails.application.routes.draw do
   post 'rechargeable_cards/makecard'
 
   resources :logins
+
 
   resources :ctsinits
 

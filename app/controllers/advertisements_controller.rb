@@ -65,8 +65,8 @@ class AdvertisementsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_advertisement
       @advertisement = Advertisement.find(params[:id])
-    end
 
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def advertisement_params
       params.require(:advertisement).permit(:picstr, :linkstr, :starttime, :endtime, :status, :types, :avatar)

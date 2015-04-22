@@ -71,18 +71,7 @@
             <div class="panel-group" id="accordion">
               <div class="panel">
 
-                <table>
-                  <% showauth.each do |aa|  %>
-                      <tr>
-                        <td><label class="checkbox-inline"><input type="checkbox"><span></span></label>
-                          <%= aa.name %>
-                          <%= aa.url %>
-                        </td>
-                      </tr>
-                  <% end %>
 
-                </table>
-                <%= button_to 'role_auth_refs',role_auth_refs_path %>
 
 
 
