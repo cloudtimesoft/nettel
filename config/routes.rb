@@ -55,6 +55,8 @@ Rails.application.routes.draw do
 
   post 'rechargeable_cards/makecard'
 
+  post 'admins/chkrpt'
+
   resources :logins
 
 

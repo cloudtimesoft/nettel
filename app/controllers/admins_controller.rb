@@ -81,9 +81,22 @@ class AdminsController < ApplicationController
     end
   end
 
+
+  def chkrpt
+    @admin=Admin.find_by_login(params[:name])
+    if @admin
+      json="\"#{params[:name]}\",false"
+    else
+      json="\"#{params[:name]}\",true"
+    end
+    debugger
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_admin
+
       @admin = Admin.find(params[:id])
     end
 

@@ -58,6 +58,7 @@
 //= require jquery.sparkline.min.js
 //= require main.js
 //= require respond.js
+//= require cloudtimesoft.js
 
 
 
