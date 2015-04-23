@@ -947,7 +947,18 @@
           rules: {
               'admin[name]': {
                   required: true,
-                  minlength: 5
+                  minlength: 5,
+                  remote: {
+                      data: {
+                          user_name: function(){
+                              return $('#admin_name').val();
+                          }
+                      },
+                      url: "/admins/chkrpt",
+                      type: "get"
+
+
+                  }
 
               },
 
@@ -964,7 +975,8 @@
           messages: {
               'admin[name]': {
                   required: "账号不能为空！",
-                  minlength: "账号名不能少于5个字符"
+                  minlength: "账号名不能少于5个字符",
+                  remote: "该账户已存在！"
               },
 
               'admin[password]': {

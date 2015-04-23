@@ -17,7 +17,7 @@
     </div>
   <% end %>
 
-<table class="col-md-6">
+<table class="col-lg-8">
 
 
         <tr>
@@ -58,14 +58,14 @@
         </div>
 
       <div class="toggle-switch text-toggle-switch" data-off-label="停用" data-on="primary" data-on-label="正常">
-        <input id="statuschange" name="statuschange" type="checkbox" onclick="javascript:adminstatuschange()">
+        <input checked="" id="statuschange" name="statuschange" type="checkbox" onchange="javascript:adminstatuschange()">
       </div>
     </td>
   </div>
     </tr>
 <tr>
-  <td align="right" colspan="2" style="padding: 20px;"><div class="actions">
-    <%= f.submit :"确定", class:"btn btn-primary" %></td>
+  <td align="right" colspan="2" style="padding: 0px;"><div class="actions">
+    <%= f.submit :"确定", class:"btn btn-primary-outline pull-right" %></td>
   </div>
   </tr>
     </table>

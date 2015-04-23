@@ -5,6 +5,11 @@ class AdminsController < ApplicationController
   # GET /admins.json
   def index
     @admins = Admin.all
+
+
+
+
+
   end
 
   # GET /admins/1
@@ -13,11 +18,14 @@ class AdminsController < ApplicationController
     @admin = Admin.find(params[:id])
     @role = Role.all
     @had_role_ids = @admin.roles.map(&:id)
+
   end
 
   # GET /admins/new
   def new
     @admin = Admin.new
+
+
   end
 
   # GET /admins/1/edit
@@ -83,13 +91,17 @@ class AdminsController < ApplicationController
 
 
   def chkrpt
-    @admin=Admin.find_by_login(params[:name])
+    @admin=Admin.find_by_name(params[:user_name])
     if @admin
-      json="\"#{params[:name]}\",false"
+      json=false
     else
-      json="\"#{params[:name]}\",true"
+      json=true
     end
-    debugger
+    #debugger
+    respond_to do |format|
+      format.js {render :text=>json}
+    end
+    #debugger
   end
 
 

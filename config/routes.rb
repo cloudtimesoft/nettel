@@ -46,6 +46,7 @@ Rails.application.routes.draw do
 
   resources :admins do
     delete 'destroy_multiple', on: :collection
+    get 'chkrpt', on: :collection
   end
 
   resources :make_cards
@@ -55,7 +56,7 @@ Rails.application.routes.draw do
 
   post 'rechargeable_cards/makecard'
 
-  post 'admins/chkrpt'
+  #get 'admins/chkrpt'
 
   resources :logins
 
