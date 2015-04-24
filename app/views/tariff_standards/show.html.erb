@@ -1,45 +1,27 @@
-
 <!--
 <p id="notice"><%= notice %></p>
-
 <p>
-  <strong>Name:</strong>
-  <%= @tariff_standard.name %>
+<strong>Name:</strong>
+<%= @tariff_standard.name %>
 </p>
-
 <p>
-  <strong>Content:</strong>
-  <%= @tariff_standard.content %>
+<strong>Content:</strong>
+<%= @tariff_standard.content %>
 </p>
-
 <p>
-  <strong>Minus amount:</strong>
-  <%= @tariff_standard.minus_amount %>
+<strong>Minus amount:</strong>
+<%= @tariff_standard.minus_amount %>
 </p>
-
 <%= link_to 'Edit', edit_tariff_standard_path(@tariff_standard) %> |
 <%= link_to 'Back', tariff_standards_path %>
-
-
 -->
-
-
-
-
 <%= render 'head'%>
-
-
-
-
-
 <%=render 'head' %>
-
 <script type="text/javascript">
     function show(){
         document.getElementById("hidediv").style.display="none";
         document.getElementById("showdiv").style.display="block";
     }
-
     function showlablediv(){
         document.getElementById("lablediv").style.display="block";
         document.getElementById("formdiv").style.display="none";
@@ -47,135 +29,94 @@
     function showformdiv(){
         document.getElementById("lablediv").style.display="none";
         document.getElementById("formdiv").style.display="block";
-        //document.getElementById("formdiv").style.display =  document.getElementById("formdiv").style.display=="none"?"block":"none";
-
+//document.getElementById("formdiv").style.display = document.getElementById("formdiv").style.display=="none"?"block":"none";
     }
 </script>
-
-
-
-
-
-
 <div class="row">
   <div class="col-lg-12">
     <div class="widget-container fluid-height clearfix">
-
       <!--左边样式-->
       <div class="col-sm-3">
         <div class="list-group">
-
-          <div id="lablediv"  >
-
-
+          <div id="lablediv" >
             <p id="notice"><%= notice %></p>
-
             <p>
               <strong>Name:</strong>
               <%= @tariff_standard.name %>
             </p>
-
             <p>
               <strong>Content:</strong>
               <%= @tariff_standard.content %>
             </p>
-
             <p>
               <strong>Minus amount:</strong>
               <%= @tariff_standard.minus_amount %>
             </p>
-
-
-
             <input type="button" onclick="showformdiv()" value="编辑角色信息">
           </div>
-
           <div id="formdiv" style="display: none;">
             <%= render 'form' %>
             <input type="button" onclick="showlablediv()" value="取消">
           </div>
-
-
         </div>
       </div>
       <!--左边样式结束-->
-
       <!-- 右边样式-->
       <div class="col-sm-9">
         <div class="widget-container fluid-height">
           <div class="widget-content">
             <div class="panel-group" id="accordion">
-
-
               <div class="panel" id ="hidediv">
-                    <% session[:tempid]=params[:id] %>
-                    <% session[:return_to]=request.fullpath %>
+                <% session[:tempid]=params[:id] %>
+                <% session[:return_to]=request.fullpath %>
                 <% if !(@tariff_standard.basic_charges && @tariff_standard.basic_charges.ids.count > 0) %>
                     <%= form_for([@basic_charge, @tariff_standard.basic_charges.build]) do |f| %>
                         <%= f.text_field :s_charges %>
                         <%= f.text_field :c_charges %>
                         <%= f.submit %>
-                        <% end %>
                     <% end %>
+                <% end %>
               </div>
-
-
-
               <div class="panel">
                 <% @tariff_standard.basic_charges.each do |f| %>
                     <% if f.created_at %>
-                    <p>
-                      <strong>直播费用:</strong>
-                      <%= f.s_charges %>
-                    </p>
-
-                    <p>
-                      <strong>回拨:</strong>
-                      <%= f.c_charges %>
-                    </p>
+                        <p>
+                          <strong>直播费用:</strong>
+                          <%= f.s_charges %>
+                        </p>
+                        <p>
+                          <strong>回拨:</strong>
+                          <%= f.c_charges %>
+                        </p>
                         <%= link_to 'Edit', edit_basic_charge_path(f.id) %>
-
-
-              <% end %>
-              <% end %>
-                <%#debugger%>
-                </div>
-
-
-
-
-
-
-
-
-                  <div class="panel">
-                    <% @tariff_standard.time_charges.each do |f| %>
-                        <% if f.created_at %>
-                            <p>
-                              <strong>直播费用:</strong>
-                              <%= f.s_charges %>
-                            </p>
-
-                            <p>
-                              <strong>回拨:</strong>
-                              <%= f.c_charges %>
-                            </p>
-                            <p>
-                              <strong>开始时间:</strong>
-                              <%= f.start_time %>
-                            </p>
-                            <p>
-                              <strong>结束时间:</strong>
-                              <%= f.end_time %>
-                            </p>
-                            <%= link_to 'Edit', edit_time_charge_path(f.id) %>
-                        <% end %>
                     <% end %>
-                    <%#debugger%>
-                  </div>
-
-
-
+                <% end %>
+<%#debugger%>
+              </div>
+              <div class="panel">
+                <% @tariff_standard.time_charges.each do |f| %>
+                    <% if f.created_at %>
+                        <p>
+                          <strong>直播费用:</strong>
+                          <%= f.s_charges %>
+                        </p>
+                        <p>
+                          <strong>回拨:</strong>
+                          <%= f.c_charges %>
+                        </p>
+                        <p>
+                          <strong>开始时间:</strong>
+                          <%= f.start_time %>
+                        </p>
+                        <p>
+                          <strong>结束时间:</strong>
+                          <%= f.end_time %>
+                        </p>
+                        <%= link_to 'Edit', edit_time_charge_path(f.id) %>
+                    <% end %>
+                <% end %>
+<%#debugger%>
+              </div>
               <div id = "showdiv" style="display: none;" class="panel">
                 <% session[:tempid]=params[:id] %>
                 <% session[:return_to]=request.fullpath %>
@@ -187,26 +128,14 @@
                     <%= f.submit %>
                 <% end %>
               </div>
-
-
-                <div>
-                  <input type="button" onclick="show()" value="添加时段">
-                </div>
-
-
-
-
-
+              <div>
+                <input type="button" onclick="show()" value="添加时段">
+              </div>
             </div>
           </div>
         </div>
       </div>
       <!--右边样式结束-->
-
-
-
-
     </div>
   </div>
 </div>
-

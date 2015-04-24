@@ -4,8 +4,9 @@ class TariffStandardsController < ApplicationController
   # GET /tariff_standards
   # GET /tariff_standards.json
   def index
-    @tariff_standards = TariffStandard.all
-  end
+    #@tariff_standards = TariffStandard.all
+    @tariff_standards = TariffStandard.search(params[:search])
+end
 
   # GET /tariff_standards/1
   # GET /tariff_standards/1.json
