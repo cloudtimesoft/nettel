@@ -941,7 +941,11 @@
 
 
 
-
+      /*
+       # =============================================================================
+       #   admin create validate
+       # =============================================================================
+       */
 
       $(".new_admin").validate({
           rules: {
@@ -992,7 +996,38 @@
       });
 
 
+      /*
+       # =============================================================================
+       #   admin edit validate
+       # =============================================================================
+       */
 
+      $(".edit_admin").validate({
+          rules: {
+
+              'admin[password]': {
+
+                  minlength: 5
+              },
+              'admin[password_confirmation]': {
+
+                  minlength: 5,
+                  equalTo: "#admin_password"
+              }
+          },
+          messages: {
+
+              'admin[password]': {
+                  required: "密码不能为空！",
+                  minlength: "密码长度不能少于5个字符"
+              },
+              'admin[password_confirmation]': {
+                  required: "确认密码不能为空！",
+                  minlength: "确认密码不能少于5个字符",
+                  equalTo: "两次密码输入不一致"
+              }
+          }
+      });
 
 
 

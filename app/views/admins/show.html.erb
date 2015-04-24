@@ -1,7 +1,7 @@
 
 <%=render 'head' %>
 
-<script type="text/javascript">
+<script type="text/javascript" language="JavaScript">
     function showlablediv(){
         document.getElementById("lablediv").style.display="block";
         document.getElementById("formdiv").style.display="none";
@@ -21,77 +21,62 @@
 
 <div class="row">
   <div class="col-lg-12">
-    <div class="widget-container fluid-height clearfix">
+    <h2 class="heading"><i class="icon-random"></i>&nbsp; 角色分配</h2>
+    <div class="widget-container fluid-height clearfix" style="padding: 10px;">
 
       <!--左边样式-->
-      <div class="col-sm-3">
-        <div class="list-group">
-
-          <div id="lablediv"  >
-
-
-            <p id="notice"><%= notice %></p>
+      <div class="col-lg-6">
+        <h4 class="heading icon-user">&nbsp;管理员</h4><p></p>
+      <div id="lablediv">
 
             <p>
-              <strong>Name:</strong>
+              <span class="col-sm-2" style="text-align: right;">账号:</span>
               <%= @admin.name %>
             </p>
 
 
             <p>
-              <strong>Content:</strong>
+              <span class="col-sm-2" style="text-align: right;">备注:</span>
               <%= @admin.content %>
             </p>
 
             <p>
-              <strong>Status:</strong>
-              <%= @admin.status %>
+              <span class="col-sm-2" style="text-align: right;">状态:</span>
+              <% if @admin.status == 1 %>
+                <i class="heading icon-unlock">&nbsp;正常</i>
+              <% else %>
+                  <i class="icon-lock">&nbsp;停用</i>
+              <% end %>
             </p>
-
-
-
-
-            <input type="button" onclick="showformdiv()" value="编辑角色信息">
-          </div>
-
+            <div>
+              <a onclick="showformdiv()" class="btn btn-primary-outline"><i class="icon-pencil"></i>编辑管理员</a>
+            </div>
+        </div>
           <div id="formdiv" style="display: none;">
             <%= render 'form' %>
-            <input type="button" onclick="showlablediv()" value="取消">
+            <input type="button" onclick="showlablediv()" value="取消" class="btn btn-xs btn-primary">
           </div>
-
-
-        </div>
       </div>
+
       <!--左边样式结束-->
 
       <!-- 右边样式-->
-      <div class="col-sm-9">
-        <div class="widget-container fluid-height">
-          <div class="widget-content">
-            <div class="panel-group" id="accordion">
+      <div class="col-lg-6 cts-leftborder-container">
+            <h4 class="heading">&nbsp;<i class="icon-group"></i>角色</h4>
               <div class="panel">
-
-
-
-
-
-
-
                 <%= form_tag destroy_multiple_admins_path, method: :delete do %>
-                    <%= submit_tag "保存" %>
+
                     <div style="display: none;">
                       <%= text_area_tag  :aid,@admin.id %>
                     </div>
                     <% @role.each  do |f| %>
-                        <label class="checkbox-inline"><%= check_box_tag "role_ids[]", f.id, @had_role_ids.include?(f.id),  class:"checkbox-inline" %><span></span></label>
-                        <%= f.name %>
+
+                        <div style="padding-left: 20px;"><label class="checkbox-inline"><%= check_box_tag "role_ids[]", f.id, @had_role_ids.include?(f.id) %><span><%= f.name %></span></label></div>
+
                     <% end %>
+                    <br><br>
+                    <%= submit_tag "保存" ,class:"btn btn-primary-outline pull-right"%>
                 <% end %>
-
-
-              </div>
-            </div>
-          </div>
         </div>
       </div>
       <!--右边样式结束-->

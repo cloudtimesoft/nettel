@@ -18,7 +18,17 @@
       <tr>
         <td width="30px"><i class="heading icon-user"></i></td>
         <td class="hidden-xs"><%= admin.name %></td>
-        <td><%= admin.status %></td>
+
+          <%if admin.status == 1 %>
+            <td align="center">
+            <i class="heading icon-unlock">正常</i>
+            </td>
+              <% else %>
+            <td align="center">
+              <i class="icon-lock">停用</i>
+            </td>
+              <% end %>
+        </td>
         <td><%= admin.content %></td>
         <% if admin.name  != 'admin' %>
         <td width="100px" align="center"><%= link_to "", admin,  class:"icon-pencil usricons", title: "编辑" %>&nbsp;&nbsp;
