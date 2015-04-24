@@ -8,12 +8,6 @@ function adminstatuschange()
     }
 
 
-<<<<<<< HEAD
-
-
-
 }
 
-=======
-}
->>>>>>> 0224465fe402636f8016df4554fa364479125051
+
