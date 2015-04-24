@@ -159,7 +159,7 @@ ActiveRecord::Schema.define(version: 20150421054740) do
     t.integer  "make_card_id"
     t.string   "card_number"
     t.integer  "card_sum"
-    t.datetime "effective_time"
+    t.integer  "effective_time"
     t.integer  "card_type"
     t.datetime "end_time"
     t.string   "content"

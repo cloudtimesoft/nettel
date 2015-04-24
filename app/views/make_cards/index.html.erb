@@ -1,26 +1,30 @@
 <%= render 'head'%>
-<h1>Listing make_cards</h1>
 
-<table>
-  <thead>
+<h2 class="heading">制卡</h2>
+<div class="widget-container fluid-height clearfix">
+<table  class="table table-hover table-bordered table-striped">
+  <thead style="text-align: center">
     <tr>
-      <th>Admin</th>
-      <th>Card type</th>
-      <th>Batch</th>
-      <th>Card len</th>
-      <th>Time</th>
-      <th>Card sum</th>
-      <th>Amount</th>
-      <th>Content</th>
-      <th>Giving</th>
-      <th colspan="3"></th>
+      <th></th>
+      <th class="heading">管理员</th>
+      <th class="heading">卡类型</th>
+      <th class="heading">批次号</th>
+      <th class="heading">卡位长</th>
+      <th class="heading">制卡时间</th>
+      <th class="heading">卡金额</th>
+      <th class="heading">制作数量</th>
+      <th class="heading">备注</th>
+      <th class="heading">是否可赠送</th>
+      <th class="heading">操作</th>
+
     </tr>
   </thead>
 
   <tbody>
     <% @make_cards.each do |make_card| %>
       <tr>
-        <td><%= make_card.admin_id %></td>
+        <td width="30px"><i class="heading icon-credit-card "></i></td>
+        <td class="hidden-xs"><%= make_card.admin_id %></td>
         <td><%= make_card.card_type %></td>
         <td><%= make_card.batch %></td>
         <td><%= make_card.card_len %></td>
@@ -29,9 +33,11 @@
         <td><%= make_card.amount %></td>
         <td><%= make_card.content %></td>
         <td><%= make_card.giving %></td>
-        <td><%= link_to 'Show', make_card %></td>
-        <td><%= link_to 'Edit', edit_make_card_path(make_card) %></td>
-        <td><%= link_to 'Destroy', make_card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+       <td width="100px" align="center"><%= link_to "", make_card,  class:"icon-eye-open usricons", title: "显示" %>
+        <%= link_to "", edit_make_card_path(make_card),  class:"icon-pencil usricons", title: "编辑" %>
+        <%= link_to '', make_card, method: :delete, data: { confirm: '确认删除?' } ,class:"icon-trash usricons", title:"删除" %></td>
+
       </tr>
     <% end %>
   </tbody>
@@ -39,4 +45,5 @@
 
 <br>
 
-<%= link_to 'New Make card', new_make_card_path %>
+<%= link_to '制作新卡', new_make_card_path, class: "icon-plus btn btn-primary-outline pull-right",'data-no-turbolink'=>true %>
+</div>
