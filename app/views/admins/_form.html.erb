@@ -23,7 +23,11 @@
         <tr>
   <div class="form-group">
     <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;"><%= f.label :账号 %></td>
-    <td><%= f.text_field :name, class:"form-control" %></td>
+    <% if @admin.name %>
+        <td><%= f.text_field :name, class:"form-control", readonly:true %></td>
+    <% else %>
+        <td><%= f.text_field :name, class:"form-control" %></td>
+    <% end %>
   </div>
         </tr>
 
@@ -58,7 +62,11 @@
         </div>
 
       <div class="toggle-switch text-toggle-switch" data-off-label="停用" data-on="primary" data-on-label="正常">
-        <input checked="" id="statuschange" name="statuschange" type="checkbox" onchange="javascript:adminstatuschange()">
+        <% if @admin.status == 0 %>
+            <input id="statuschange" name="statuschange" type="checkbox" onchange="javascript:adminstatuschange()">
+        <% else %>
+            <input checked="" id="statuschange" name="statuschange" type="checkbox" onchange="javascript:adminstatuschange()">
+        <% end %>
       </div>
     </td>
   </div>
