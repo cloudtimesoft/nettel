@@ -12,8 +12,6 @@
         <div class="list-group">
 
 
-
-
           <p id="notice"><%= notice %></p>
 
           <p>
@@ -72,10 +70,6 @@
             <div class="panel-group" id="accordion">
 
 
-
-
-
-
             <%=form_tag ({ controller: "rechargeable_cards", action:"makecard"}),method:"post"  do %>
                   <%= hidden_field_tag('id',params[:id]=@make_card.id)%>
                  <%= hidden_field_tag('card_type',params[:card_type]=@make_card.card_type)%>
@@ -93,7 +87,8 @@
 
               <% @rechargeable_cards.each do |rechargeable_card| %>
                   <tr>
-                    <td><%= rechargeable_card.pwd %></td>
+                    <td width="30px"><i class=" icon-credit-card "></i></td>
+                    <td class="hidden-xs"><%= rechargeable_card.pwd %></td>
                     <td><%= rechargeable_card.make_card_id %></td>
                     <td><%= rechargeable_card.card_number %></td>
                     <td><%= rechargeable_card.card_sum %></td>
@@ -103,11 +98,12 @@
                     <td><%= rechargeable_card.content %></td>
                     <td><%= rechargeable_card.giving %></td>
                     <td><%= rechargeable_card.failure %></td>
-                    <td><%= link_to 'Edit', edit_rechargeable_card_path(rechargeable_card) %></td>
-                    <td><%= link_to 'Destroy', rechargeable_card, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+                    <%= link_to '', edit_rechargeable_card_path(rechargeable_card),'data-no-turbolink'=>true ,class:"icon-pencil usricons", title: "编辑" %></td>
+                    <td><%= link_to '', rechargeable_card, method: :delete, data: { confirm: '确认删除?' } ,class:"icon-trash usricons", title:"删除" %></td>
                   </tr>
                   <p></p>
               <% end %>
+
               <div class="digg_pagination">
                 <%= will_paginate @rechargeable_cards, :previous_label => '上一页', :next_label => '下一页' %>
               </div>

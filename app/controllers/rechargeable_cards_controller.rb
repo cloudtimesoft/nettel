@@ -26,7 +26,11 @@ class RechargeableCardsController < ApplicationController
     if (@clen-@cbatch.length).times{@lenstr+="9"}.to_i - @rcount > @camout.to_i
       @rechargeable_card=@rechargeable_cards.last
       @lastnum=@clen-@cbatch.length
+      if !@rechargeable_card
+        @maxnum=0
+      else
       @maxnum=@rechargeable_card.card_number[-@lastnum,@lastnum].to_i
+      end
       RechargeableCard.transaction do
       (@camount.to_i).times do
         @maxnum+=1
@@ -46,6 +50,7 @@ class RechargeableCardsController < ApplicationController
       #error
     end
 
+    redirect_to :back
   end
 
   def index
@@ -70,6 +75,7 @@ class RechargeableCardsController < ApplicationController
 
   # GET /rechargeable_cards/1/edit
   def edit
+
   end
 
   # POST /rechargeable_cards

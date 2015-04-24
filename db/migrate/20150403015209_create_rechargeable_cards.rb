@@ -5,7 +5,7 @@ class CreateRechargeableCards < ActiveRecord::Migration
       t.integer :make_card_id
       t.string :card_number
       t.integer :card_sum
-      t.timestamp :effective_time
+      t.integer :effective_time
       t.integer :card_type
       t.timestamp :end_time
       t.string :content
