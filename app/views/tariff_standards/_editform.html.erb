@@ -1,0 +1,55 @@
+
+<%= form_for(@tariff_standard) do |f| %>
+    <fieldset>
+      <% if @tariff_standard.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@tariff_standard.errors.count, "error") %> prohibited this tariff_standard from being saved:</h2>
+
+            <ul>
+              <% @tariff_standard.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+
+      <table class="col-lg-8">
+
+
+        <tr>
+          <div class="form-group">
+            <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;"><%= f.label :套餐名 %></td>
+            <% if @tariff_standard.name %>
+                <td><%= f.text_field :name, class:"form-control", readonly:true %></td>
+            <% else %>
+                <td><%= f.text_field :name, class:"form-control" %></td>
+            <% end %>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="form-group">
+            <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :备注 %></td>
+            <td><%= f.text_area :content, class:"form-control",rows:8%></td>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="form-group">
+            <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :计费 %></td>
+            <td><%= f.text_field :minus_amount, class:"form-control", size:'20'  %></td>
+
+          </div>
+        </tr>
+
+        <tr>
+          <td align="right" colspan="2" style="padding: 0px;"><div class="actions">
+            <%= f.submit :"确定", class:"btn btn-primary-outline pull-right" %></td>
+          </div>
+        </tr>
+      </table>
+    </fieldset>
+<% end %>
+
+
+

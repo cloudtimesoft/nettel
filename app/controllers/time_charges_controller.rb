@@ -50,10 +50,8 @@ class TimeChargesController < ApplicationController
   # DELETE /time_charges/1.json
   def destroy
     @time_charge.destroy
-    respond_to do |format|
-      format.html { redirect_to time_charges_url, notice: 'Time charge was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to (session[:return_to])
+
   end
 
   private
