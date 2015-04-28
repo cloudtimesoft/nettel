@@ -30,26 +30,27 @@
       </ul>
     </div>
   <% end %>
+    <table class="col-lg-12" style="text-align: center">
 
   <div class="field">
-    <%= f.label :picstr %><br>
-    <%= f.text_field :picstr %>
+    <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;"><%= f.label :picstr %></td>
+    <td><%= f.text_field :picstr, class:"form-control" %></td>
   </div>
 
   <div class="field">
-    <%= f.label :linkstr %><br>
-    <%= f.text_field :linkstr %>
+    <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;"> <%= f.label :linkstr %><br></td>
+    <td><%= f.text_field :linkstr, class:"form-control" %></td>
   </div>
 
     <div class="field">
-      <%= f.label :avatar %><br>
-      <%= f.file_field :avatar, :onchange => "readURL(this)"%>
+      <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;"><%= f.label :avatar %><br></td>
+
+      <td><%= f.file_field :avatar, :onchange => "readURL(this)"%></td>
     </div>
 
     <div>
       <img id="img1" src=<%= @advertisement.avatar.url%> />
     </div>
-
 
   <div class="field">
     <%= f.label :starttime %><br>
@@ -71,3 +72,5 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+</table>

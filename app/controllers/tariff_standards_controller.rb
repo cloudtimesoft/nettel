@@ -1,11 +1,10 @@
 class TariffStandardsController < ApplicationController
   before_action :set_tariff_standard, only: [:show, :edit, :update, :destroy]
-
+  before_action :authorize
   # GET /tariff_standards
   # GET /tariff_standards.json
   def index
-    #@tariff_standards = TariffStandard.all
-    @tariff_standards = TariffStandard.search(params[:search])
+    @tariff_standards = TariffStandard.all
 end
 
   # GET /tariff_standards/1
@@ -52,6 +51,22 @@ end
     end
   end
 
+
+
+
+  def check
+    @tariff_standard=TariffStandard.find_by_name(params[:user_name])
+    if  @tariff_standard
+      json=false
+    else
+      json=true
+    end
+    #debugger
+    respond_to do |format|
+      format.js {render :text=>json}
+    end
+    #debugger
+  end
   # DELETE /tariff_standards/1
   # DELETE /tariff_standards/1.json
   def destroy

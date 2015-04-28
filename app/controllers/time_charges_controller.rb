@@ -50,10 +50,8 @@ class TimeChargesController < ApplicationController
   # DELETE /time_charges/1.json
   def destroy
     @time_charge.destroy
-    respond_to do |format|
-      format.html { redirect_to time_charges_url, notice: 'Time charge was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to (session[:return_to])
+
   end
 
   private
@@ -64,6 +62,6 @@ class TimeChargesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def time_charge_params
-      params.require(:time_charge).permit(:tariff_standard_id, :s_charges, :c_charges, :start_time, :end_time)
+      params.require(:time_charge).permit(:tariff_standard_id, :s_charges, :c_charges, :start_time.to_s, :end_time.to_s)
     end
 end

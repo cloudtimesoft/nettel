@@ -1,5 +1,6 @@
 
 <%= form_for(@tariff_standard) do |f| %>
+    <fieldset>
   <% if @tariff_standard.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@tariff_standard.errors.count, "error") %> prohibited this tariff_standard from being saved:</h2>
@@ -17,21 +18,21 @@
 
   <tr>
     <div class="form-group">
-      <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;"><%= f.label :套餐名 %></td>
-      <td><%= f.text_field :name, class:"form-control" %></td>
+      <td style="margin-top: 10px;width:30px;text-align: right;padding: 5px;"><%= f.label :套餐名 %></td>
+          <td><%= f.text_field :name, class:"form-control" %></td>
     </div>
   </tr>
 
   <tr>
     <div class="form-group">
-      <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :备注 %></td>
+      <td style="margin-top: 10px;width:80px;text-align: right;padding: 5px;"><%= f.label :备注 %></td>
       <td><%= f.text_area :content, class:"form-control",rows:8%></td>
     </div>
   </tr>
 
   <tr>
     <div class="form-group">
-      <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :计费 %></td>
+      <td style="margin-top: 10px;width:80px;text-align: right;padding: 5px;"><%= f.label :计费 %></td>
       <td><%= f.text_field :minus_amount, class:"form-control", size:'20'  %></td>
 
     </div>
@@ -44,8 +45,8 @@
   </tr>
 </table>
 </fieldset>
-<% end %>
 
+<% end %>
 
 
 

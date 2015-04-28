@@ -26,8 +26,7 @@
         <td><%= tariff_standard.content %></td>
         <td><%= tariff_standard.minus_amount %></td>
             <td width="100px" align="center">
-              <%= link_to '', tariff_standard,  class:"icon-eye-open usricons", title: "查看" %>
-              <%= link_to '', tariff_standard,  class:"icon-pencil usricons", title: "编辑" %>
+              <%= link_to '', tariff_standard,  class:"icon-pencil usricons", title: "编辑" %>&nbsp;&nbsp;
               <%= link_to '', tariff_standard, method: :delete, data: { confirm: '确认删除？' },class:"icon-trash usricons", title:"删除" %></td>
       </tr>
       <% end %>

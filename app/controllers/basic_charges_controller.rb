@@ -54,10 +54,7 @@ class BasicChargesController < ApplicationController
   # DELETE /basic_charges/1.json
   def destroy
     @basic_charge.destroy
-    respond_to do |format|
-      format.html { redirect_to basic_charges_url, notice: 'Basic charge was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+      redirect_to (session[:return_to])
   end
 
   private

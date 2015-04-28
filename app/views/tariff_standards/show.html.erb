@@ -1,26 +1,12 @@
-<!--
-<p id="notice"><%= notice %></p>
-<p>
-<strong>Name:</strong>
-<%= @tariff_standard.name %>
-</p>
-<p>
-<strong>Content:</strong>
-<%= @tariff_standard.content %>
-</p>
-<p>
-<strong>Minus amount:</strong>
-<%= @tariff_standard.minus_amount %>
-</p>
-<%= link_to 'Edit', edit_tariff_standard_path(@tariff_standard) %> |
-<%= link_to 'Back', tariff_standards_path %>
--->
-<%= render 'head'%>
 <%=render 'head' %>
 <script type="text/javascript">
     function show(){
         document.getElementById("hidediv").style.display="none";
         document.getElementById("showdiv").style.display="block";
+    }
+    function show1(){
+        document.getElementById("hidediv").style.display="block";
+        document.getElementById("showdiv").style.display="none";
     }
     function showlablediv(){
         document.getElementById("lablediv").style.display="block";
@@ -29,112 +15,161 @@
     function showformdiv(){
         document.getElementById("lablediv").style.display="none";
         document.getElementById("formdiv").style.display="block";
-//document.getElementById("formdiv").style.display = document.getElementById("formdiv").style.display=="none"?"block":"none";
     }
 </script>
+
 <div class="row">
   <div class="col-lg-12">
-    <div class="widget-container fluid-height clearfix">
+    <h2 class="heading"><i class=" icon-retweet"></i>&nbsp; 套餐设置</h2>
+    <div class="widget-container fluid-height clearfix" style="padding: 10px;">
+
+
       <!--左边样式-->
-      <div class="col-sm-3">
-        <div class="list-group">
-          <div id="lablediv" >
-            <p id="notice"><%= notice %></p>
-            <p>
-              <strong>Name:</strong>
-              <%= @tariff_standard.name %>
-            </p>
-            <p>
-              <strong>Content:</strong>
-              <%= @tariff_standard.content %>
-            </p>
-            <p>
-              <strong>Minus amount:</strong>
-              <%= @tariff_standard.minus_amount %>
-            </p>
-            <input type="button" onclick="showformdiv()" value="编辑角色信息">
-          </div>
-          <div id="formdiv" style="display: none;">
-            <%= render 'form' %>
-            <input type="button" onclick="showlablediv()" value="取消">
-          </div>
-        </div>
-      </div>
+              <div class="col-lg-5">
+                <h4 class="heading icon-jpy">&nbsp;套餐</h4><p></p>
+
+                  <div id="lablediv" >
+
+                    <p>
+                      <span class="col-sm-2" style="text-align: right;">套餐名:</span>
+                      <%= @tariff_standard.name %>
+                    </p>
+
+                    <p>
+                      <span class="col-sm-2" style="text-align: right;">备注:</span>
+                      <%= @tariff_standard.content %>
+                    </p>
+
+                    <p>
+                      <span class="col-sm-2" style="text-align: right;">计费:</span>
+                      <%= @tariff_standard.minus_amount %>
+                    </p>
+                    <p>
+
+                    <div>
+                      <a onclick="showformdiv()" class="btn btn-primary-outline"><i class="icon-pencil"></i>编辑套餐信息</a>
+                    </div>
+                  </div>
+
+                <div id="formdiv" style="display: none;">
+                  <%= render 'editform' %>
+                </div>
+
+              </div>
       <!--左边样式结束-->
+
+
       <!-- 右边样式-->
-      <div class="col-sm-9">
-        <div class="widget-container fluid-height">
-          <div class="widget-content">
-            <div class="panel-group" id="accordion">
-              <div class="panel" id ="hidediv">
-                <% session[:tempid]=params[:id] %>
-                <% session[:return_to]=request.fullpath %>
-                <% if !(@tariff_standard.basic_charges && @tariff_standard.basic_charges.ids.count > 0) %>
-                    <%= form_for([@basic_charge, @tariff_standard.basic_charges.build]) do |f| %>
-                        <%= f.text_field :s_charges %>
-                        <%= f.text_field :c_charges %>
-                        <%= f.submit %>
-                    <% end %>
-                <% end %>
-              </div>
-              <div class="panel">
-                <% @tariff_standard.basic_charges.each do |f| %>
-                    <% if f.created_at %>
-                        <p>
-                          <strong>直播费用:</strong>
-                          <%= f.s_charges %>
-                        </p>
-                        <p>
-                          <strong>回拨:</strong>
-                          <%= f.c_charges %>
-                        </p>
-                        <%= link_to 'Edit', edit_basic_charge_path(f.id) %>
-                    <% end %>
-                <% end %>
-<%#debugger%>
-              </div>
-              <div class="panel">
-                <% @tariff_standard.time_charges.each do |f| %>
-                    <% if f.created_at %>
-                        <p>
-                          <strong>直播费用:</strong>
-                          <%= f.s_charges %>
-                        </p>
-                        <p>
-                          <strong>回拨:</strong>
-                          <%= f.c_charges %>
-                        </p>
-                        <p>
-                          <strong>开始时间:</strong>
-                          <%= f.start_time %>
-                        </p>
-                        <p>
-                          <strong>结束时间:</strong>
-                          <%= f.end_time %>
-                        </p>
-                        <%= link_to 'Edit', edit_time_charge_path(f.id) %>
-                    <% end %>
-                <% end %>
-<%#debugger%>
-              </div>
-              <div id = "showdiv" style="display: none;" class="panel">
-                <% session[:tempid]=params[:id] %>
-                <% session[:return_to]=request.fullpath %>
-                <%= form_for([@time_charges, @tariff_standard.time_charges.build]) do |f| %>
-                    <%= f.text_field :s_charges %>
-                    <%= f.text_field :c_charges %>
-                    <%= f.datetime_select :start_time%>
-                    <%= f.datetime_select :end_time %>
-                    <%= f.submit %>
-                <% end %>
-              </div>
-              <div>
-                <input type="button" onclick="show()" value="添加时段">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <div class="col-lg-7 cts-leftborder-container">
+                      <h4 class="heading">&nbsp;<i class="icon-jpy"></i>资费明细</h4>
+                         <h6 class="heading">&nbsp;基础套餐信息</h6>
+                                      <div class="panel" id ="hidediv">
+                                        <% session[:tempid]=params[:id] %>
+                                        <% session[:return_to]=request.fullpath %>
+                                        <% if !(@tariff_standard.basic_charges && @tariff_standard.basic_charges.ids.count > 0) %>
+                                             <%= form_for([@basic_charge, @tariff_standard.basic_charges.build]) do |f| %>
+                                                <p>
+
+                                                </p>
+                                                <p>
+                                                  <span class="col-sm-2" style="text-align: right;">直拨费用:</span>
+                                                <%= f.text_field :s_charges ,class:"form-control states typeahead tt-query"%>
+                                                 </p>
+                                                <p>
+                                                  <span class="col-sm-2" style="text-align: right;">回拨费用:</span>
+                                                 <%= f.text_field :c_charges ,class:"form-control states typeahead tt-query"%>
+                                                </p>
+                                                <p>
+                                                <%= f.submit :"确定", class:"btn btn-primary-outline pull-left"%>
+                                                </p>
+                                            <% end %>
+                                      <% end %>
+                                      </div>
+
+                                      <div class="panel">
+                                        <% @tariff_standard.basic_charges.each do |f| %>
+                                            <% if f.created_at %>
+                                                  <table class="table table-hover table-bordered table-striped">
+                                                  <tr>
+                                                    <th></th>
+                                                    <th class="heading">直拨</th>
+                                                    <th class="heading">回拨</th>
+                                                    <th class="heading">操作</th>
+                                                  </tr>
+                                                <tr>
+                                                  <td width="30px"><i class="heading icon-jpy"></i></td>
+                                                  <td class="hidden-xs"><%= f.s_charges %></td>
+                                                  <td class="hidden-xs"><%= f.c_charges %></td>
+                                                  <td width="100px" align="center">
+                                                    <%= link_to '', f, method: :delete, data: { confirm: '是否新建基本套餐？' },class:"icon-trash usricons", title:"删除" %></td>
+                                                </tr>
+                                                  </table>
+                                                    <%end%>
+                                            <% end %>
+                                      </div>
+
+                                      <div class="panel">
+                                        <h6 class="heading">&nbsp;时段套餐</h6>
+                                        <table class="table table-hover table-bordered table-striped">
+                                          <tr>
+                                            <th></th>
+                                            <th class="heading">直拨</th>
+                                            <th class="heading">回拨</th>
+                                            <th class="heading">开始时间</th>
+                                            <th class="heading">结束时间</th>
+                                            <th class="heading">操作</th>
+                                          </tr>
+                                        <% @tariff_standard.time_charges.each do |f| %>
+                                            <% if f.created_at %>
+                                                  <tr>
+                                                    <td width="30px"><i class="heading icon-jpy"></i></td>
+                                                    <td class="hidden-xs"><%= f.s_charges %></td>
+                                                    <td class="hidden-xs"><%= f.c_charges %></td>
+                                                    <td class="hidden-xs"><%= f.start_time.strftime("%Y-%m-%d %H:%M:%S") %></td>
+                                                    <td class="hidden-xs"><%= f.end_time.strftime("%Y-%m-%d %H:%M:%S") %></td>
+                                                    <td width="100px" align="center">
+                                                      <%= link_to '', f, method: :delete, data: { confirm: '是否新建时段套餐？' },class:"icon-trash usricons", title:"删除" %></td>
+                                                  </tr>
+                                            <% end %>
+                                        <% end %>
+                                          </table>
+                                      </div>
+
+                                      <div id = "showdiv" style="display: none;" class="panel">
+                                        <% session[:tempid]=params[:id] %>
+                                        <% session[:return_to]=request.fullpath %>
+                                        <%= form_for([@time_charges, @tariff_standard.time_charges.build]) do |f| %>
+                                            <p>
+                                              <span class="col-sm-2" style="text-align: right;">直拨费用:</span>
+                                              <%= f.text_field :s_charges,class:"form-control states typeahead tt-query" %>
+                                            </p>
+                                            <p>
+                                              <span class="col-sm-2" style="text-align: right;">回拨费用:</span>
+                                              <%= f.text_field :c_charges,class:"form-control states typeahead tt-query" %>
+                                            </p>
+                                            <p>
+                                              <span class="col-sm-2" style="text-align: right;">开始时间:</span>
+                                              <%= f.datetime_select :start_time%>
+                                            </p>
+                                            <p>
+                                              <span class="col-sm-2" style="text-align: right;">结束时间:</span>
+                                              <%= f.datetime_select :end_time %>
+                                            </p>
+                                            <p>
+                                            <%= f.submit :"确定", class:"btn btn-primary-outline pull-right" %>
+                                            <input type="button" onclick="show1()" value="取消" class="btn btn-primary-outline pull-right">
+                                            </p>
+                                        <% end %>
+                                      </div>
+
+
+                                      <div class="panel">
+
+                                        <input type="button" onclick="show()" value="添加时段套餐" class="btn btn-primary-outline pull-left">
+
+                                      </div>
+                      </div>
+
       <!--右边样式结束-->
     </div>
   </div>
