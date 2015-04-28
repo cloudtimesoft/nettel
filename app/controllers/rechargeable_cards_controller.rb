@@ -1,11 +1,10 @@
 class RechargeableCardsController < ApplicationController
   before_action :set_rechargeable_card, only: [:show, :edit, :update, :destroy]
-
   # GET /rechargeable_cards
   # GET /rechargeable_cards.json
 
   def makecard
-    @rechargeable_cards = RechargeableCard.all
+    @usrrechargeable_cards = RechargeableCard.all
     @cid = params[:id]
     @ctype = params[:card_type]
     @cbatch = params[:batch]
@@ -15,37 +14,45 @@ class RechargeableCardsController < ApplicationController
     @csum = params[:card_sum]
     @camount = params[:amount]
     @cgiving = params[:giving]
+    @ceffectivetime= params[:effectivetime].to_i
+   # debugger
     @lenstr=""
     (@clen-@cbatch.length).times{@lenstr+="_"}
     @lenstr= "\'"+@cbatch+@lenstr+"\'"
-    @rechargeable_cards.find_by_sql("select * from rechargeable_cards where card_number like "+@lenstr)
+   @search = @usrrechargeable_cards.find_by_sql("select * from rechargeable_cards where card_number like  "+@lenstr)
+   # @usrrechargeable_cards.where("card_number LIKE :search",{:search =>@lenstr})
     @rcount=0
-    if !@rechargeable_cards.count
-      @rcount = @rechargeable_cards.count
+    #debugger
+    if @search.count
+      @rcount = @search.count
     end
-    if (@clen-@cbatch.length).times{@lenstr+="9"}.to_i - @rcount > @camout.to_i
-      @rechargeable_card=@rechargeable_cards.last
-      @lastnum=@clen-@cbatch.length
-      if !@rechargeable_card
-        @maxnum=0
-      else
-      @maxnum=@rechargeable_card.card_number[-@lastnum,@lastnum].to_i
-      end
-      RechargeableCard.transaction do
-      (@camount.to_i).times do
-        @maxnum+=1
-        @carnum=""
-        if(@maxnum.to_s).length<@lastnum
-          (@lastnum-(@maxnum.to_s).length).times{@carnum+="0"}
+    @lennum=""
+    (@clen-@cbatch.length).times{@lennum+="9"}
+    #debugger
+    if  @lennum.to_i- @rcount > @camount.to_i
+      #debugger
+        @rechargeable_card=@search.last
+        @lastnum=@clen-@cbatch.length
+          if !@rechargeable_card
+            @maxnum=0
+          else
+          @maxnum=@rechargeable_card.card_number[-@lastnum,@lastnum].to_i
+          end
+         RechargeableCard.transaction do
+        (@camount.to_i).times do
+          @maxnum+=1
+          @carnum=""
+          if(@maxnum.to_s).length<@lastnum
+            (@lastnum-(@maxnum.to_s).length).times{@carnum+="0"}
+          end
+          @carnum+=@maxnum.to_s
+          @crand=""
+          6.times{@crand += rand(9).to_s}
+           RechargeableCard.create(pwd: @crand, make_card_id: @cid, card_number:@cbatch+@carnum, card_sum: @csum.to_i, effective_time:@ceffectivetime, card_type: @ctype, end_time:@ctime+@ceffective.months, content:"" , giving: @cgiving, failure:0)
         end
-        @carnum+=@maxnum.to_s
-        @crand=""
-        6.times{@crand += rand(9).to_s}
-         RechargeableCard.create(pwd: @crand, make_card_id: @cid, card_number:@cbatch+@carnum, card_sum: @csum.to_i, effective_time:Time.now, card_type: @ctype, end_time:@ctime+@ceffective.months, content:"" , giving: @cgiving, failure:0)
-      end
 
-      #@rechargeable_cards.save
-      end
+        #@rechargeable_cards.save
+        end
     else
       #error
     end
@@ -66,6 +73,7 @@ class RechargeableCardsController < ApplicationController
   # GET /rechargeable_cards/1
   # GET /rechargeable_cards/1.json
   def show
+
   end
 
   # GET /rechargeable_cards/new
@@ -76,7 +84,9 @@ class RechargeableCardsController < ApplicationController
   # GET /rechargeable_cards/1/edit
   def edit
 
-  end
+
+
+    end
 
   # POST /rechargeable_cards
   # POST /rechargeable_cards.json
@@ -112,10 +122,8 @@ class RechargeableCardsController < ApplicationController
   # DELETE /rechargeable_cards/1.json
   def destroy
     @rechargeable_card.destroy
-    respond_to do |format|
-      format.html { redirect_to rechargeable_cards_url, notice: 'Rechargeable card was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    redirect_to :back
+
   end
 
   private

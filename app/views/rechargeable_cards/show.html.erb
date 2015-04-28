@@ -1,55 +1,65 @@
 <%= render 'head'%>
+
+<div class="row">
+  <div class="col-lg-12">
+    <h2 class="heading"><i class="icon-random"></i>&nbsp; 充值卡信息</h2>
+    <div class="widget-container fluid-height clearfix" style="padding: 10px;">
+
+      <div class="col-lg-6">
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Pwd:</strong>
+  <span class="col-sm-2" style="text-align: right;">充值密码:</span>
   <%= @rechargeable_card.pwd %>
 </p>
 
 <p>
-  <strong>Make card:</strong>
+  <span class="col-sm-2" style="text-align: right;">制卡ID:</span>
   <%= @rechargeable_card.make_card_id %>
 </p>
 
 <p>
-  <strong>Card number:</strong>
+  <span class="col-sm-2" style="text-align: right;">卡号:</span>
   <%= @rechargeable_card.card_number %>
 </p>
 
 <p>
-  <strong>Card sum:</strong>
+  <span class="col-sm-2" style="text-align: right;">金额:</span>
   <%= @rechargeable_card.card_sum %>
 </p>
 
 <p>
-  <strong>Effective time:</strong>
+  <span class="col-sm-2" style="text-align: right;">有效期:</span>
   <%= @rechargeable_card.effective_time %>
 </p>
 
 <p>
-  <strong>Card type:</strong>
+  <span class="col-sm-2" style="text-align: right;">卡类型:</span>
   <%= @rechargeable_card.card_type %>
 </p>
 
 <p>
-  <strong>End time:</strong>
+  <span class="col-sm-2" style="text-align: right;">截止日期:</span>
   <%= @rechargeable_card.end_time %>
 </p>
 
 <p>
-  <strong>Content:</strong>
+  <span class="col-sm-2" style="text-align: right;">备注:</span>
   <%= @rechargeable_card.content %>
 </p>
 
 <p>
-  <strong>Giving:</strong>
+  <span class="col-sm-2" style="text-align: right;">是否赠送:</span>
   <%= @rechargeable_card.giving %>
 </p>
 
 <p>
-  <strong>Failure:</strong>
+  <span class="col-sm-2" style="text-align: right;">卡失效:</span>
   <%= @rechargeable_card.failure %>
 </p>
-
-<%= link_to 'Edit', edit_rechargeable_card_path(@rechargeable_card) %> |
-<%= link_to 'Back', rechargeable_cards_path %>
+<%= link_to '编辑', edit_rechargeable_card_path(@rechargeable_card) ,class:"btn btn-primary-outline pull-right"%>
+<%= link_to '返回', {:controller => "make_cards", :action => "show",:id=> MakeCard.find_by(params[:id])},class:"btn btn-primary-outline pull-right" %>
+</div>
+  </div>
+    </div>
+        </div>

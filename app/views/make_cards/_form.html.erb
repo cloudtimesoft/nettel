@@ -49,6 +49,7 @@
   </div>
     </tr>
 
+
     <tr>
   <div class="form-group">
     <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :卡金额 %></td>
@@ -79,7 +80,11 @@
           </div>
 
           <div class="toggle-switch text-toggle-switch" data-off-label="否" data-on="primary" data-on-label="是">
-            <input checked="" id="statuschange" name="statuschange" type="checkbox" onchange="javascript:adminstatuschange()">
+            <% if @make_card.giving == 0 %>
+            <input checked="" id="givingchange" name="givingchange" type="checkbox" onchange="javascript:makecardgivingchange()">
+            <% else %>
+                <input checked="" id="givingchange" name="givingchange" type="checkbox" onchange="javascript:makecardgivingchange()">
+            <% end %>
           </div>
         </td>
       </div>

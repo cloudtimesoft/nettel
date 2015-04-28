@@ -4,17 +4,32 @@ class MakeCardsController < ApplicationController
   # GET /make_cards
   # GET /make_cards.json
   def index
-   @make_cards = MakeCard.all
+  @make_cards = MakeCard.all
+
   end
 
   # GET /make_cards/1
   # GET /make_cards/1.json
   def show
-    @make_card = MakeCard.find(params[:id])
-    @rechargeable_cards_ids = @make_card.rechargeable_cards.ids
-    @rechargeable_cards = RechargeableCard.find(@rechargeable_cards_ids)
-    @rechargeable_cards = RechargeableCard.paginate(page: params[:page])
+      @make_card = MakeCard.find(params[:id])
+      #@rechargeable_cards_ids = @make_card.rechargeable_cards.ids
 
+      @usrrechargeable_cards = @make_card.rechargeable_cards
+
+      @rechargeable_cards = @usrrechargeable_cards.paginate(page: params[:page])
+@lastmaxnum=""
+      ((@make_card.card_len-@make_card.batch.length).times{@lastmaxnum += '9'}) #获取制卡位长数字部分最大数
+      #@has_rechargeable_cards = RechargeableCard.all
+      @lenstr=""
+      @lastmaxnum.length.times{@lenstr+="_"}
+      @lenstr= "\'"+@make_card.batch+@lenstr+"\'"
+      @search = RechargeableCard.find_by_sql("select * from rechargeable_cards where card_number like  "+@lenstr)
+      @carcount=0
+      if @search
+        @carcount=@search.count
+      end
+      @lesscarnum=@lastmaxnum.to_i-@carcount
+    #debugger
   end
 
   # GET /make_cards/new

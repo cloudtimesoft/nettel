@@ -5,69 +5,69 @@
 
 <div class="row">
   <div class="col-lg-12">
-    <div class="widget-container fluid-height clearfix">
+    <h2 class="heading"><i class="icon-random"></i>&nbsp; 制卡信息</h2>
+    <div class="widget-container clearfix">
 
       <!--左边样式-->
-      <div class="col-sm-3">
-        <div class="list-group">
+      <div class="col-sm-5 fluid-height ">
+
+
 
 
           <p id="notice"><%= notice %></p>
 
           <p>
-            <strong>Admin:</strong>
+            <span class="col-sm-2" style="text-align: right;">管理员:</span>
             <%= @make_card.admin_id %>
           </p>
 
           <p>
-            <strong>Card type:</strong>
+            <span class="col-sm-2" style="text-align: right;">卡类型:</span>
             <%= @make_card.card_type %>
 
           </p>
 
           <p>
-            <strong>Batch:</strong>
+            <span class="col-sm-2" style="text-align: right;">批次号:</span>
             <%= @make_card.batch %>
           </p>
 
           <p>
-            <strong>Card len:</strong>
+            <span class="col-sm-2" style="text-align: right;">卡位长:</span>
             <%= @make_card.card_len %>
           </p>
 
           <p>
-            <strong>Time:</strong>
+            <span class="col-sm-2" style="text-align: right;width: auto">制卡时间:</span>
             <%= @make_card.time %>
           </p>
 
           <p>
-            <strong>Card sum:</strong>
+            <span class="col-sm-2" style="text-align: right;">卡金额:</span>
             <%= @make_card.card_sum %>
           </p>
 
           <p>
-            <strong>Amount:</strong>
+            <span class="col-sm-2" style="text-align: right;">数量:</span>
             <%= @make_card.amount %>
           </p>
 
           <p>
-            <strong>Content:</strong>
+            <span class="col-sm-2" style="text-align: right;">备注:</span>
             <%=  @make_card.content %>
           </p>
 
           <p>
-            <strong>Giving:</strong>
+            <span class="col-sm-2" style="text-align: right; width: auto">是否赠送:</span>
             <%= @make_card.giving %>
           </p>
 
-        </div>
+
       </div>
       <!-- 左边样式结束-->
+
       <!-- 右边样式-->
-      <div class="col-sm-9">
-        <div class="widget-container fluid-height">
-          <div class="widget-content">
-            <div class="panel-group" id="accordion">
+      <div class="col-lg-7 cts-leftborder-container" >
 
 
             <%=form_tag ({ controller: "rechargeable_cards", action:"makecard"}),method:"post"  do %>
@@ -80,37 +80,41 @@
                   <%= hidden_field_tag('card_sum',params[:card_sum]=@make_card.card_sum)%>
                   <%= hidden_field_tag('amount',params[:amount]=@make_card.amount)%>
                   <%= hidden_field_tag('giving',params[:giving]=@make_card.giving)%>
-            <%= submit_tag "制卡" %>
+                  <%= number_field_tag('effectivetime',params[:effectivetime])%>
+            <%= submit_tag "制卡",class:"btn btn-primary-outline" %>
 <%end%>
+            <%= @lesscarnum%>
 
 
+        <table class="table table-hover">
 
               <% @rechargeable_cards.each do |rechargeable_card| %>
                   <tr>
-                    <td width="30px"><i class=" icon-credit-card "></i></td>
-                    <td class="hidden-xs"><%= rechargeable_card.pwd %></td>
-                    <td><%= rechargeable_card.make_card_id %></td>
+                    <td><i class=" icon-credit-card "></i></td>
+                    <td><%= rechargeable_card.pwd %></td>
+                  <!--  <td><%= rechargeable_card.make_card_id %></td> -->
                     <td><%= rechargeable_card.card_number %></td>
                     <td><%= rechargeable_card.card_sum %></td>
                     <td><%= rechargeable_card.effective_time %></td>
                     <td><%= rechargeable_card.card_type %></td>
                     <td><%= rechargeable_card.end_time %></td>
-                    <td><%= rechargeable_card.content %></td>
+                   <!-- <td><%= rechargeable_card.content %></td> -->
                     <td><%= rechargeable_card.giving %></td>
                     <td><%= rechargeable_card.failure %></td>
-                    <%= link_to '', edit_rechargeable_card_path(rechargeable_card),'data-no-turbolink'=>true ,class:"icon-pencil usricons", title: "编辑" %></td>
+                    <td><%= link_to '', edit_rechargeable_card_path(rechargeable_card),'data-no-turbolink'=>true ,class:"icon-pencil usricons", title: "编辑" %></td>
                     <td><%= link_to '', rechargeable_card, method: :delete, data: { confirm: '确认删除?' } ,class:"icon-trash usricons", title:"删除" %></td>
                   </tr>
                   <p></p>
               <% end %>
 
+          </table>
               <div class="digg_pagination">
                 <%= will_paginate @rechargeable_cards, :previous_label => '上一页', :next_label => '下一页' %>
               </div>
 
-            </div>
-          </div>
-        </div>
+
+
+
       </div>
 
       <!-- 右边样式结束-->

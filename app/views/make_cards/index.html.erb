@@ -35,7 +35,7 @@
         <td><%= make_card.giving %></td>
 
        <td width="100px" align="center"><%= link_to "", make_card,  class:"icon-eye-open usricons", title: "显示" %>
-        <%= link_to "", edit_make_card_path(make_card),  class:"icon-pencil usricons", title: "编辑" %>
+        <%= link_to "", edit_make_card_path(make_card),  class:"icon-pencil usricons", title: "编辑" ,'data-no-turbolink'=>true%>
         <%= link_to '', make_card, method: :delete, data: { confirm: '确认删除?' } ,class:"icon-trash usricons", title:"删除" %></td>
 
       </tr>
