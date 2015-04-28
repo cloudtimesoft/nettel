@@ -1,13 +1,11 @@
 class RechargeableCardsController < ApplicationController
   before_action :set_rechargeable_card, only: [:show, :edit, :update, :destroy]
-<<<<<<< HEAD
   # GET /rechargeable_cards
   # GET /rechargeable_cards.json
 
-=======
 # GET /rechargeable_cards
 # GET /rechargeable_cards.json
->>>>>>> 4eb5f8d08a621befb4072e341fe3dabc97fa5932
+
   def makecard
     @usrrechargeable_cards = RechargeableCard.all
     @cid = params[:id]
@@ -31,7 +29,7 @@ class RechargeableCardsController < ApplicationController
     if @search.count
       @rcount = @search.count
     end
-<<<<<<< HEAD
+
     @lennum=""
     (@clen-@cbatch.length).times{@lennum+="9"}
     #debugger
@@ -45,7 +43,7 @@ class RechargeableCardsController < ApplicationController
           @maxnum=@rechargeable_card.card_number[-@lastnum,@lastnum].to_i
           end
          RechargeableCard.transaction do
-=======
+
     if (@clen-@cbatch.length).times{@lenstr+="9"}.to_i - @rcount > @camout.to_i
       @rechargeable_card=@rechargeable_cards.last
       @lastnum=@clen-@cbatch.length
@@ -55,7 +53,7 @@ class RechargeableCardsController < ApplicationController
         @maxnum=@rechargeable_card.card_number[-@lastnum,@lastnum].to_i
       end
       RechargeableCard.transaction do
->>>>>>> 4eb5f8d08a621befb4072e341fe3dabc97fa5932
+
         (@camount.to_i).times do
           @maxnum+=1
           @carnum=""
@@ -65,18 +63,18 @@ class RechargeableCardsController < ApplicationController
           @carnum+=@maxnum.to_s
           @crand=""
           6.times{@crand += rand(9).to_s}
-<<<<<<< HEAD
+
            RechargeableCard.create(pwd: @crand, make_card_id: @cid, card_number:@cbatch+@carnum, card_sum: @csum.to_i, effective_time:@ceffectivetime, card_type: @ctype, end_time:@ctime+@ceffective.months, content:"" , giving: @cgiving, failure:0)
         end
 
         #@rechargeable_cards.save
         end
-=======
+
           RechargeableCard.create(pwd: @crand, make_card_id: @cid, card_number:@cbatch+@carnum, card_sum: @csum.to_i, effective_time:Time.now, card_type: @ctype, end_time:@ctime+@ceffective.months, content:"" , giving: @cgiving, failure:0)
         end
 #@rechargeable_cards.save
       end
->>>>>>> 4eb5f8d08a621befb4072e341fe3dabc97fa5932
+
     else
 #error
     end
@@ -97,7 +95,7 @@ class RechargeableCardsController < ApplicationController
   end
 # GET /rechargeable_cards/1/edit
   def edit
-<<<<<<< HEAD
+
 
 
 
@@ -105,11 +103,10 @@ class RechargeableCardsController < ApplicationController
 
   # POST /rechargeable_cards
   # POST /rechargeable_cards.json
-=======
+
   end
 # POST /rechargeable_cards
-# POST /rechargeable_cards.json
->>>>>>> 4eb5f8d08a621befb4072e341fe3dabc97fa5932
+
   def create
     @rechargeable_card = RechargeableCard.new(rechargeable_card_params)
     respond_to do |format|
