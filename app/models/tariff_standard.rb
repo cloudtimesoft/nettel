@@ -5,9 +5,5 @@ class TariffStandard < ActiveRecord::Base
 
 
 
-  def TariffStandard.search(search)
-    order('content').where('content LIKE ?', "%#{search}%")
-    order('name').where('name LIKE ?', "%#{search}%")
-  end
 
 end

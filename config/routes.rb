@@ -12,9 +12,9 @@ Rails.application.routes.draw do
 
   resources :admin_role_refs
 
-  resources :tariff_standards
-
-
+  resources :tariff_standards do
+  get 'check', on: :collection
+end
 
 
 

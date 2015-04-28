@@ -12,9 +12,8 @@ class MakeCardsController < ApplicationController
   def show
     @make_card = MakeCard.find(params[:id])
     @rechargeable_cards_ids = @make_card.rechargeable_cards.ids
+    #@rechargeable_cards = RechargeableCard.paginate(page: params[:page])
     @rechargeable_cards = RechargeableCard.find(@rechargeable_cards_ids)
-    @rechargeable_cards = RechargeableCard.paginate(page: params[:page])
-
   end
 
   # GET /make_cards/new

@@ -62,6 +62,6 @@ class TimeChargesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def time_charge_params
-      params.require(:time_charge).permit(:tariff_standard_id, :s_charges, :c_charges, :start_time, :end_time)
+      params.require(:time_charge).permit(:tariff_standard_id, :s_charges, :c_charges, :start_time.to_s, :end_time.to_s)
     end
 end

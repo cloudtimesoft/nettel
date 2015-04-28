@@ -25,7 +25,7 @@
 
 
       <!--左边样式-->
-              <div class="col-lg-6">
+              <div class="col-lg-5">
                 <h4 class="heading icon-jpy">&nbsp;套餐</h4><p></p>
 
                   <div id="lablediv" >
@@ -53,7 +53,6 @@
 
                 <div id="formdiv" style="display: none;">
                   <%= render 'editform' %>
-                  <input type="button" onclick="showlablediv()" value="取消" class="btn btn-primary-outline pull-left">
                 </div>
 
               </div>
@@ -61,9 +60,9 @@
 
 
       <!-- 右边样式-->
-      <div class="col-lg-6 cts-leftborder-container">
+      <div class="col-lg-7 cts-leftborder-container">
                       <h4 class="heading">&nbsp;<i class="icon-jpy"></i>资费明细</h4>
-                         <h9 class="heading">&nbsp;基础套餐信息</h9>
+                         <h6 class="heading">&nbsp;基础套餐信息</h6>
                                       <div class="panel" id ="hidediv">
                                         <% session[:tempid]=params[:id] %>
                                         <% session[:return_to]=request.fullpath %>
@@ -90,47 +89,50 @@
                                       <div class="panel">
                                         <% @tariff_standard.basic_charges.each do |f| %>
                                             <% if f.created_at %>
-                                                <p>
-                                                  <span class="col-sm-2" style="text-align: right;">直拨费用:</span>
-                                                  <%=  f.s_charges %>
-                                                </p>
-
-                                                <p>
-                                                  <span class="col-sm-2" style="text-align: right;">回拨费用:</span>
-                                                  <%=  f.c_charges %>
-                                                </p>
-                                                <p>
-                                                <%= link_to 'Destroy', f, method: :delete, data: { confirm: 'Are you sure?' } %>
-                                                </p>
+                                                  <table class="table table-hover table-bordered table-striped">
+                                                  <tr>
+                                                    <th></th>
+                                                    <th class="heading">直拨</th>
+                                                    <th class="heading">回拨</th>
+                                                    <th class="heading">操作</th>
+                                                  </tr>
+                                                <tr>
+                                                  <td width="30px"><i class="heading icon-jpy"></i></td>
+                                                  <td class="hidden-xs"><%= f.s_charges %></td>
+                                                  <td class="hidden-xs"><%= f.c_charges %></td>
+                                                  <td width="100px" align="center">
+                                                    <%= link_to '', f, method: :delete, data: { confirm: '是否新建基本套餐？' },class:"icon-trash usricons", title:"删除" %></td>
+                                                </tr>
+                                                  </table>
                                                     <%end%>
                                             <% end %>
                                       </div>
 
                                       <div class="panel">
-                                        <h4 class="heading">&nbsp;时段套餐</h4>
+                                        <h6 class="heading">&nbsp;时段套餐</h6>
+                                        <table class="table table-hover table-bordered table-striped">
+                                          <tr>
+                                            <th></th>
+                                            <th class="heading">直拨</th>
+                                            <th class="heading">回拨</th>
+                                            <th class="heading">开始时间</th>
+                                            <th class="heading">结束时间</th>
+                                            <th class="heading">操作</th>
+                                          </tr>
                                         <% @tariff_standard.time_charges.each do |f| %>
                                             <% if f.created_at %>
-                                                <p>
-                                                  <strong>直拨费用:</strong>
-                                                  <%= f.s_charges %>
-                                                </p>
-                                                <p>
-                                                  <strong>回拨费用:</strong>
-                                                  <%= f.c_charges %>
-                                                </p>
-                                                <p>
-                                                  <strong>开始时间:</strong>
-                                                  <%= f.start_time %>
-                                                </p>
-                                                <p>
-                                                  <strong>结束时间:</strong>
-                                                  <%= f.end_time %>
-                                                </p>
-                                                <p>
-                                                <%= link_to 'Destroy', f, method: :delete, data: { confirm: 'Are you sure?' } %>
-                                                </p>
+                                                  <tr>
+                                                    <td width="30px"><i class="heading icon-jpy"></i></td>
+                                                    <td class="hidden-xs"><%= f.s_charges %></td>
+                                                    <td class="hidden-xs"><%= f.c_charges %></td>
+                                                    <td class="hidden-xs"><%= f.start_time.strftime("%Y-%m-%d %H:%M:%S") %></td>
+                                                    <td class="hidden-xs"><%= f.end_time.strftime("%Y-%m-%d %H:%M:%S") %></td>
+                                                    <td width="100px" align="center">
+                                                      <%= link_to '', f, method: :delete, data: { confirm: '是否新建时段套餐？' },class:"icon-trash usricons", title:"删除" %></td>
+                                                  </tr>
                                             <% end %>
                                         <% end %>
+                                          </table>
                                       </div>
 
                                       <div id = "showdiv" style="display: none;" class="panel">
@@ -147,10 +149,10 @@
                                             </p>
                                             <p>
                                               <span class="col-sm-2" style="text-align: right;">开始时间:</span>
-                                              <%= f.datetime_select :start_time %>
+                                              <%= f.datetime_select :start_time%>
                                             </p>
                                             <p>
-                                              <span class="col-sm-2" style="text-align: right;">开始时间:</span>
+                                              <span class="col-sm-2" style="text-align: right;">结束时间:</span>
                                               <%= f.datetime_select :end_time %>
                                             </p>
                                             <p>
@@ -163,7 +165,7 @@
 
                                       <div class="panel">
 
-                                        <input type="button" onclick="show()" value="添加时段套餐" class="btn btn-info pull-left">
+                                        <input type="button" onclick="show()" value="添加时段套餐" class="btn btn-primary-outline pull-left">
 
                                       </div>
                       </div>

@@ -1029,10 +1029,40 @@
           }
       });
 
+      /*
+       # =============================================================================
+       #   admin edit validate
+       # =============================================================================
+       */
+
+      $(".new_tariff_standard").validate({
+          rules: {
+              'tariff_standard[name]': {
+                  required: true,
+                  remote: {
+                      data: {
+                          user_name: function(){
+                              return $('#tariff_standard_name').val();
+                          }
+                      },
+                      url: "/tariff_standards/check",
+                      type: "get"
 
 
+                  }
+
+              }
+
+          },
+          messages: {
+              'tariff_standard[name]': {
+                  required: "账号不能为空！",
+                  remote: "该账户已存在！"
+              }
 
 
+          }
+      });
 
 
 
