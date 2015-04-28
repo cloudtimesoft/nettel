@@ -95,12 +95,6 @@ class RechargeableCardsController < ApplicationController
   end
 # GET /rechargeable_cards/1/edit
   def edit
-
-
-
-
-    end
-
   # POST /rechargeable_cards
   # POST /rechargeable_cards.json
 
