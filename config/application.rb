@@ -17,15 +17,12 @@ module Nettel
     # config.time_zone = 'Central Time (US & Canada)'
 
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
-<<<<<<< HEAD
+
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
-
-=======
     #config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
    #config.i18n.default_locale = :local
->>>>>>> 4eb5f8d08a621befb4072e341fe3dabc97fa5932
     config.time_zone = 'Beijing'
     config.active_record.default_timezone = :local
   end
