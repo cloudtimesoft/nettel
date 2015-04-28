@@ -11,7 +11,6 @@ class MakeCardsController < ApplicationController
   # GET /make_cards/1
   # GET /make_cards/1.json
   def show
-<<<<<<< HEAD
       @make_card = MakeCard.find(params[:id])
       #@rechargeable_cards_ids = @make_card.rechargeable_cards.ids
 
@@ -30,13 +29,10 @@ class MakeCardsController < ApplicationController
         @carcount=@search.count
       end
       @lesscarnum=@lastmaxnum.to_i-@carcount
-    #debugger
-=======
     @make_card = MakeCard.find(params[:id])
     @rechargeable_cards_ids = @make_card.rechargeable_cards.ids
     #@rechargeable_cards = RechargeableCard.paginate(page: params[:page])
     @rechargeable_cards = RechargeableCard.find(@rechargeable_cards_ids)
->>>>>>> 4eb5f8d08a621befb4072e341fe3dabc97fa5932
   end
 
   # GET /make_cards/new
