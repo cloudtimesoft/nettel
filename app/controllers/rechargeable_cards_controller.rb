@@ -44,15 +44,7 @@ class RechargeableCardsController < ApplicationController
           end
          RechargeableCard.transaction do
 
-    if (@clen-@cbatch.length).times{@lenstr+="9"}.to_i - @rcount > @camout.to_i
-      @rechargeable_card=@rechargeable_cards.last
-      @lastnum=@clen-@cbatch.length
-      if !@rechargeable_card
-        @maxnum=0
-      else
-        @maxnum=@rechargeable_card.card_number[-@lastnum,@lastnum].to_i
-      end
-      RechargeableCard.transaction do
+
 
         (@camount.to_i).times do
           @maxnum+=1
@@ -66,13 +58,7 @@ class RechargeableCardsController < ApplicationController
 
            RechargeableCard.create(pwd: @crand, make_card_id: @cid, card_number:@cbatch+@carnum, card_sum: @csum.to_i, effective_time:@ceffectivetime, card_type: @ctype, end_time:@ctime+@ceffective.months, content:"" , giving: @cgiving, failure:0)
         end
-
         #@rechargeable_cards.save
-        end
-
-          RechargeableCard.create(pwd: @crand, make_card_id: @cid, card_number:@cbatch+@carnum, card_sum: @csum.to_i, effective_time:Time.now, card_type: @ctype, end_time:@ctime+@ceffective.months, content:"" , giving: @cgiving, failure:0)
-        end
-#@rechargeable_cards.save
       end
 
     else
