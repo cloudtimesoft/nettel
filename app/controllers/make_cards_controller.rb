@@ -5,7 +5,7 @@ class MakeCardsController < ApplicationController
   # GET /make_cards.json
   def index
   @make_cards = MakeCard.all
-
+  @admins=Admin.all
   end
 
   # GET /make_cards/1
@@ -29,6 +29,9 @@ class MakeCardsController < ApplicationController
         @carcount=@search.count
       end
       @lesscarnum=@lastmaxnum.to_i-@carcount
+
+
+    @admin = Admin.find(@make_card.admin_id) rescue nil
 
   end
 

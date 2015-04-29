@@ -1,0 +1,111 @@
+<script type="text/javascript" language="JavaScript">
+  function dateselect() {
+      document.getElementById("make_card_time").value=document.getElementById("dateinput").value;
+
+  }
+</script>
+<%= form_for(@make_card) do |f| %>
+    <fieldset>
+      <% if @make_card.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@make_card.errors.count, "error") %> prohibited this make_card from being saved:</h2>
+
+            <ul>
+              <% @make_card.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+
+      <table class="col-lg-8">
+
+        <tr style="display: none">
+          <div class="form-group">
+            <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;"> <%= f.label :管理员 %></td>
+            <td> <%= f.number_field :admin_id,value:session[:admin_id],class:"form-control"%></td>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="form-group">
+            <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :卡类型 %></td>
+            <td> <%= f.number_field :card_type,class:"form-control" %></td>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="form-group">
+            <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :批次号 %></td>
+            <td> <%= f.text_field :batch,class:"form-control" %></td>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="form-group">
+            <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :卡位长 %></td>
+            <td><%= f.number_field :card_len,class:"form-control"  %></td>
+          </div>
+        </tr>
+
+        <tr>
+          <div >
+            <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :制卡时间 %></td>
+
+            <td><%= f.hidden_field :time %><div class="input-group date datepicker" data-date-autoclose="true" data-date-format="yyyy-mm-dd">
+              <input id="dateinput" class="form-control" type="text" onchange="dateselect()"><span class="input-group-addon"><i class="icon-calendar"></i></span></input>
+            </div></td>
+
+
+          </div>
+        </tr>
+
+
+        <tr>
+          <div class="form-group">
+            <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :卡金额 %></td>
+            <td> <%= f.text_field :card_sum,class:"form-control" %></td>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="form-group">
+            <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :制卡数量 %></td>
+            <td> <%= f.number_field :amount,class:"form-control" %></td>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="form-group">
+            <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :备注 %></td>
+            <td> <%= f.text_area :content, class:"form-control", size:'20' %></td>
+          </div>
+        </tr>
+
+        <tr>
+          <div>
+            <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :是否赠送 %></td>
+            <td >
+              <div style="display: none;">
+                <%= f.number_field :giving, value:1, class:"form-control" %>
+              </div>
+
+              <div class="toggle-switch text-toggle-switch" data-off-label="否" data-on="primary" data-on-label="是">
+                <% if @make_card.giving == 0 %>
+                    <input checked="" id="givingchange" name="givingchange" type="checkbox" onchange="javascript:makecardgivingchange()">
+                <% else %>
+                    <input checked="" id="givingchange" name="givingchange" type="checkbox" onchange="javascript:makecardgivingchange()">
+                <% end %>
+              </div>
+            </td>
+          </div>
+        </tr>
+
+        <tr>
+          <td align="right" colspan="2" style="padding: 0px;"><div class="actions">
+            <%= f.submit :"确定", class:"btn btn-primary-outline pull-right" %></td>
+          </div>
+        </tr>
+      </table>
+    </fieldset>
+<% end %>

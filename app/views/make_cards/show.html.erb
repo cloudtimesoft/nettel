@@ -3,13 +3,13 @@
 
 <%= render 'head'%>
 
-<div class="row">
-  <div class="col-lg-12">
+
+
     <h2 class="heading"><i class="icon-random"></i>&nbsp; 制卡信息</h2>
     <div class="widget-container clearfix">
 
       <!--左边样式-->
-      <div class="col-sm-5 fluid-height ">
+      <div class="col-md-3 fluid-height ">
 
 
 
@@ -17,49 +17,59 @@
           <p id="notice"><%= notice %></p>
 
           <p>
-            <span class="col-sm-2" style="text-align: right;">管理员:</span>
-            <%= @make_card.admin_id %>
+            <div class="col-md-3" style="text-align: right;">管理员:</div>
+        <% if @admin %>
+            <%= @admin.name%>
+         <% else%>
+            &nbsp;
+        <% end%>
           </p>
 
           <p>
-            <span class="col-sm-2" style="text-align: right;">卡类型:</span>
+            <div class="col-md-3" style="text-align: right;">卡类型:</div>
             <%= @make_card.card_type %>
 
           </p>
 
           <p>
-            <span class="col-sm-2" style="text-align: right;">批次号:</span>
+            <span class="col-md-3" style="text-align: right;">批次号:</span>
             <%= @make_card.batch %>
           </p>
 
           <p>
-            <span class="col-sm-2" style="text-align: right;">卡位长:</span>
+            <span class="col-sm-3" style="text-align: right;">卡位长:</span>
             <%= @make_card.card_len %>
           </p>
 
           <p>
-            <span class="col-sm-2" style="text-align: right;width: auto">制卡时间:</span>
+            <span class="col-sm-3" style="text-align: right;width: auto">制卡时间:</span>
             <%= @make_card.time %>
           </p>
 
           <p>
-            <span class="col-sm-2" style="text-align: right;">卡金额:</span>
+            <span class="col-sm-3" style="text-align: right;">卡金额:</span>
             <%= @make_card.card_sum %>
           </p>
 
           <p>
-            <span class="col-sm-2" style="text-align: right;">数量:</span>
+            <span class="col-sm-3" style="text-align: right;">数量:</span>
             <%= @make_card.amount %>
           </p>
 
           <p>
-            <span class="col-sm-2" style="text-align: right;">备注:</span>
-            <%=  @make_card.content %>
+            <div class="col-sm-3" style="text-align: right;">备注:</div>
+            <%=  @make_card.content %>&nbsp;
           </p>
 
           <p>
-            <span class="col-sm-2" style="text-align: right; width: auto">是否赠送:</span>
-            <%= @make_card.giving %>
+            <span class="col-sm-3" style="text-align: right;">可赠送:</span>
+
+            <%if @make_card.giving == 1%>
+
+                <%="是"%>
+                <%else%>
+                <%="否"%>
+              <%end%>
           </p>
 
 
@@ -67,10 +77,11 @@
       <!-- 左边样式结束-->
 
       <!-- 右边样式-->
-      <div class="col-lg-7 cts-leftborder-container" >
+      <div class="col-md-9 cts-leftborder-container" >
 
 
-            <%=form_tag ({ controller: "rechargeable_cards", action:"makecard"}),method:"post"  do %>
+            <%=form_tag ({ controller: "rechargeable_cards", action:"makecard"}),method:"post" ,class:"makecard" do %>
+            <fieldset>
                   <%= hidden_field_tag('id',params[:id]=@make_card.id)%>
                  <%= hidden_field_tag('card_type',params[:card_type]=@make_card.card_type)%>
                   <%= hidden_field_tag('batch',params[:batch]=@make_card.batch)%>
@@ -80,13 +91,29 @@
                   <%= hidden_field_tag('card_sum',params[:card_sum]=@make_card.card_sum)%>
                   <%= hidden_field_tag('amount',params[:amount]=@make_card.amount)%>
                   <%= hidden_field_tag('giving',params[:giving]=@make_card.giving)%>
-               有效期   <%= number_field_tag('effectivetime',params[:effectivetime])%>
+            <div class="form-group heading"> 有效期 <%= text_field_tag('effectivetime',params[:effectivetime],class:"form-control")%></div>
             <%= submit_tag "制卡",class:"btn btn-primary-outline" %>
+              </fieldset>
 <%end%>
            剩余可制卡数<%= @lesscarnum%>
 
 
-        <table class="table table-hover">
+        <table class="table table-hover  table-striped">
+
+          <tr>
+            <th></th>
+            <th class="heading">密码</th>
+            <th class="heading">卡号</th>
+            <th class="heading">金额</th>
+            <th class="heading">有效期</th>
+            <th class="heading">卡类型</th>
+            <th class="heading">截止日期</th>
+            <th class="heading">可赠送</th>
+            <th class="heading">失效</th>
+            <th></th>
+            <th></th>
+
+          </tr>
 
               <% @rechargeable_cards.each do |rechargeable_card| %>
                   <tr>
@@ -99,7 +126,11 @@
                     <td><%= rechargeable_card.card_type %></td>
                     <td><%= rechargeable_card.end_time %></td>
                    <!-- <td><%= rechargeable_card.content %></td> -->
-                    <td><%= rechargeable_card.giving %></td>
+                    <% if rechargeable_card.giving==1%>
+                    <td><%= "是"%></td>
+                        <% else%>
+                        <td><%= "否"%></td>
+                    <%end%>
                     <td><%= rechargeable_card.failure %></td>
                     <td><%= link_to '', edit_rechargeable_card_path(rechargeable_card),'data-no-turbolink'=>true ,class:"icon-pencil usricons", title: "编辑" %></td>
                     <td><%= link_to '', rechargeable_card, method: :delete, data: { confirm: '确认删除?' } ,class:"icon-trash usricons", title:"删除" %></td>
@@ -120,5 +151,5 @@
       <!-- 右边样式结束-->
 
     </div>
-  </div>
-</div>
+
+

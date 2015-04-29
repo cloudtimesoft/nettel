@@ -24,7 +24,16 @@
     <% @make_cards.each do |make_card| %>
       <tr>
         <td width="30px"><i class="heading icon-credit-card "></i></td>
-        <td class="hidden-xs"><%= make_card.admin_id %></td>
+
+            <% @admin=@admins.find(make_card.admin_id) rescue nil %>
+        <% if @admin %>
+            <td class="hidden-xs"><%= @admin.name %></td>
+        <% else %>
+            <td class="hidden-xs">&nbsp;</td>
+            <% end %>
+
+
+
         <td><%= make_card.card_type %></td>
         <td><%= make_card.batch %></td>
         <td><%= make_card.card_len %></td>
@@ -35,7 +44,7 @@
         <td><%= make_card.giving %></td>
 
        <td width="100px" align="center"><%= link_to "", make_card,  class:"icon-eye-open usricons", title: "显示" %>
-        <%= link_to "", edit_make_card_path(make_card),  class:"icon-pencil usricons", title: "编辑" ,'data-no-turbolink'=>true%>
+
         <%= link_to '', make_card, method: :delete, data: { confirm: '确认删除?' } ,class:"icon-trash usricons", title:"删除" %></td>
 
       </tr>
