@@ -80,10 +80,10 @@
                   <%= hidden_field_tag('card_sum',params[:card_sum]=@make_card.card_sum)%>
                   <%= hidden_field_tag('amount',params[:amount]=@make_card.amount)%>
                   <%= hidden_field_tag('giving',params[:giving]=@make_card.giving)%>
-                  <%= number_field_tag('effectivetime',params[:effectivetime])%>
+               有效期   <%= number_field_tag('effectivetime',params[:effectivetime])%>
             <%= submit_tag "制卡",class:"btn btn-primary-outline" %>
 <%end%>
-            <%= @lesscarnum%>
+           剩余可制卡数<%= @lesscarnum%>
 
 
         <table class="table table-hover">
