@@ -1,41 +1,37 @@
-<%= form_for(@cfg) do |f| %>
-  <% if @cfg.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@cfg.errors.count, "error") %> prohibited this cfg from being saved:</h2>
+<div class="widget-container fluid-height clearfix padded">
+    <%= form_for(@cfg) do |f| %>
 
-      <ul>
-      <% @cfg.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+    <div class="form-horizontal pull-left col-md-8" >
+
+      <div class="form-group">
+        <div class="control-label col-md-3"> 新用户赠送金额（元）</div>
+        <div class="col-md-6"><%= f.text_field :give_cost,class:"form-control" %></div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-md-3"><%= f.label :公司名称 %></div>
+        <div class="col-md-6"><%= f.text_field :company_name ,class:"form-control" %></div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-md-3"><%= f.label :销售热线 %></div>
+        <div class="col-md-6"><%= f.text_field :sales_tel,class:"form-control"  %></div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-md-3"><%= f.label :技术热线 %></div>
+        <div class="col-md-6"><%= f.text_field :service_tel,class:"form-control"  %></div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-md-3"> <%= f.label :拨号网关 %></div>
+        <div class="col-md-6"><%= f.text_field :gateway,class:"form-control"  %></div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-md-3"><%= f.label :备注 %></div>
+        <div class="col-md-6"><%= f.text_area :content ,class:"form-control" %></div>
+      </div>
+      <div class="actions " >
+        <div class="col-md-3" style="margin-top: 10px;"><%= link_to '返回', cfgs_path,class:"btn btn-xs btn-btn btn-default-outline" %></div>
+        <div class="col-md-6" style="padding-right: 0px;"><%= f.submit :'确定', class:"btn btn-primary-outline pull-right" %></div>
+      </div>
+
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :give_cost %><br>
-    <%= f.text_field :give_cost %>
-  </div>
-  <div class="field">
-    <%= f.label :company_name %><br>
-    <%= f.text_field :company_name %>
-  </div>
-  <div class="field">
-    <%= f.label :sales_tel %><br>
-    <%= f.text_field :sales_tel %>
-  </div>
-  <div class="field">
-    <%= f.label :service_tel %><br>
-    <%= f.text_field :service_tel %>
-  </div>
-  <div class="field">
-    <%= f.label :gateway %><br>
-    <%= f.text_field :gateway %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_area :content %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+    <% end %>
+ </div>

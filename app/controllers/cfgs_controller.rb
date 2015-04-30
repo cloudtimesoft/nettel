@@ -42,7 +42,7 @@ class CfgsController < ApplicationController
   def update
     respond_to do |format|
       if @cfg.update(cfg_params)
-        format.html { redirect_to @cfg, notice: 'Cfg was successfully updated.' }
+        format.html { redirect_to cfgs_path, notice: 'Cfg was successfully updated.' }
         format.json { render :show, status: :ok, location: @cfg }
       else
         format.html { render :edit }
