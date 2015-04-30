@@ -103,6 +103,8 @@ class RechargeableCardsController < ApplicationController
 # PATCH/PUT /rechargeable_cards/1
 # PATCH/PUT /rechargeable_cards/1.json
   def update
+    @zktime= MakeCard.find(RechargeableCard.find(params[:id]).make_card_id)
+    params[:rechargeable_card][:end_time]=@zktime.time + params[:rechargeable_card][:effective_time].to_i.month
     respond_to do |format|
       if @rechargeable_card.update(rechargeable_card_params)
         format.html { redirect_to @rechargeable_card, notice: 'Rechargeable card was successfully updated.' }

@@ -27,10 +27,23 @@ function makecardgivingchange()
 function cardfailurechange()
 {
     if (document.getElementById("failurechange").checked) {
-        document.getElementById("make_card_failure").value = "0";
+        document.getElementById("rechargeable_card_failure").value = "0";
     }
     else {
-        document.getElementById("make_card_failure").value = "1";
+        document.getElementById("rechargeable_card_failure").value = "1";
+    }
+
+
+}
+
+
+function rechargeablecardgivingchange()
+{
+    if (document.getElementById("givingchange").checked) {
+        document.getElementById("rechargeable_card_giving").value = "1";
+    }
+    else {
+        document.getElementById("rechargeable_card_giving").value = "0";
     }
 
 

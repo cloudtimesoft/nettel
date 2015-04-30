@@ -35,29 +35,43 @@
 
 <p>
   <span class="col-sm-2" style="text-align: right;">卡类型:</span>
-  <%= @rechargeable_card.card_type %>
+  <% if @rechargeable_card.card_type == 1%>
+      <%= "开卡截止"%>
+  <% else%>
+      <%= "制卡截止"%>
+  <% end%>
 </p>
 
 <p>
   <span class="col-sm-2" style="text-align: right;">截止日期:</span>
-  <%= @rechargeable_card.end_time %>
+  <%= @rechargeable_card.end_time.strftime("%Y-%m-%d %H:%M:%S") %>
 </p>
 
 <p>
   <span class="col-sm-2" style="text-align: right;">备注:</span>
-  <%= @rechargeable_card.content %>
+  <%= @rechargeable_card.content %>&nbsp;
 </p>
 
 <p>
   <span class="col-sm-2" style="text-align: right;">是否赠送:</span>
-  <%= @rechargeable_card.giving %>
+  <% if @rechargeable_card.giving == 0%>
+  <%= "否"%>
+      <% else%>
+      <%= "是"%>
+      <% end%>
 </p>
 
 <p>
   <span class="col-sm-2" style="text-align: right;">卡失效:</span>
-  <%= @rechargeable_card.failure %>
+  <% if @rechargeable_card.failure == 0%>
+      <%= "正常"%>
+  <% else%>
+      <%= "失效"%>
+  <% end%>
+
 </p>
-<%= link_to '编辑', edit_rechargeable_card_path(@rechargeable_card) ,class:"btn btn-primary-outline pull-right"%>
+
+<%= link_to '编辑', edit_rechargeable_card_path(@rechargeable_card) ,class:"btn btn-primary-outline pull-right",'data-no-turbolink'=>true%>
 <%= link_to '返回', {:controller => "make_cards", :action => "show",:id=> MakeCard.find_by(params[:id])},class:"btn btn-primary-outline pull-right" %>
 </div>
   </div>

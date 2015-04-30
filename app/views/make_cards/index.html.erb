@@ -37,7 +37,7 @@
         <td><%= make_card.card_type %></td>
         <td><%= make_card.batch %></td>
         <td><%= make_card.card_len %></td>
-        <td><%= make_card.time %></td>
+        <td><%= make_card.time.strftime("%Y-%m-%d") %></td>
         <td><%= make_card.card_sum %></td>
         <td><%= make_card.amount %></td>
         <td><%= make_card.content %></td>

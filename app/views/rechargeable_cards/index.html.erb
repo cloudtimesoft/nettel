@@ -29,7 +29,7 @@
         <td><%= rechargeable_card.card_sum %></td>
         <td><%= rechargeable_card.effective_time %></td>
         <td><%= rechargeable_card.card_type %></td>
-        <td><%= rechargeable_card.end_time %></td>
+        <td><%= rechargeable_card.end_time.strftime("%Y-%m-%d %H:%M:%S") %></td>
         <td><%= rechargeable_card.content %></td>
         <td><%= rechargeable_card.giving %></td>
         <td><%= rechargeable_card.failure %></td>

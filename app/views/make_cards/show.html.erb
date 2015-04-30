@@ -44,7 +44,7 @@
 
           <p>
             <span class="col-sm-3" style="text-align: right;width: auto">制卡时间:</span>
-            <%= @make_card.time %>&nbsp;
+            <%= @make_card.time.strftime("%Y-%m-%d")  %>&nbsp;
           </p>
 
           <p>
@@ -128,7 +128,7 @@
                     <% else%>
                     <td><%= "制卡截至"%></td>
           <%end%>
-                    <td><%= rechargeable_card.end_time %></td>
+                    <td><%= rechargeable_card.end_time.strftime("%Y-%m-%d") %></td>
                     <% if rechargeable_card.giving==1%>
                     <td><%= "是"%></td>
                         <% else%>
