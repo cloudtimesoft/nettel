@@ -1,16 +1,16 @@
 <%= render 'head'%>
-<h1>Listing cfgs</h1>
-
-<table>
+<h1 class="heading">全局设置</h1>
+<div class="widget-container fluid-height clearfix" style="padding: 10px;">
+<table class="table table-hover table-bordered table-striped">
   <thead>
     <tr>
-      <th>Give cost</th>
-      <th>Company name</th>
-      <th>Sales tel</th>
-      <th>Service tel</th>
-      <th>Gateway</th>
-      <th>Content</th>
-      <th colspan="3"></th>
+      <th class="heading">新用户赠送金额</th>
+      <th class="heading">公司名称</th>
+      <th class="heading">销售热线</th>
+      <th class="heading">技术热线</th>
+      <th class="heading">拨号网关</th>
+
+      <th class="heading">操作</th>
     </tr>
   </thead>
 
@@ -22,14 +22,12 @@
         <td><%= cfg.sales_tel %></td>
         <td><%= cfg.service_tel %></td>
         <td><%= cfg.gateway %></td>
-        <td><%= cfg.content %></td>
 
-        <td><%= link_to 'Edit', edit_cfg_path(cfg) %></td>
-
+        <td align="center"><%= link_to '', edit_cfg_path(cfg), class:"icon-pencil usricons", title: "编辑" %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+</div>
 
-<br>
 
