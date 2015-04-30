@@ -3,6 +3,9 @@
       document.getElementById("make_card_time").value=document.getElementById("dateinput").value;
 
   }
+    function cardtypeselect(){
+        document.getElementById("make_card_card_type").value=document.getElementById("cardtype").value;
+    }
 </script>
 <%= form_for(@make_card) do |f| %>
     <fieldset>
@@ -30,7 +33,8 @@
         <tr>
           <div class="form-group">
             <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :卡类型 %></td>
-            <td> <%= f.number_field :card_type,class:"form-control" %></td>
+
+            <td> <%= f.hidden_field :card_type,value:1%><select id="cardtype" class="form-control" type="text" onchange="cardtypeselect()"><option value="1">开卡截至</option><option value="2">制卡截至</option></select></td>
           </div>
         </tr>
 

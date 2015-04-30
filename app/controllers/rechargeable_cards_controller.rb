@@ -17,6 +17,7 @@ class RechargeableCardsController < ApplicationController
     @csum = params[:card_sum]
     @camount = params[:amount]
     @cgiving = params[:giving]
+
     @ceffectivetime= params[:effectivetime].to_i
    # debugger
     @lenstr=""

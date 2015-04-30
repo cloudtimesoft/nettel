@@ -23,3 +23,15 @@ function makecardgivingchange()
 
 
 }
+
+function cardfailurechange()
+{
+    if (document.getElementById("failurechange").checked) {
+        document.getElementById("make_card_failure").value = "0";
+    }
+    else {
+        document.getElementById("make_card_failure").value = "1";
+    }
+
+
+}

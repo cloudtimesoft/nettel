@@ -1,4 +1,6 @@
-<%= form_for(@rechargeable_card,{:controller => "make_cards", :action => "show",:id=>MakeCard.find_by(id:'5')} ) do |f| %>
+
+<%= form_for(@rechargeable_card) do |f| %>
+
     <fieldset>
       <% if @rechargeable_card.errors.any? %>
           <div id="error_explanation">
@@ -55,7 +57,7 @@
         <tr>
           <div class="form-group">
             <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;"> <%= f.label :卡类型 %></td>
-            <td><%= f.number_field :card_type ,class:"form-control" %></td>
+            <td><%= f.text_field :card_type ,class:"form-control" %></td>
           </div>
         </tr>
 
@@ -63,7 +65,7 @@
         <tr>
           <div class="form-group">
             <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"> <%= f.label :截止日期 %></td>
-            <td><%= f.datetime_select :end_time %></td>
+            <td><%= f.text_field :end_time ,class:"form-control"%></td>
           </div>
         </tr>
 
@@ -76,23 +78,34 @@
         </tr>
 
         <tr>
-          <div class="form-group">
+          <div>
             <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;"> <%= f.label :卡失效 %></td>
-            <td><%= f.number_field :failure ,class:"form-control" %></td>
+            <td>
+              <div style="display: none;">
+              <%= f.number_field :failure ,value:0,class:"form-control" %>
+              </div>
+          <div class="toggle-switch text-toggle-switch" data-off-label="失效" data-on="primary" data-on-label="正常">
+
+            <input checked="" id="failurechange" name="failurechange" type="checkbox" onchange="javascript:cardfailurechange()">
+
+
+          </div>
+          </td>
           </div>
         </tr>
 
 
         <tr>
           <div>
-            <td style="margin-top: 10px;width:90px;text-align: right;padding: 10px;"><%= f.label :是否可赠送 %></td>
+            <td style="margin-top: 10px;width:90px;text-align: right;padding: 10px;"><%= f.label :可赠送 %></td>
             <td >
               <div style="display: none;">
                 <%= f.number_field :giving, value:1, class:"form-control" %>
               </div>
-
               <div class="toggle-switch text-toggle-switch" data-off-label="否" data-on="primary" data-on-label="是">
-                <input checked="" id="statuschange" name="statuschange" type="checkbox" onchange="javascript:adminstatuschange()">
+
+                    <input checked="" id="givingchange" name="givingchange" type="checkbox" onchange="javascript:makecardgivingchange()">
+
               </div>
             </td>
           </div>

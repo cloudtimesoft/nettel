@@ -13,9 +13,6 @@
 
 
 
-
-          <p id="notice"><%= notice %></p>
-
           <p>
             <div class="col-md-3" style="text-align: right;">管理员:</div>
         <% if @admin %>
@@ -27,28 +24,32 @@
 
           <p>
             <div class="col-md-3" style="text-align: right;">卡类型:</div>
-            <%= @make_card.card_type %>
 
+        <%if @make_card.card_type==1 %>
+            <%= "开卡截至" %>
+            <% else%>
+            <%= "制卡截至" %>
+            <% end%>
           </p>
 
           <p>
             <span class="col-md-3" style="text-align: right;">批次号:</span>
-            <%= @make_card.batch %>
+            <%= @make_card.batch %>&nbsp;
           </p>
 
           <p>
             <span class="col-sm-3" style="text-align: right;">卡位长:</span>
-            <%= @make_card.card_len %>
+            <%= @make_card.card_len %>&nbsp;
           </p>
 
           <p>
             <span class="col-sm-3" style="text-align: right;width: auto">制卡时间:</span>
-            <%= @make_card.time %>
+            <%= @make_card.time %>&nbsp;
           </p>
 
           <p>
             <span class="col-sm-3" style="text-align: right;">卡金额:</span>
-            <%= @make_card.card_sum %>
+            <%= @make_card.card_sum %>&nbsp;
           </p>
 
           <p>
@@ -119,19 +120,25 @@
                   <tr>
                     <td><i class=" icon-credit-card "></i></td>
                     <td><%= rechargeable_card.pwd %></td>
-                  <!--  <td><%= rechargeable_card.make_card_id %></td> -->
                     <td><%= rechargeable_card.card_number %></td>
                     <td><%= rechargeable_card.card_sum %></td>
                     <td><%= rechargeable_card.effective_time %></td>
-                    <td><%= rechargeable_card.card_type %></td>
+                    <% if rechargeable_card.card_type==1%>
+                    <td><%= "开卡截至"%></td>
+                    <% else%>
+                    <td><%= "制卡截至"%></td>
+          <%end%>
                     <td><%= rechargeable_card.end_time %></td>
-                   <!-- <td><%= rechargeable_card.content %></td> -->
                     <% if rechargeable_card.giving==1%>
                     <td><%= "是"%></td>
                         <% else%>
                         <td><%= "否"%></td>
                     <%end%>
-                    <td><%= rechargeable_card.failure %></td>
+                    <% if rechargeable_card.failure==0%>
+                        <td><%= "正常"%></td>
+                    <% else%>
+                        <td><%= "失效"%></td>
+                    <%end%>
                     <td><%= link_to '', edit_rechargeable_card_path(rechargeable_card),'data-no-turbolink'=>true ,class:"icon-pencil usricons", title: "编辑" %></td>
                     <td><%= link_to '', rechargeable_card, method: :delete, data: { confirm: '确认删除?' } ,class:"icon-trash usricons", title:"删除" %></td>
                   </tr>
