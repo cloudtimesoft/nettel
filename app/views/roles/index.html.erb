@@ -1,27 +1,29 @@
 <%= render 'head'%>
-<h1>Listing roles</h1>
-
-<table>
-  <thead>
+<h2 class="heading"><i class="icon-group"></i> 角色设置</h2>
+<div class="widget-container fluid-height clearfix">
+  <table class="table table-hover table-bordered table-striped">
+    <thead>
     <tr>
-      <th>Name</th>
-      <th>Content</th>
-      <th>Is admin</th>
-      <th>Role status</th>
-      <th colspan="3"></th>
+      <th></th>
+      <th class="heading">角色名</th>
+      <th class="heading">状态</th>
+      <th class="heading">备注</th>
+      <th class="heading">操作</th>
     </tr>
-  </thead>
+    </thead>
+
 
   <tbody>
     <% @roles.each do |role| %>
       <tr>
+        <td width="30px"><i class="heading icon-group"></i></td>
         <td><%= role.name %></td>
-        <td><%= role.content %></td>
-        <td><%= role.is_admin %></td>
         <td><%= role.role_status %></td>
-        <td><%= link_to '编辑', role %></td>
 
-        <td><%= link_to 'Destroy', role, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= role.content %></td>
+        <td width="100px" align="center"><%= link_to '', role, class:"icon-pencil usricons", title: "编辑" %>&nbsp;&nbsp;
+
+        <%= link_to '', role, method: :delete, data: { confirm: '确定删除?' }, class:"icon-trash usricons", title:"删除" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -29,4 +31,5 @@
 
 <br>
 
-<%= link_to 'New Role', new_role_path %>
+<%= link_to '创建角色', new_role_path, class: "icon-plus btn btn-primary-outline pull-right",'data-no-turbolink'=>true %>
+</div>

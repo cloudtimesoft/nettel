@@ -4,10 +4,7 @@
         document.getElementById("hidediv").style.display="none";
         document.getElementById("showdiv").style.display="block";
     }
-    function show1(){
-        document.getElementById("hidediv").style.display="block";
-        document.getElementById("showdiv").style.display="none";
-    }
+
     function showlablediv(){
         document.getElementById("lablediv").style.display="block";
         document.getElementById("formdiv").style.display="none";
@@ -31,23 +28,23 @@
                   <div id="lablediv" >
 
                     <p>
-                      <span class="col-sm-2" style="text-align: right;">套餐名:</span>
+                      <span class="col-sm-3" style="text-align: right;">套餐名:</span>
                       <%= @tariff_standard.name %>
                     </p>
 
                     <p>
-                      <span class="col-sm-2" style="text-align: right;">备注:</span>
+                      <span class="col-sm-3" style="text-align: right;">备注:</span>
                       <%= @tariff_standard.content %>
                     </p>
 
                     <p>
-                      <span class="col-sm-2" style="text-align: right;">计费:</span>
+                      <span class="col-sm-3" style="text-align: right;">负数额度:</span>
                       <%= @tariff_standard.minus_amount %>
                     </p>
                     <p>
 
                     <div>
-                      <a onclick="showformdiv()" class="btn btn-primary-outline"><i class="icon-pencil"></i>编辑套餐信息</a>
+                      <a onclick="showformdiv()" class="btn btn-primary-outline pull-right"><i class="icon-pencil"></i>编辑套餐信息</a>
                     </div>
                   </div>
 
@@ -63,14 +60,11 @@
       <div class="col-lg-7 cts-leftborder-container">
                       <h4 class="heading">&nbsp;<i class="icon-jpy"></i>资费明细</h4>
                          <h6 class="heading">&nbsp;基础套餐信息</h6>
-                                      <div class="panel" id ="hidediv">
-                                        <% session[:tempid]=params[:id] %>
-                                        <% session[:return_to]=request.fullpath %>
-                                        <% if !(@tariff_standard.basic_charges && @tariff_standard.basic_charges.ids.count > 0) %>
+                                            <% session[:tempid]=params[:id] %>
+                                            <% session[:return_to]=request.fullpath %>
+                                       <% if !(@tariff_standard.basic_charges && @tariff_standard.basic_charges.ids.count > 0) %>
+                                      <div class="panel">
                                              <%= form_for([@basic_charge, @tariff_standard.basic_charges.build]) do |f| %>
-                                                <p>
-
-                                                </p>
                                                 <p>
                                                   <span class="col-sm-2" style="text-align: right;">直拨费用:</span>
                                                 <%= f.text_field :s_charges ,class:"form-control states typeahead tt-query"%>
@@ -83,8 +77,9 @@
                                                 <%= f.submit :"确定", class:"btn btn-primary-outline pull-left"%>
                                                 </p>
                                             <% end %>
-                                      <% end %>
+
                                       </div>
+                                       <% end %>
 
                                       <div class="panel">
                                         <% @tariff_standard.basic_charges.each do |f| %>

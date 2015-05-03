@@ -36,3 +36,13 @@ function rechargeablecardgivingchange()
 
 
 }
+
+function role_status_change()
+{
+    if($('#statuschange').bootstrapSwitch('toggleState'))
+    {
+        $('#role_role_status').val('1');
+    }else {
+        $('#role_role_status').val('0');
+    }
+}

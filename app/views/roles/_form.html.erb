@@ -1,35 +1,40 @@
+<script type="javascript" language="JavaScript">
+    function status_change()
+    {
+        if($('#statuschange').bootstrapSwitch('toggleState'))
+        {
+            $('#role_role_status').val('1');
+        }else {
+            $('#role_role_status').val('0');
+        }
+    }
+
+</script>
 <%= form_for(@role) do |f| %>
-  <% if @role.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@role.errors.count, "error") %> prohibited this role from being saved:</h2>
+    <div class="form-horizontal pull-left col-md-8" >
 
-      <ul>
-      <% @role.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+      <div class="form-group">
+        <div class="control-label col-md-3"><%= f.label :角色名 %></div>
+        <div class="col-md-6"><%= f.text_field :name, class:"form-control" %></div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-md-3"><%= f.label :状态 %></div>
+        <div class="col-md-6"><%= f.text_field :role_status, class:"form-control" %></div>
+        <div class="toggle-switch text-toggle-switch" data-off-label="停用" data-on="primary" data-on-label="正常">
+          <input checked="" id="statuschange" name="statuschange" type="checkbox" onchange="javascript:role_status_change()">
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-md-3"><%= f.label :备注 %></div>
+        <div class="col-md-6"><%= f.text_area :content, class:"form-control" %></div>
+      </div>
+
+
+      <div class="actions">
+        <div class="col-md-3" style="margin-top: 10px;"><%= link_to '返回', roles_path, class:"btn btn-xs btn-btn btn-default-outline" %></div>
+        <div class="col-md-6" style="padding-right: 0px;"><%= f.button :"确定", class:"btn btn-primary-outline pull-right" %></div>
+
+      </div>
     </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :name %><br>
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.text_field :content %>
-  </div>
-  <div class="field">
-    <%= f.label :is_admin %><br>
-    <%= f.number_field :is_admin %>
-  </div>
-  <div class="field">
-    <%= f.label :role_status %><br>
-    <%= f.number_field :role_status %>
-  </div>
-  <div class="actions">
-    <%= f.button :"确定", class:"btn btn-primary" %>
-
-  </div>
 
 <% end %>

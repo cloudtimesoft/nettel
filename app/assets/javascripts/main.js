@@ -1041,7 +1041,7 @@
                   required: true,
                   remote: {
                       data: {
-                          user_name: function(){
+                          user_name: function () {
                               return $('#tariff_standard_name').val();
                           }
                       },
@@ -1052,22 +1052,25 @@
                   }
 
               },
-              'tariff_standard[minus_amount]': {
-                  required:true,
-                  number:true
-              }
 
-          },
-          messages: {
-              'tariff_standard[name]': {
-                  required: "账号不能为空！",
-                  remote: "该账户已存在！"
+              'tariff_standard[minus_amount]': {
+                  required: true,
+                  number: true
+
+
               },
-              'tariff_standard[minus_amount]': {
-                  required: "负数额度不能为空！",
-                  number: "请输入有效数字！"
-              }
+              messages: {
+                  'tariff_standard[name]': {
+                      required: "账号不能为空！",
+                      remote: "该账户已存在！"
+                  },
 
+                  'tariff_standard[minus_amount]': {
+                      required: "负数额度不能为空！",
+                      number: "请输入有效数字！"
+                  }
+
+              }
           }
       });
 
