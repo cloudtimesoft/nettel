@@ -6,7 +6,7 @@
     <div class="widget-container fluid-height clearfix" style="padding: 10px;">
 
       <div class="col-lg-6">
-<p id="notice"><%= notice %></p>
+
 
 <p>
   <span class="col-sm-2" style="text-align: right;">充值密码:</span>
@@ -44,7 +44,7 @@
 
 <p>
   <span class="col-sm-2" style="text-align: right;">截止日期:</span>
-  <%= @rechargeable_card.end_time.strftime("%Y-%m-%d %H:%M:%S") %>
+  <%= @rechargeable_card.end_time.strftime("%Y-%m-%d") %>
 </p>
 
 <p>
@@ -65,10 +65,13 @@
   <span class="col-sm-2" style="text-align: right;">卡失效:</span>
   <% if @rechargeable_card.failure == 0%>
       <%= "正常"%>
-  <% else%>
-      <%= "失效"%>
-  <% end%>
 
+      <% else if @rechargeable_card.failure == 1%>
+          <%= "已充值"%>
+  <%else %>
+      <%= "系统停用"%>
+      <% end%>
+  <% end%>
 </p>
 
 <%= link_to '编辑', edit_rechargeable_card_path(@rechargeable_card) ,class:"btn btn-primary-outline pull-right",'data-no-turbolink'=>true%>

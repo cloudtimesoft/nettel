@@ -3,7 +3,9 @@
         document.getElementById("rechargeable_card_end_time").value=document.getElementById("timeinput").value;
 
     }
-
+    function cardfailureselect(){
+        document.getElementById("rechargeable_card_failure").value=document.getElementById("cardfailure").value;
+    }
 
 </script>
 <%= form_for(@rechargeable_card) do |f| %>
@@ -35,7 +37,7 @@
         </tr>
 
 
-        <tr>
+        <tr style="display: none">
           <div class="form-group">
             <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;"> <%= f.label :制卡ID %></td>
             <td> <%= f.number_field :make_card_id ,class:"form-control"%></td>
@@ -75,7 +77,7 @@
 
             <% if @rechargeable_card.card_type == 1 %>
                 <td><input readonly="true" class="form-control" value="开卡截止"/></td>
-                <% else %>
+            <% else %>
                 <td><input readonly="true" class="form-control" value="制卡截止"/></td>
             <% end %>
           </div>
@@ -85,7 +87,7 @@
         <tr>
           <div class="form-group">
             <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"> <%= f.label :截止日期 %></td>
-            <td><%= f.text_field :end_time,value: @rechargeable_card.end_time.strftime("%Y-%m-%d") ,class:"form-control"%>
+            <td><%= f.text_field :end_time,value: @rechargeable_card.end_time.strftime("%Y-%m-%d") ,class:"form-control",readonly:true%>
             </td>
           </div>
         </tr>
@@ -98,23 +100,24 @@
           </div>
         </tr>
 
+
+
+
+
         <tr>
-          <div>
+          <div class="form-group">
             <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;"> <%= f.label :卡失效 %></td>
-            <td>
-              <div style="display: none;">
-              <%= f.number_field :failure ,value:@rechargeable_card.failure==1?'1':'0' ,class:"form-control" %>
-              </div>
-          <div class="toggle-switch text-toggle-switch" data-off-label="失效" data-on="primary" data-on-label="正常">
-            <% if @rechargeable_card.failure == 1 %>
-                <input id="failurechange" name="failurechange" type="checkbox" onchange="javascript:cardfailurechange()">
-                <%else%>
-                <input checked="" id="failurechange" name="failurechange" type="checkbox" onchange="javascript:cardfailurechange()">
-                <% end %>
-          </div>
-          </td>
-          </div>
-        </tr>
+                <td><%= f.hidden_field :failure ,value:@rechargeable_card.failure==0?'0':@rechargeable_card.failure==1?'1':'2',class:"form-control" %>
+                  <select id="cardfailure"class="form-control" type="text" onchange="cardfailureselect()">
+                    <option value="０" <%= @rechargeable_card.failure==0?"selected = selected":"" %>>正常</option>
+                    <option value="1" <%= @rechargeable_card.failure==1?"selected = selected":"" %>>已充值</option>
+                    <option value="2" <%= @rechargeable_card.failure==2?"selected = selected":"" %>>系统停用</option>
+                  </select>
+                </td>
+                </div>
+            </tr>
+
+
 
 
         <tr>

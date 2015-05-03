@@ -4,31 +4,31 @@ class MakeCardsController < ApplicationController
   # GET /make_cards
   # GET /make_cards.json
   def index
-  @make_cards = MakeCard.all
-  @admins=Admin.all
+    @make_cards = MakeCard.all
+    @admins=Admin.all
   end
 
   # GET /make_cards/1
   # GET /make_cards/1.json
   def show
-      @make_card = MakeCard.find(params[:id])
-      #@rechargeable_cards_ids = @make_card.rechargeable_cards.ids
+    @make_card = MakeCard.find(params[:id])
+    #@rechargeable_cards_ids = @make_card.rechargeable_cards.ids
 
-      @usrrechargeable_cards = @make_card.rechargeable_cards
+    @usrrechargeable_cards = @make_card.rechargeable_cards
 
-      @rechargeable_cards = @usrrechargeable_cards.paginate(page: params[:page])
-@lastmaxnum=""
-      ((@make_card.card_len-@make_card.batch.length).times{@lastmaxnum += '9'}) #获取制卡位长数字部分最大数
-      #@has_rechargeable_cards = RechargeableCard.all
-      @lenstr=""
-      @lastmaxnum.length.times{@lenstr+="_"}
-      @lenstr= "\'"+@make_card.batch+@lenstr+"\'"
-      @search = RechargeableCard.find_by_sql("select * from rechargeable_cards where card_number like  "+@lenstr)
-      @carcount=0
-      if @search
-        @carcount=@search.count
-      end
-      @lesscarnum=@lastmaxnum.to_i-@carcount
+    @rechargeable_cards = @usrrechargeable_cards.paginate(page: params[:page])
+    @lastmaxnum=""
+    ((@make_card.card_len-@make_card.batch.length).times{@lastmaxnum += '9'}) #获取制卡位长数字部分最大数
+    #@has_rechargeable_cards = RechargeableCard.all
+    @lenstr=""
+    @lastmaxnum.length.times{@lenstr+="_"}
+    @lenstr= "\'"+@make_card.batch+@lenstr+"\'"
+    @search = RechargeableCard.find_by_sql("select * from rechargeable_cards where card_number like  "+@lenstr)
+    @carcount=0
+    if @search
+      @carcount=@search.count
+    end
+    @lesscarnum=@lastmaxnum.to_i-@carcount
 
 
     @admin = Admin.find(@make_card.admin_id) rescue nil
@@ -86,13 +86,13 @@ class MakeCardsController < ApplicationController
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_make_card
-      @make_card = MakeCard.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_make_card
+    @make_card = MakeCard.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def make_card_params
-      params.require(:make_card).permit(:admin_id, :card_type, :batch, :card_len, :time, :card_sum, :amount, :content, :giving)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def make_card_params
+    params.require(:make_card).permit(:admin_id, :card_type, :batch, :card_len, :time, :card_sum, :amount, :content, :giving)
+  end
 end

@@ -1051,6 +1051,10 @@
 
                   }
 
+              },
+              'tariff_standard[minus_amount]': {
+                  required:true,
+                  number:true
               }
 
           },
@@ -1058,8 +1062,11 @@
               'tariff_standard[name]': {
                   required: "账号不能为空！",
                   remote: "该账户已存在！"
+              },
+              'tariff_standard[minus_amount]': {
+                  required: "负数额度不能为空！",
+                  number: "请输入有效数字！"
               }
-
 
           }
       });
@@ -1086,13 +1093,70 @@
           messages: {
               'effectivetime': {
 
-                  digits: "请输入一个数字"
+                  digits: "请输入有效数字"
 
               }
           }
       });
 
 
+
+
+
+
+      /*
+       # =============================================================================
+       #   制作新卡认证
+       # =============================================================================
+       */
+
+      $(".new_make_card").validate({
+          rules: {
+
+              'make_card[batch]': {
+                  required:true,
+                  digits:true
+              },
+              'make_card[card_len]': {
+                  required:true,
+                  digits:true
+              },
+              'make_card[card_sum]': {
+                  required:true,
+                  digits:true
+              },
+              'dateinput': {
+                  required:true
+              },
+              'make_card[amount]': {
+                  required:true,
+                  digits:true
+              }
+          },
+          messages: {
+
+              'make_card[batch]': {
+                  required: "批次号不能为空！",
+                  digits: "请输入有效数字"
+              },
+              'make_card[card_len]': {
+                  required: "卡位长不能为空！",
+                  digits: "请输入有效数字"
+              },
+              'make_card[card_sum]': {
+                  required: "金额不能为空！",
+                  digits: "请输入有效数字"
+              },
+              'dateinput': {
+                  required:"时间不能为空！"
+
+              },
+              'make_card[amount]': {
+                  required: "数量不能为空！",
+                  digits: "请输入有效数字"
+              }
+          }
+      });
 
 
 

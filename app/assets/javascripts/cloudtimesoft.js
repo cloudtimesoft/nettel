@@ -24,18 +24,6 @@ function makecardgivingchange()
 
 }
 
-function cardfailurechange()
-{
-    if (document.getElementById("failurechange").checked) {
-        document.getElementById("rechargeable_card_failure").value = "0";
-    }
-    else {
-        document.getElementById("rechargeable_card_failure").value = "1";
-    }
-
-
-}
-
 
 function rechargeablecardgivingchange()
 {

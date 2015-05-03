@@ -1,8 +1,8 @@
 <script type="text/javascript" language="JavaScript">
-  function dateselect() {
-      document.getElementById("make_card_time").value=document.getElementById("dateinput").value;
+    function dateselect() {
+        document.getElementById("make_card_time").value=document.getElementById("dateinput").value;
 
-  }
+    }
     function cardtypeselect(){
         document.getElementById("make_card_card_type").value=document.getElementById("cardtype").value;
     }
@@ -48,7 +48,7 @@
         <tr>
           <div class="form-group">
             <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :卡位长 %></td>
-            <td><%= f.number_field :card_len,class:"form-control"  %></td>
+            <td><%= f.text_field :card_len,class:"form-control"  %></td>
           </div>
         </tr>
 
@@ -56,8 +56,9 @@
           <div >
             <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :制卡时间 %></td>
 
-            <td><%= f.hidden_field :time %><div class="input-group date datepicker" data-date-autoclose="true" data-date-format="yyyy-mm-dd">
-              <input id="dateinput" class="form-control" type="text" onchange="dateselect()"><span class="input-group-addon"><i class="icon-calendar"></i></span></input>
+            <td><div class="input-group date datepicker" data-date-autoclose="true" data-date-format="yyyy-mm-dd">
+              <%= f.hidden_field :time,value:Time.now.strftime("%Y-%m-%d") %>
+              <input id="dateinput" name="dateinput" value= <%=Time.now.strftime("%Y-%m-%d") %> class="form-control" type="text" onchange="dateselect()"><span class="input-group-addon"><i class="icon-calendar"></i></span></input>
             </div></td>
 
 
@@ -75,7 +76,7 @@
         <tr>
           <div class="form-group">
             <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :制卡数量 %></td>
-            <td> <%= f.number_field :amount,class:"form-control" %></td>
+            <td> <%= f.text_field :amount,class:"form-control" %></td>
           </div>
         </tr>
 

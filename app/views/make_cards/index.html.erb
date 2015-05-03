@@ -2,8 +2,8 @@
 
 <h2 class="heading">制卡</h2>
 <div class="widget-container fluid-height clearfix">
-<table  class="table table-hover table-bordered table-striped">
-  <thead style="text-align: center">
+  <table  class="table table-hover table-bordered table-striped">
+    <thead style="text-align: center">
     <tr>
       <th></th>
       <th class="heading">管理员</th>
@@ -18,41 +18,50 @@
       <th class="heading">操作</th>
 
     </tr>
-  </thead>
+    </thead>
 
-  <tbody>
+    <tbody>
     <% @make_cards.each do |make_card| %>
-      <tr>
-        <td width="30px"><i class="heading icon-credit-card "></i></td>
+        <tr>
+          <td width="30px"><i class="heading icon-credit-card "></i></td>
 
-            <% @admin=@admins.find(make_card.admin_id) rescue nil %>
-        <% if @admin %>
-            <td class="hidden-xs"><%= @admin.name %></td>
-        <% else %>
-            <td class="hidden-xs">&nbsp;</td>
-            <% end %>
+          <% @admin=@admins.find(make_card.admin_id) rescue nil %>
+          <% if @admin %>
+              <td class="hidden-xs"><%= @admin.name %></td>
+          <% else %>
+              <td class="hidden-xs">&nbsp;</td>
+          <% end %>
 
 
 
-        <td><%= make_card.card_type %></td>
-        <td><%= make_card.batch %></td>
-        <td><%= make_card.card_len %></td>
-        <td><%= make_card.time.strftime("%Y-%m-%d") %></td>
-        <td><%= make_card.card_sum %></td>
-        <td><%= make_card.amount %></td>
-        <td><%= make_card.content %></td>
-        <td><%= make_card.giving %></td>
 
-       <td width="100px" align="center"><%= link_to "", make_card,  class:"icon-eye-open usricons", title: "显示" %>
+          <%if make_card.card_type==1%>
+              <td><%= "开卡截止" %></td>
+              <% else%>
+              <td><%= "制卡截止" %></td>
+              <% end%>
+          <td><%= make_card.batch %></td>
+          <td><%= make_card.card_len %></td>
+          <td><%= make_card.time.strftime("%Y-%m-%d")%></td>
+          <td><%= make_card.card_sum %></td>
+          <td><%= make_card.amount %></td>
+          <td><%= make_card.content %></td>
+          <%if make_card.giving==1%>
+              <td><%= "是" %></td>
+          <% else%>
+              <td><%= "否" %></td>
+          <% end%>
 
-        <%= link_to '', make_card, method: :delete, data: { confirm: '确认删除?' } ,class:"icon-trash usricons", title:"删除" %></td>
+          <td width="100px" align="center"><%= link_to "", make_card,  class:"icon-eye-open usricons", title: "显示" %>
 
-      </tr>
+            <%= link_to '', make_card, method: :delete, data: { confirm: '确认删除?' } ,class:"icon-trash usricons", title:"删除" %></td>
+
+        </tr>
     <% end %>
-  </tbody>
-</table>
+    </tbody>
+  </table>
 
-<br>
+  <br>
 
-<%= link_to '制作新卡', new_make_card_path, class: "icon-plus btn btn-primary-outline pull-right",'data-no-turbolink'=>true %>
+  <%= link_to '制作新卡', new_make_card_path, class: "icon-plus btn btn-primary-outline pull-right",'data-no-turbolink'=>true %>
 </div>
