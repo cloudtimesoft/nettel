@@ -10,6 +10,11 @@
 
 <body>
 <div class="container fluid-height clearfix">
+  <% flash.each do |key, value| %>
+      <div class="alert alert-<%= key %>"><%= value %>
+        <button class="close" data-dismiss="alert" type="button">&times;</button>
+      </div>
+  <% end %>
 
 <%= yield %>
     </div>

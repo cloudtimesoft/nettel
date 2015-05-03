@@ -1,3 +1,4 @@
+# encoding: utf-8
 class AdminsController < ApplicationController
   before_action :set_admin, only: [:show, :edit, :update, :destroy]
   before_action :authorize
@@ -55,6 +56,7 @@ class AdminsController < ApplicationController
       if @admin.update(admin_params)
         format.html { redirect_to @admin, notice: 'Admin was successfully updated.' }
         format.json { render :show, status: :ok, location: @admin }
+        flash[:success]='更改已被成功保存！'
       else
         format.html { render :edit }
         format.json { render json: @admin.errors, status: :unprocessable_entity }
@@ -72,6 +74,7 @@ class AdminsController < ApplicationController
       params[:role_ids].each do |t|
         AdminRoleRef.create(admin_id:params[:aid],role_id:t)
       end
+      flash[:error]='更改已被成功保存！'
     end
     # RoleAuthRef.save
     # render 'show'
