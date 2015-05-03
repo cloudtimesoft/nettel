@@ -1051,15 +1051,24 @@
 
                   }
 
+              },
+
+              'tariff_standard[minus_amount]':{
+
+                  number: true
               }
 
           },
           messages: {
-              'tariff_standard[name]': {
+              'tariff_standard[minus_amount]': {
                   required: "账号不能为空！",
                   remote: "该账户已存在！"
-              }
+              },
 
+              'tariff_standard[minus_amount]': {
+
+                  number: "请输入有效金额！"
+              }
 
           }
       });
