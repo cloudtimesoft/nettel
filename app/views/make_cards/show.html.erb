@@ -92,11 +92,12 @@
           <%= hidden_field_tag('card_sum',params[:card_sum]=@make_card.card_sum)%>
           <%= hidden_field_tag('amount',params[:amount]=@make_card.amount)%>
           <%= hidden_field_tag('giving',params[:giving]=@make_card.giving)%>
-          <div class="form-group heading"> 有效期 <%= text_field_tag('effectivetime',params[:effectivetime],class:"form-control")%></div>
-          <%= submit_tag "制卡",class:"btn btn-primary-outline" %>
+          <% if @usrrechargeable_cards.count==0%>
+          <div class="form-group heading col-md-2" style="text-align: right;padding-top: 8px;"> 有效期（月） </div><div class="col-md-3"><%= text_field_tag('effectivetime',params[:effectivetime],class:"form-control ")%></div>
+          <%= submit_tag "制卡",class:"btn btn-primary-outline pull-right" %>
+              <%end%>
         </fieldset>
     <%end%>
-    剩余可制卡数<%= @lesscarnum%>
 
 
     <table class="table table-hover  table-striped">

@@ -1,3 +1,4 @@
+# encoding: utf-8
 class MakeCardsController < ApplicationController
   before_action :set_make_card, only: [:show, :edit, :update, :destroy]
 
@@ -33,6 +34,11 @@ class MakeCardsController < ApplicationController
 
     @admin = Admin.find(@make_card.admin_id) rescue nil
 
+
+    flash.now[:info]='该批次号下剩余可制卡数'+@lesscarnum.to_s+'张'
+
+
+
   end
 
   # GET /make_cards/new
@@ -51,7 +57,7 @@ class MakeCardsController < ApplicationController
 
     respond_to do |format|
       if @make_card.save
-        format.html { redirect_to @make_card, notice: 'Make card was successfully created.' }
+        format.html { redirect_to @make_card}
         format.json { render :show, status: :created, location: @make_card }
       else
         format.html { render :new }
@@ -65,7 +71,7 @@ class MakeCardsController < ApplicationController
   def update
     respond_to do |format|
       if @make_card.update(make_card_params)
-        format.html { redirect_to @make_card, notice: 'Make card was successfully updated.' }
+        format.html { redirect_to @make_card }
         format.json { render :show, status: :ok, location: @make_card }
       else
         format.html { render :edit }
@@ -80,7 +86,7 @@ class MakeCardsController < ApplicationController
     @make_card.destroy
     RechargeableCard.where(make_card_id: params[:id]).delete_all
     respond_to do |format|
-      format.html { redirect_to make_cards_url, notice: 'Make card was successfully destroyed.' }
+      format.html { redirect_to make_cards_url}
       format.json { head :no_content }
     end
   end

@@ -1169,6 +1169,48 @@
 
       /*
        # =============================================================================
+       #   rechargeable_cards edit validate
+       # =============================================================================
+       */
+
+      $(".edit_rechargeable_card").validate({
+          rules: {
+              'rechargeable_card[card_sum]': {
+                  digits: true,
+                  required: true
+              },
+
+              'rechargeable_card[effective_time]': {
+                  required: true,
+                  digits: true
+
+              }
+          },
+          messages: {
+              'rechargeable_card[card_sum]': {
+                  required: "金额不能为空！",
+                  digits: "请输入有效数字"
+              },
+
+              'rechargeable_card[effective_time]': {
+                  required: "有效期不能为空！",
+                  digits: "请输入有效数字"
+
+              }
+          }
+      });
+
+
+
+
+
+
+
+
+
+
+      /*
+       # =============================================================================
        #   cfg edit validate
        # =============================================================================
        */

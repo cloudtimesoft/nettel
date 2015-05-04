@@ -14,7 +14,7 @@
       <th class="heading">卡金额</th>
       <th class="heading">制作数量</th>
       <th class="heading">备注</th>
-      <th class="heading">是否可赠送</th>
+      <th class="heading">可赠送</th>
       <th class="heading">操作</th>
 
     </tr>
@@ -52,7 +52,7 @@
               <td><%= "否" %></td>
           <% end%>
 
-          <td width="100px" align="center"><%= link_to "", make_card,  class:"icon-eye-open usricons", title: "显示" %>
+          <td width="100px" align="center"><%= link_to "", make_card,  class:"icon-eye-open usricons", title: "显示" ,'data-no-turbolink'=>true%>
 
             <%= link_to '', make_card, method: :delete, data: { confirm: '确认删除?' } ,class:"icon-trash usricons", title:"删除" %></td>
 
