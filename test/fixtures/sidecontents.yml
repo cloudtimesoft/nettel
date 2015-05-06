@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sidecla_id: 1
+  title: MyString
+  inpaper: MyString
+  oprice: 1.5
+  pprice: 1.5
+  content: MyText
+  time: 2015-05-05 09:45:01
+  admin_id: 1
+
+two:
+  sidecla_id: 1
+  title: MyString
+  inpaper: MyString
+  oprice: 1.5
+  pprice: 1.5
+  content: MyText
+  time: 2015-05-05 09:45:01
+  admin_id: 1

@@ -1,0 +1,49 @@
+<%= form_for(@sidecontent) do |f| %>
+  <% if @sidecontent.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sidecontent.errors.count, "error") %> prohibited this sidecontent from being saved:</h2>
+
+      <ul>
+      <% @sidecontent.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :sidecla_id %><br>
+    <%= f.number_field :sidecla_id %>
+  </div>
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :inpaper %><br>
+    <%= f.text_field :inpaper %>
+  </div>
+  <div class="field">
+    <%= f.label :oprice %><br>
+    <%= f.text_field :oprice %>
+  </div>
+  <div class="field">
+    <%= f.label :pprice %><br>
+    <%= f.text_field :pprice %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.kindeditor :content%>
+  </div>
+  <div class="field">
+    <%= f.label :time %><br>
+    <%= f.datetime_select :time %>
+  </div>
+  <div class="field">
+    <%= f.label :admin_id %><br>
+    <%= f.number_field :admin_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

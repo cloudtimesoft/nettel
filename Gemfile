@@ -7,6 +7,7 @@ gem 'rails', '4.1.8'
 gem 'bcrypt-ruby'
 gem 'will_paginate'
 gem 'paperclip'
+gem 'rails_kindeditor'
 #gem 'bootstrap-will_paginate'
 
 # Use mysql as the database for Active Record

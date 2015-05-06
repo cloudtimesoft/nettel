@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  local: 1
+  linkto: MyString
+  isenabled: 1
+
+two:
+  local: 1
+  linkto: MyString
+  isenabled: 1

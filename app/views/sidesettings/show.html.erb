@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @sidesetting.name %>
+</p>
+
+<p>
+  <strong>Logo:</strong>
+  <%= @sidesetting.logo %>
+</p>
+
+<p>
+  <strong>Tel:</strong>
+  <%= @sidesetting.tel %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @sidesetting.address %>
+</p>
+
+<p>
+  <strong>Icp:</strong>
+  <%= @sidesetting.icp %>
+</p>
+
+<%= link_to 'Edit', edit_sidesetting_path(@sidesetting) %> |
+<%= link_to 'Back', sidesettings_path %>

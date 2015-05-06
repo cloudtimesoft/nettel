@@ -1,0 +1,29 @@
+<%= form_for(@sidemessage) do |f| %>
+  <% if @sidemessage.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sidemessage.errors.count, "error") %> prohibited this sidemessage from being saved:</h2>
+
+      <ul>
+      <% @sidemessage.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :contact %><br>
+    <%= f.text_field :contact %>
+  </div>
+  <div class="field">
+    <%= f.label :tel %><br>
+    <%= f.text_field :tel %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br>
+    <%= f.text_area :content %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

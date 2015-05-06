@@ -1,0 +1,69 @@
+
+<!-- Navigation -->
+<div class="sidenavbar navbar-fixed-top scroll-hide" xmlns="http://www.w3.org/1999/html">
+  <div class="container-fluid top-bar">
+    <div class="pull-right">
+      <ul class="nav navbar-nav pull-right">
+        <li class="dropdown settings hidden-xs">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" style=""><span aria-hidden="true" class="se7en-gear"></span>
+            <div class="sr-only">
+              Settings
+            </div>
+          </a>
+          <!--<ul class="dropdown-menu">
+            <li>
+              <a class="settings-link blue" href="javascript:chooseStyle('none', 30)"><span></span>Blue</a>
+            </li>
+            <li>
+              <a class="settings-link green" href="javascript:chooseStyle('green-theme', 30)"><span></span>Green</a>
+            </li>
+            <li>
+              <a class="settings-link orange" href="javascript:chooseStyle('orange-theme', 30)"><span></span>Orange</a>
+            </li>
+            <li>
+              <a class="settings-link magenta" href="javascript:chooseStyle('magenta-theme', 30)"><span></span>Magenta</a>
+            </li>
+            <li>
+              <a class="settings-link gray" href="javascript:chooseStyle('gray-theme', 30)"><span></span>Gray</a>
+            </li>
+          </ul>-->
+        </li>
+        <li style="margin-top: 9px;">
+          <i class="icon-user icon-2x" style="color: #007aff"></i>
+        </li>
+        <li class="dropdown user hidden-xs" style="margin-top: 6px;"><a data-toggle="dropdown" class="dropdown-toggle" href="#">
+          <%= session[:admin_name]%><b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">
+              <i class="icon-user"></i>My Account</a>
+            </li>
+            <li><a href="#">
+              <i class="icon-gear"></i>Account Settings</a>
+            </li>
+            <li><a href="/logins/new"data-no-turbolink>
+              <i class="icon-signout">退出</i></a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <button class="navbar-toggle"></button><a  href="#"><h3 class="heading" style="padding: 6px;">广博通</h3></a>
+  </div>
+
+</div>
+<!-- End Navigation -->
+
+<%= render 'unslider' %>
+
+<nav class="navbar" style="height: 45px; border-top: 1px solid #007aff">
+  <div class=" container container-fluid">
+    <ul class="nav navbar-nav">
+      <li class="menunav current-menu"> <%= link_to '首页',admins_path,class:"current-link" %></li>
+      <li class="menunav "> <%= link_to '产品服务',admins_path,class:"menu" %></li><li class="cts-leftborder-container" style="padding-top: 10px;padding-bottom: 10px;margin-top: 12px;"></li>
+      <li class="menunav"> <%= link_to '文章新闻',admins_path,class:"menu" %></li><li class="cts-leftborder-container" style="padding-top: 10px;padding-bottom: 10px;margin-top: 12px;"></li>
+      <li class="menunav"> <%= link_to '留言板',admins_path,class:"menu" %></li><li class="cts-leftborder-container" style="padding-top: 10px;padding-bottom: 10px;margin-top: 12px;"></li>
+      <li class="menunav"> <%= link_to '联系我们',admins_path,class:"menu" %></li><li class="cts-leftborder-container" style="padding-top: 10px;padding-bottom: 10px;margin-top: 12px;"></li>
+      <li class="menunav"> <%= link_to '客户评价',admins_path,class:"menu" %></li>
+    </ul>
+  </div>
+</nav>

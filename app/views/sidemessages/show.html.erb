@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Contact:</strong>
+  <%= @sidemessage.contact %>
+</p>
+
+<p>
+  <strong>Tel:</strong>
+  <%= @sidemessage.tel %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @sidemessage.content %>
+</p>
+
+<%= link_to 'Edit', edit_sidemessage_path(@sidemessage) %> |
+<%= link_to 'Back', sidemessages_path %>

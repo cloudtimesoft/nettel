@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150421054740) do
+ActiveRecord::Schema.define(version: 20150505014818) do
 
   create_table "admin_role_refs", force: true do |t|
     t.integer  "admin_id"
@@ -107,6 +107,16 @@ ActiveRecord::Schema.define(version: 20150421054740) do
   end
 
   add_index "contacts", ["user_id"], name: "index_contacts_on_user_id", using: :btree
+
+  create_table "kindeditor_assets", force: true do |t|
+    t.string   "asset"
+    t.integer  "file_size"
+    t.string   "file_type"
+    t.integer  "owner_id"
+    t.string   "asset_type"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "make_cards", force: true do |t|
     t.integer  "admin_id"
@@ -209,6 +219,69 @@ ActiveRecord::Schema.define(version: 20150421054740) do
     t.string   "content"
     t.integer  "is_admin"
     t.integer  "role_status"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sideadvers", force: true do |t|
+    t.integer  "local"
+    t.string   "linkto"
+    t.integer  "isenabled"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sideclas", force: true do |t|
+    t.string   "keywords"
+    t.string   "title"
+    t.string   "renderto"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sidecomments", force: true do |t|
+    t.integer  "sidecontent_id"
+    t.string   "nickname"
+    t.string   "title"
+    t.text     "content"
+    t.integer  "star"
+    t.datetime "time"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sidecomments", ["sidecontent_id"], name: "index_sidecomments_on_sidecontent_id", using: :btree
+
+  create_table "sidecontents", force: true do |t|
+    t.integer  "sidecla_id"
+    t.string   "title"
+    t.string   "inpaper"
+    t.float    "oprice",     limit: 24
+    t.float    "pprice",     limit: 24
+    t.text     "content"
+    t.datetime "time"
+    t.integer  "admin_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "sidecontents", ["admin_id"], name: "index_sidecontents_on_admin_id", using: :btree
+  add_index "sidecontents", ["sidecla_id"], name: "index_sidecontents_on_sidecla_id", using: :btree
+
+  create_table "sidemessages", force: true do |t|
+    t.string   "contact"
+    t.string   "tel"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sidesettings", force: true do |t|
+    t.string   "name"
+    t.string   "logo"
+    t.string   "tel"
+    t.string   "address"
+    t.string   "icp"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

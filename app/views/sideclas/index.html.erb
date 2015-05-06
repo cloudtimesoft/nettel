@@ -1,0 +1,29 @@
+<h1>Listing sideclas</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Keywords</th>
+      <th>Title</th>
+      <th>Renderto</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sideclas.each do |sidecla| %>
+      <tr>
+        <td><%= sidecla.keywords %></td>
+        <td><%= sidecla.title %></td>
+        <td><%= sidecla.renderto %></td>
+        <td><%= link_to 'Show', sidecla %></td>
+        <td><%= link_to 'Edit', edit_sidecla_path(sidecla) %></td>
+        <td><%= link_to 'Destroy', sidecla, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sidecla', new_sidecla_path %>

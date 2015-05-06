@@ -1,0 +1,29 @@
+<%= form_for(@sideadver) do |f| %>
+  <% if @sideadver.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@sideadver.errors.count, "error") %> prohibited this sideadver from being saved:</h2>
+
+      <ul>
+      <% @sideadver.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :local %><br>
+    <%= f.number_field :local %>
+  </div>
+  <div class="field">
+    <%= f.label :linkto %><br>
+    <%= f.text_field :linkto %>
+  </div>
+  <div class="field">
+    <%= f.label :isenabled %><br>
+    <%= f.number_field :isenabled %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sidecla:</strong>
+  <%= @sidecontent.sidecla_id %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @sidecontent.title %>
+</p>
+
+<p>
+  <strong>Inpaper:</strong>
+  <%= @sidecontent.inpaper %>
+</p>
+
+<p>
+  <strong>Oprice:</strong>
+  <%= @sidecontent.oprice %>
+</p>
+
+<p>
+  <strong>Pprice:</strong>
+  <%= @sidecontent.pprice %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @sidecontent.content.html_safe %>
+</p>
+
+<p>
+  <strong>Time:</strong>
+  <%= @sidecontent.time %>
+</p>
+
+<p>
+  <strong>Admin:</strong>
+  <%= @sidecontent.admin_id %>
+</p>
+
+<%= link_to 'Edit', edit_sidecontent_path(@sidecontent) %> |
+<%= link_to 'Back', sidecontents_path %>
+

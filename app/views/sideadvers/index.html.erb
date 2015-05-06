@@ -1,0 +1,29 @@
+<h1>Listing sideadvers</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Local</th>
+      <th>Linkto</th>
+      <th>Isenabled</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sideadvers.each do |sideadver| %>
+      <tr>
+        <td><%= sideadver.local %></td>
+        <td><%= sideadver.linkto %></td>
+        <td><%= sideadver.isenabled %></td>
+        <td><%= link_to 'Show', sideadver %></td>
+        <td><%= link_to 'Edit', edit_sideadver_path(sideadver) %></td>
+        <td><%= link_to 'Destroy', sideadver, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sideadver', new_sideadver_path %>

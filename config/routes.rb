@@ -1,5 +1,15 @@
 Rails.application.routes.draw do
 
+  resources :sidecontents
+
+  resources :sidemessages
+
+  resources :sideadvers
+
+  resources :sideclas
+
+  resources :sidesettings
+
   resources :advertisements
 
   resources :rechargeable_records
@@ -63,6 +73,7 @@ end
 
   resources :ctsinits
 
+  resources :sides
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -1,0 +1,39 @@
+<h1>Listing sidecontents</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sidecla</th>
+      <th>Title</th>
+      <th>Inpaper</th>
+      <th>Oprice</th>
+      <th>Pprice</th>
+      <th>Content</th>
+      <th>Time</th>
+      <th>Admin</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @sidecontents.each do |sidecontent| %>
+      <tr>
+        <td><%= sidecontent.sidecla_id %></td>
+        <td><%= sidecontent.title %></td>
+        <td><%= sidecontent.inpaper %></td>
+        <td><%= sidecontent.oprice %></td>
+        <td><%= sidecontent.pprice %></td>
+        <td><%= sidecontent.content %></td>
+        <td><%= sidecontent.time %></td>
+        <td><%= sidecontent.admin_id %></td>
+        <td><%= link_to 'Show', sidecontent %></td>
+        <td><%= link_to 'Edit', edit_sidecontent_path(sidecontent) %></td>
+        <td><%= link_to 'Destroy', sidecontent, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Sidecontent', new_sidecontent_path %>
