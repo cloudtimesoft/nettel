@@ -5,15 +5,19 @@ class SidecontentsController < ApplicationController
   # GET /sidecontents.json
   def index
     @sidecontents = Sidecontent.all
+    @sideclas = Sidecla.all
+    @admins =Admin.all
   end
 
   # GET /sidecontents/1
   # GET /sidecontents/1.json
   def show
+    @sideclas = Sidecla.all
   end
 
   # GET /sidecontents/new
   def new
+
     @sidecontent = Sidecontent.new
   end
 

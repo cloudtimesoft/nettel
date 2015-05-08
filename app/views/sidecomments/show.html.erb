@@ -1,0 +1,53 @@
+<div class="container fluid-height clearfix">
+  <%=render 'head' %>
+
+  <div class="row">
+      <div class="widget-container fluid-height clearfix" style="padding: 10px;">
+
+
+
+        <div class="col-lg-5">
+
+          <h4 class="heading icon-user">&nbsp;详细介绍</h4><p></p>
+
+
+
+          <p>
+            <span class="col-sm-2" style="text-align: right;">文章名:</span>
+            <%@sidecontent = Sidecontent.find(@sidecomment.sidecontent_id)%>
+            <%= @sidecontent.title%>&nbsp;
+
+          </p>
+
+          <p>
+            <span class="col-sm-2" style="text-align: right;">昵称:</span>
+            <%= @sidecomment.nickname %>&nbsp;
+          </p>
+
+          <p>
+            <span class="col-sm-2" style="text-align: right;">标题:</span>
+            <%= @sidecomment.title %>&nbsp;
+          </p>
+
+          <p>
+            <span class="col-sm-2" style="text-align: right;">星级:</span>
+          <div id="star1"  data-score=<%= @sidecomment.star %>>&nbsp;</div>
+          <div id="result"></div>
+
+          </p>
+         <div>
+          <p>
+            <span class="col-sm-2" style="text-align: right;">时间:</span>
+            <%= @sidecomment.time %>&nbsp;
+          </p>
+          </div>
+          <p>
+            <%= link_to 'Back', sidecomments_path,'data-no-turbolink'=>true %>
+          </p>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

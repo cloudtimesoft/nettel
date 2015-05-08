@@ -1,1 +1,70 @@
-<p>新闻　关键字news</p>
+<p xmlns="http://www.w3.org/1999/html">新闻　关键字news</p>
+
+
+
+<div class="col-md-9 fluid-height clearfix" >
+
+
+
+  <table class="table table-hover table-bordered table-striped">
+    <thead>
+    <tr>
+      <th></th>
+      <th class="heading">Sidecla</th>
+      <th class="heading">标题</th>
+      <th class="heading">Inpaper</th>
+      <th class="heading">Oprice</th>
+      <th class="heading">时间</th>
+      <th class="heading">管理员</th>
+      <th class="heading">操作</th>
+    </tr>
+    </thead>
+
+
+    <% @sidecontents.each do |sidecontent| %>
+        <tr>
+          <td width="30px"><i class="heading icon-user"></i></td>
+          <%@sidecla =@sideclas.find(sidecontent.sidecla_id) rescue nil %>
+          <% if @sidecla %>
+              <td><%= @sidecla.title %></td>
+          <% else %>
+              <td>&nbsp;</td>
+          <% end %>
+          <td>
+            <a href="/sides/<%=sidecontent.sidecla_id%>"data-no-turbolink><%= sidecontent.title %></a>
+          </td>
+          <td><%= sidecontent.inpaper %></td>
+          <td><%= sidecontent.oprice %></td>
+          <td><%= sidecontent.time %></td>
+
+          <% @admin=@admins.find(sidecontent.admin_id) rescue nil %>
+          <% if @admin %>
+              <td class="hidden-xs"><%= @admin.name %></td>
+          <% else %>
+              <td class="hidden-xs">&nbsp;</td>
+          <% end %>
+
+          <td width="100px" align="center">
+            <%= link_to '', sidecontent,  class:"icon-pencil usricons", title: "编辑",'data-no-turbolink'=>true %>&nbsp;&nbsp;
+            <%= link_to '', sidecontent, method: :delete, data: { confirm: '确认删除？' },class:"icon-trash usricons", title:"删除",'data-no-turbolink'=>true %></td>
+        </tr>
+    <% end %>
+
+  </table>
+
+  <br>
+
+
+
+
+
+</div>
+
+<div class="col-md-3 fluid-height clearfix">
+
+
+asdasdasdasd
+
+
+
+</div>

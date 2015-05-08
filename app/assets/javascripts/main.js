@@ -1468,16 +1468,67 @@
 
     /*
      # =============================================================================
-     #   admin_status
+     #   side_comment
      # =============================================================================
      */
 
+    $(function() {
+
+            $('#star').raty({
+                    half: true,
+                    score: 3,
+                    target: '#sidecomment_star',
+                    targetKeep   : true,
+                    precision    : true,
+                    targetType   : 'score',
+                    path:'../img'
 
 
+                }
 
 
+            );
+
+    });
+
+    $(function() {
+
+        $('#star1').raty({
+                half: true,
+                score: function() {
+                    return $(this).attr('data-score')},
+                targetKeep   : true,
+                precision    : true,
+                targetType   : 'score',
+                path:'../img',
+                readOnly: true,
+                target: '#result'
+            }
 
 
+        );
+
+    });
+
+    $(function() {
+
+        $('.td').raty({
+                half: true,
+                score: function() {
+                    return $(this).attr('data-score')},
+                targetKeep   : true,
+                precision    : true,
+                targetType   : 'score',
+                path:'../img',
+                readOnly: true,
+                target: '.result'
+
+            }
+
+
+        );
+
+    });
 
 
     $(function() {

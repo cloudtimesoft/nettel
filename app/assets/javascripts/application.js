@@ -57,7 +57,9 @@
 //= require skycons.js
 //= require fitvids.js
 //= require jquery.sparkline.min.js
-//= require main.js
+
+
+
 //= require respond.js
 //= require cloudtimesoft.js
 
@@ -65,9 +67,9 @@
 //= require unslider.js
 
 
+//= require jquery.raty.js
 
-
-
+//= require main.js
 
 
 

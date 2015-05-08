@@ -27,3 +27,78 @@
     <%= f.submit %>
   </div>
 <% end %>
+
+
+
+
+
+
+<%= form_for(@sidecla) do |f| %>
+    <fieldset>
+      <% if @sidecla.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@sidecla.errors.count, "error") %> prohibited this admin from being saved:</h2>
+
+            <ul>
+              <% @admin.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+
+
+      <table class="col-lg-8">
+        <tr>
+          <div class="form-group">
+            <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;"><%= f.label :关键字 %></td>
+            <td> <%= f.text_field :keywords, class:"form-control" %></td>
+          </div>
+        </tr>
+        <tr>
+          <div class="form-group">
+            <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :密码 %></td>
+            <td><%= f.password_field :password, class:"form-control" %></td>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="form-group">
+            <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :password_confirmation, "确认密码" %></td>
+            <td><%= f.password_field :password_confirmation, class:"form-control" %></td>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="form-group">
+            <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :备注 %></td>
+            <td ><%= f.text_area :content, class:"form-control", size:'20' %></td>
+          </div>
+        </tr>
+
+        <tr>
+          <div>
+            <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :状态 %></td>
+            <td >
+              <div style="display: none;">
+                <%= f.number_field :status, value:1, class:"form-control" %>
+              </div>
+
+              <div class="toggle-switch text-toggle-switch" data-off-label="停用" data-on="primary" data-on-label="正常">
+                <% if @admin.status == 0 %>
+                    <input id="statuschange" name="statuschange" type="checkbox" onchange="javascript:adminstatuschange()">
+                <% else %>
+                    <input checked="" id="statuschange" name="statuschange" type="checkbox" onchange="javascript:adminstatuschange()">
+                <% end %>
+              </div>
+            </td>
+          </div>
+        </tr>
+        <tr>
+          <td align="right" colspan="2" style="padding: 0px;"><div class="actions">
+            <%= f.submit :"确定", class:"btn btn-primary-outline pull-right" %></td>
+          </div>
+        </tr>
+      </table>
+    </fieldset>
+<% end %>

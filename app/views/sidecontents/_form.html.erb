@@ -1,4 +1,15 @@
+<script type="text/javascript" language="JavaScript">
+
+    function cardtypeselect(){
+        document.getElementById("sidecontent_sidecla_id").value=document.getElementById("sideclaid").value;
+
+
+
+    }
+</script>
+
 <%= form_for(@sidecontent) do |f| %>
+    <fieldset>
   <% if @sidecontent.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@sidecontent.errors.count, "error") %> prohibited this sidecontent from being saved:</h2>
@@ -10,40 +21,68 @@
       </ul>
     </div>
   <% end %>
+<table class="col-lg-12">
+  <tr>
+  <div class="form-group">
+    <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;"><%= f.label :sidecla_id %></td>
+    <td> <%= f.hidden_field :sidecla_id,value:1%>
+      <% @sideclas = Sidecla.all%>
+      <select id="sideclaid" class="form-control" type="text" onchange="cardtypeselect()">
 
-  <div class="field">
-    <%= f.label :sidecla_id %><br>
-    <%= f.number_field :sidecla_id %>
+        <%= @sideclas.each do |f| %>
+        <option value=<%=f.id%>><%=f.title%></option>
+         <%end%>
+            </select></td>
   </div>
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
+    </tr>
+  <tr>
+  <div  class="form-group">
+    <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;"> <%= f.label :title %></td>
+    <td><%= f.text_field :title ,:class =>"form-control"%></td>
   </div>
-  <div class="field">
-    <%= f.label :inpaper %><br>
-    <%= f.text_field :inpaper %>
+  </tr>
+  <tr>
+  <div  class="form-group">
+    <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;"> <%= f.label :inpaper %></td>
+    <td ><%= f.text_field :inpaper,:class =>"form-control" %></td>
   </div>
-  <div class="field">
-    <%= f.label :oprice %><br>
-    <%= f.text_field :oprice %>
+
+  </tr>
+  <tr>
+  <div   class="form-group">
+    <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;"> <%= f.label :oprice %></td>
+    <td> <%= f.text_field :oprice,:class =>"form-control" %></td>
   </div>
-  <div class="field">
-    <%= f.label :pprice %><br>
-    <%= f.text_field :pprice %>
+  </tr>
+  <tr>
+  <div  class="form-group">
+    <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;"><%= f.label :pprice %></td>
+    <td ><%= f.text_field :pprice ,:class =>"form-control"%></td>
   </div>
-  <div class="field">
-    <%= f.label :content %><br>
-    <%= f.kindeditor :content%>
+  </tr>
+  <tr>
+  <div class="form-group">
+    <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;">   <%= f.label :content %></td>
+    <td><%= f.kindeditor :content,:class =>"form-control"%></td>
   </div>
-  <div class="field">
-    <%= f.label :time %><br>
-    <%= f.datetime_select :time %>
+  </tr>
+  <tr>
+  <div class="form-group">
+    <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;">   <%= f.label :time %></td>
+    <td><%= f.datetime_select :time,:class =>"form-control"%></td>
   </div>
-  <div class="field">
-    <%= f.label :admin_id %><br>
-    <%= f.number_field :admin_id %>
+  </tr>
+  <tr>
+  <div class="form-group">
+    <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;"><%= f.label :admin_id %></td>
+    <td><%= f.number_field :admin_id ,value:session[:admin_id],:class =>"form-control"%></td>
   </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+  </tr>
+  <tr>
+    <td align="right" colspan="2" style="padding: 0px;"><div class="actions">
+      <%= f.submit :"确定", class:"btn btn-primary-outline pull-right" %></td>
+    </div>
+  </tr>
+</table>
+    </fieldset>
 <% end %>

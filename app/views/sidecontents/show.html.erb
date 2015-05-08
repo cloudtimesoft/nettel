@@ -1,45 +1,69 @@
-<p id="notice"><%= notice %></p>
+<div class="container fluid-height clearfix">
+<%=render 'head' %>
 
-<p>
-  <strong>Sidecla:</strong>
-  <%= @sidecontent.sidecla_id %>
-</p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @sidecontent.title %>
-</p>
 
-<p>
-  <strong>Inpaper:</strong>
-  <%= @sidecontent.inpaper %>
-</p>
+<div class="row">
+<div class="col-lg-12">
+  <div class="widget-container fluid-height clearfix" style="padding: 10px;">
 
-<p>
-  <strong>Oprice:</strong>
-  <%= @sidecontent.oprice %>
-</p>
 
-<p>
-  <strong>Pprice:</strong>
-  <%= @sidecontent.pprice %>
-</p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @sidecontent.content.html_safe %>
-</p>
+    <div class="col-lg-5">
 
-<p>
-  <strong>Time:</strong>
-  <%= @sidecontent.time %>
-</p>
+      <h4 class="heading icon-user">&nbsp;详细介绍</h4><p></p>
 
-<p>
-  <strong>Admin:</strong>
-  <%= @sidecontent.admin_id %>
-</p>
 
-<%= link_to 'Edit', edit_sidecontent_path(@sidecontent) %> |
-<%= link_to 'Back', sidecontents_path %>
+      <p>
+        <span class="col-sm-2" style="text-align: right;">Sidecla:</span>
+        <% @sidecla =@sideclas.find(@sidecontent.sidecla_id) %>
+        <%= @sidecla.title %>
+      </p>
 
+      <p>
+        <span class="col-sm-2" style="text-align: right;">Title:</span>
+        <%= @sidecontent.title %>&nbsp;
+      </p>
+
+      <p>
+        <span class="col-sm-2" style="text-align: right;">Inpaper:</span>
+        <%= @sidecontent.inpaper %>&nbsp;
+      </p>
+
+      <p>
+        <span class="col-sm-2" style="text-align: right;">Pprice:</span>
+        <%= @sidecontent.pprice %>&nbsp;
+      </p>
+
+      <p>
+        <span class="col-sm-2" style="text-align: right;">Time:</span>
+        <%= @sidecontent.time %>&nbsp;
+      </p>
+
+      <p>
+        <span class="col-sm-2" style="text-align: right;">Admin:</span>
+        <%= @sidecontent.admin_id %>&nbsp;
+      </p>
+
+      <p>
+        <%= link_to 'Edit', edit_sidecontent_path(@sidecontent) %> |
+        <%= link_to 'Back', sidecontents_path %>
+      </p>
+
+    </div>
+
+
+    <div class="col-lg-7 cts-leftborder-container">
+      <h4 class="heading icon-user">&nbsp;内容</h4><p></p>
+
+      <p>
+        <%= @sidecontent.content.html_safe %>
+      </p>
+
+    </div>
+
+
+</div>
+</div>
+</div>
+</div>

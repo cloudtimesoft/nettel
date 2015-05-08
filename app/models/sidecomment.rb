@@ -1,3 +1,3 @@
 class Sidecomment < ActiveRecord::Base
-  belongs_to :sidecontent
+  belongs_to :sidecontents
 end
