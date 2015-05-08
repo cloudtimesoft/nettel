@@ -1,19 +1,31 @@
-<p id="notice"><%= notice %></p>
+<div class="container fluid-height clearfix">
+  <%= render 'head'%>
 
-<p>
-  <strong>Contact:</strong>
-  <%= @sidemessage.contact %>
-</p>
+  <div class="row">
+    <div class="col-lg-12">
+      <h2 class="heading"><i class="icon-random"></i>&nbsp; 留言板</h2>
+      <div class="widget-container fluid-height clearfix" style="padding: 10px;">
 
-<p>
-  <strong>Tel:</strong>
-  <%= @sidemessage.tel %>
-</p>
+        <div class="col-lg-6">
+          <p>
+            <span class="col-sm-2" style="text-align: right;">联系人:</span>
+            <%= @sidemessage.contact %>
+          </p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @sidemessage.content %>
-</p>
+          <p>
+            <span class="col-sm-2" style="text-align: right;">联系电话:</span>
+            <%= @sidemessage.tel %>
+          </p>
 
-<%= link_to 'Edit', edit_sidemessage_path(@sidemessage) %> |
-<%= link_to 'Back', sidemessages_path %>
+          <p>
+            <span class="col-sm-2" style="text-align: right;">留言内容:</span>
+           <div style="text-align: left"> <%= @sidemessage.content %></div>
+          </p>
+
+      <!--    <%#= link_to '编辑', edit_sidemessage_path(@sidemessage),class:"btn btn-primary-outline pull-right" %> -->
+          <%= link_to '返回', sidemessages_path ,class:"btn btn-primary-outline pull-right"%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

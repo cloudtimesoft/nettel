@@ -1,29 +1,37 @@
-<h1>Listing sidemessages</h1>
 
-<table>
-  <thead>
+<%= render 'head'%>
+<div class="container fluid-height clearfix">
+
+  <h2 class="heading">留言板</h2>
+  <div class="widget-container fluid-height clearfix">
+    <table class="table table-hover table-bordered table-striped">
+      <thead>
     <tr>
-      <th>Contact</th>
-      <th>Tel</th>
-      <th>Content</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
+      <th class="heading">联系人</th>
+      <th class="heading">联系电话</th>
+      <th class="heading">留言内容</th>
+      <th class="heading">操作</th>
+       </tr>
+
+      </thead>
+
     <% @sidemessages.each do |sidemessage| %>
       <tr>
         <td><%= sidemessage.contact %></td>
         <td><%= sidemessage.tel %></td>
         <td><%= sidemessage.content %></td>
-        <td><%= link_to 'Show', sidemessage %></td>
-        <td><%= link_to 'Edit', edit_sidemessage_path(sidemessage) %></td>
-        <td><%= link_to 'Destroy', sidemessage, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td  width="100px" align="center"><%= link_to '',sidemessage , class:"icon-eye-open usricons", title: "显示"%>
+      <%#=link_to '', edit_sidemessage_path(sidemessage) ,class:"icon-pencil usricons"%>
+        <%= link_to '', sidemessage, method: :delete, data: { confirm: '确认删除？' },class:"icon-trash usricons",title: "删除" %></td>
       </tr>
     <% end %>
-  </tbody>
+
 </table>
+    <div class="digg_pagination">
+      <%= will_paginate @rechargeable_cards, :previous_label => '上一页', :next_label => '下一页' %>
+    </div>
+</div>
 
-<br>
 
-<%= link_to 'New Sidemessage', new_sidemessage_path %>
+</div>

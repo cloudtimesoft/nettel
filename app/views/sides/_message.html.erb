@@ -1,1 +1,55 @@
-<p>留言　关键字　message</p>
+<div class="col-lg-9">
+  <div class="widget-container fluid-height clearfix">
+    <h3 class="heading">留言版</h3>
+    <%= form_for(@sidemessage) do |f| %>
+        <fieldset>
+          <% if @sidemessage.errors.any? %>
+              <div id="error_explanation">
+                <h2><%= pluralize(@sidemessage.errors.count, "error") %> prohibited this sidemessage from being saved:</h2>
+
+                <ul>
+                  <% @sidemessage.errors.full_messages.each do |message| %>
+                      <li><%= message %></li>
+                  <% end %>
+                </ul>
+              </div>
+          <% end %>
+          <table class="col-lg-8">
+            <tr>
+              <div class="form-group">
+                <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;"> <em style="color: red;font-size: 15px;">*</em><%= f.label :联系人 %></td>
+                <td> <%= f.text_field :contact,class:"form-control" %></td>
+              </div>
+            </tr>
+
+            <tr>
+              <div class="form-group">
+                <td style="margin-top: 10px;width:15px;text-align: right;padding: 10px;"><em style="color: red;font-size: 15px;">*</em><%= f.label :联系方式 %></td>
+                <td>  <%= f.text_field :tel,class:"form-control" %></td>
+              </div>
+            </tr>
+            <tr>
+              <div class="form-group">
+                <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><em style="color: red;font-size: 15px;">*</em><%= f.label :留言内容 %></td>
+                <td> <%= f.text_area :content,class:"form-control",rows:8%></td>
+              </div>
+            </tr>
+
+            <tr>
+              <td align="right" colspan="2" style="padding: 10px;"><div class="actions">
+                <%= f.submit :"提交" ,class:"btn btn-primary-outline pull-right"%>
+              </div>
+            </tr>
+          </table>
+        </fieldset>
+    <% end %>
+
+  </div>
+</div>
+
+
+<div class="col-lg-3" style="background-color: #007020">
+　　
+
+  <%= render'contact' %>
+</div>
