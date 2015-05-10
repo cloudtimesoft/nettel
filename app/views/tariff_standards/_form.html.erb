@@ -39,6 +39,14 @@
   </tr>
 
   <tr>
+    <div class="form-group">
+      <td style="margin-top: 10px;width:80px;text-align: right;padding: 5px;"><%= f.label :默认套餐 %></td>
+      <td><%= f.number_field :isdefault, class:"form-control", size:'20'  %></td>
+
+    </div>
+  </tr>
+
+  <tr>
     <td align="right" colspan="2" style="padding: 0px;"><div class="actions">
       <%= f.submit :"确定", class:"btn btn-primary-outline pull-right" %></td>
     </div>

@@ -36,7 +36,7 @@
             <td><%= sidecomment.content %></td>
             <td><div class="td"  style="float: left;" data-score=<%= sidecomment.star %> ></div><div class="result" style="float: left;padding-left: 20px"> </div></td>
 
-            <td><%= sidecomment.time %></td>
+            <td><%= sidecomment.time.strftime("%Y-%m-%d %H:%M:%S") %></td>
 
 
 
@@ -47,16 +47,9 @@
       <% end %>
 
     </table>
-
+    <div class="digg_pagination">
+      <%= will_paginate @sidecomments, :previous_label => '上一页', :next_label => '下一页' %>
+    </div>
     <br>
-
-
-
-
-
-
-
-
-    <%= link_to ' 创建前台信息', new_sidecontent_path, class: "icon-plus btn btn-primary-outline pull-right",'data-no-turbolink'=>true%>
   </div>
 </div>

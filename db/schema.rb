@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150505014818) do
+ActiveRecord::Schema.define(version: 20150510080438) do
 
   create_table "admin_role_refs", force: true do |t|
     t.integer  "admin_id"
@@ -263,6 +263,7 @@ ActiveRecord::Schema.define(version: 20150505014818) do
     t.integer  "admin_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "iscomment"
   end
 
   add_index "sidecontents", ["admin_id"], name: "index_sidecontents_on_admin_id", using: :btree
@@ -292,6 +293,7 @@ ActiveRecord::Schema.define(version: 20150505014818) do
     t.float    "minus_amount", limit: 24
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "isdefault"
   end
 
   create_table "time_charges", force: true do |t|

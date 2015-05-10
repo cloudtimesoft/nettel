@@ -46,3 +46,15 @@ function role_status_change()
         $('#role_role_status').val('0');
     }
 }
+
+function commentiscommentchange()
+{
+    if (document.getElementById("iscommentchange").checked) {
+        document.getElementById("sidecontent_iscomment").value = "1";
+    }
+    else {
+        document.getElementById("sidecontent_iscomment").value = "0";
+    }
+
+
+}

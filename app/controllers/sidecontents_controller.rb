@@ -13,6 +13,7 @@ class SidecontentsController < ApplicationController
   # GET /sidecontents/1.json
   def show
     @sideclas = Sidecla.all
+    @admin  = Admin.all
   end
 
   # GET /sidecontents/new
@@ -73,6 +74,6 @@ class SidecontentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def sidecontent_params
-      params.require(:sidecontent).permit(:sidecla_id, :title, :inpaper, :oprice, :pprice, :content, :time, :admin_id)
+      params.require(:sidecontent).permit(:sidecla_id, :title, :inpaper, :oprice, :pprice, :content, :time, :admin_id,:iscomment)
     end
 end

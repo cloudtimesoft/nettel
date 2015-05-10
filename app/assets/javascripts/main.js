@@ -1203,10 +1203,63 @@
 
 
 
+      /*
+       # =============================================================================
+       #   sidecontent new validate
+       # =============================================================================
+       */
+      $(".new_sidecontent").validate({
+          rules: {
+              'sidecontent[oprice]': {
+                  number: true
+              },
 
+              'sidecontent[pprice]': {
+                  number: true
 
+              }
+          },
+          messages: {
+              'sidecontent[oprice]': {
+                  number: "请输入有效金额！"
 
+              },
 
+              'sidecontent[pprice]': {
+                  number: "请输入有效金额！"
+
+              }
+          }
+      });
+
+      /*
+       # =============================================================================
+       #   sidecontent edit validate
+       # =============================================================================
+       */
+      $(".edit_sidecontent").validate({
+          rules: {
+              'sidecontent[oprice]': {
+                  number: true
+              },
+
+              'sidecontent[pprice]': {
+                  number: true
+
+              }
+          },
+          messages: {
+              'sidecontent[oprice]': {
+                  number: "请输入有效金额！"
+
+              },
+
+              'sidecontent[pprice]': {
+                  number: "请输入有效金额！"
+
+              }
+          }
+      });
 
 
       /*
@@ -1359,6 +1412,11 @@
       showSeconds: true,
       showMeridian: false
     });
+      $("#timepicker-24h1").timepicker({
+          minuteStep: 1,
+          showSeconds: true,
+          showMeridian: false
+      });
     $("#timepicker-noTemplate").timepicker({
       template: false,
       showInputs: false,
@@ -1501,8 +1559,7 @@
                 precision    : true,
                 targetType   : 'score',
                 path:'../img',
-                readOnly: true,
-                target: '#result'
+                readOnly: true
             }
 
 

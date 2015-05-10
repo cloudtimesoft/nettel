@@ -2,8 +2,9 @@ class SidecommentsController < ApplicationController
   before_action :set_sidecomment, only: [:show, :edit, :update, :destroy]
   def index
 
-    @sidecomments = Sidecomment.all
+    @sidecomments = Sidecomment.paginate(page: params[:page])
     @sidecontents = Sidecontent.all
+
   end
 
 

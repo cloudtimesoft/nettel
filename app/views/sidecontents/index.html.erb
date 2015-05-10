@@ -8,13 +8,14 @@
       <thead>
       <tr>
         <th></th>
-        <th class="heading">Sidecla</th>
+        <th class="heading">分类</th>
         <th class="heading">标题</th>
-        <th class="heading">Inpaper</th>
-        <th class="heading">Oprice</th>
-        <th class="heading">Pprice</th>
-        <th class="heading">备注</th>
-        <th class="heading">时间</th>
+        <th class="heading">摘要</th>
+        <th class="heading">原价</th>
+        <th class="heading">现价</th>
+        <th class="heading">内容</th>
+        <th class="heading">发布时间</th>
+        <th class="heading">允许评论</th>
         <th class="heading">管理员</th>
         <th class="heading">操作</th>
       </tr>
@@ -23,7 +24,7 @@
 
       <% @sidecontents.each do |sidecontent| %>
           <tr>
-            <td width="30px"><i class="heading icon-user"></i></td>
+            <td width="30px"><i class="heading icon-desktop"></i></td>
 
             <%@sidecla =@sideclas.find(sidecontent.sidecla_id) rescue nil %>
             <% if @sidecla %>
@@ -36,7 +37,18 @@
             <td><%= sidecontent.oprice %></td>
             <td><%= sidecontent.pprice %></td>
             <td><%= sidecontent.content %></td>
-            <td><%= sidecontent.time %></td>
+            <td><%= sidecontent.time.strftime("%Y-%m-%d %H:%M:%S") %></td>
+
+
+
+            <td>
+              <% if sidecontent.iscomment==1 %>
+                <%= "允许"%>
+              <% else %>
+                <%="不允许"%>
+              <% end %>
+            </td>
+
 
             <% @admin=@admins.find(sidecontent.admin_id) rescue nil %>
             <% if @admin %>

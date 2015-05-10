@@ -85,6 +85,6 @@ end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def tariff_standard_params
-      params.require(:tariff_standard).permit(:name, :content, :minus_amount)
+      params.require(:tariff_standard).permit(:name, :content, :minus_amount,:isdefault)
     end
 end

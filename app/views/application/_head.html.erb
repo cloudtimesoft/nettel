@@ -40,7 +40,7 @@
             <li><a href="#">
               <i class="icon-gear"></i>Account Settings</a>
             </li>
-            <li><a href="/logins/new"data-no-turbolink>
+            <li><a href="/logins/new" data-no-turbolink>
               <i class="icon-signout">退出</i></a>
             </li>
           </ul>
@@ -64,10 +64,6 @@
         <% end %>
           <span aria-hidden="true" ><i class="icon-gears"></i></span>系统<b class="caret"></b></a>
           <ul class="dropdown-menu">
-
-
-
-
             <% if checkauth('cfgs') %>
                 <li>
                   <% if request.fullpath.include?'cfgs' %>

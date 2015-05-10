@@ -16,6 +16,18 @@
         document.getElementById("lablediv").style.display="none";
         document.getElementById("formdiv").style.display="block";
     }
+
+
+    function starttimeselect()
+    {
+        document.getElementById("time_charge_start_time").value=document.getElementById("timepicker-24h").value;
+    }
+
+    function endtimeselect()
+    {
+        document.getElementById("time_charge_end_time").value=document.getElementById("timepicker-24h1").value;
+    }
+
 </script>
 
 <div class="row">
@@ -43,6 +55,10 @@
                     <p>
                       <span class="col-sm-3" style="text-align: right;">负数额度:</span>
                       <%= @tariff_standard.minus_amount %>
+                    </p>
+                    <p>
+                      <span class="col-sm-3" style="text-align: right;">默认套餐:</span>
+                      <%= @tariff_standard.isdefault %>
                     </p>
                     <p>
 
@@ -123,8 +139,8 @@
                                                     <td width="30px"><i class="heading icon-jpy"></i></td>
                                                     <td class="hidden-xs"><%= f.s_charges %></td>
                                                     <td class="hidden-xs"><%= f.c_charges %></td>
-                                                    <td class="hidden-xs"><%= f.start_time.strftime("%Y-%m-%d %H:%M:%S") %></td>
-                                                    <td class="hidden-xs"><%= f.end_time.strftime("%Y-%m-%d %H:%M:%S") %></td>
+                                                    <td class="hidden-xs"><%= f.start_time.strftime("%H:%M:%S") %></td>
+                                                    <td class="hidden-xs"><%= f.end_time.strftime("%H:%M:%S") %></td>
                                                     <td width="100px" align="center">
                                                       <%= link_to '', f, method: :delete, data: { confirm: '是否新建时段套餐？' },class:"icon-trash usricons", title:"删除" %></td>
                                                   </tr>
@@ -145,13 +161,22 @@
                                               <span class="col-sm-2" style="text-align: right;">回拨费用:</span>
                                               <%= f.text_field :c_charges,class:"form-control states typeahead tt-query" %>
                                             </p>
+
                                             <p>
                                               <span class="col-sm-2" style="text-align: right;">开始时间:</span>
-                                              <%= f.datetime_select :start_time%>
+                                            <div class="input-group bootstrap-timepicker">
+                                              <%= f.hidden_field :start_time,value:Time.now.strftime("%H:%M:%S")%>
+                                              <input class="form-control" id="timepicker-24h" name="timepicker-24h" value= <%=Time.now.strftime("%H:%M:%S") %> type="text" onchange="starttimeselect()"><span class="input-group-addon"><i class="icon-time"></i></span></input>
+                                            </div>
                                             </p>
+
                                             <p>
                                               <span class="col-sm-2" style="text-align: right;">结束时间:</span>
-                                              <%= f.datetime_select :end_time %>
+                                            <div class="input-group bootstrap-timepicker">
+                                              <%= f.hidden_field :end_time,value:Time.now.strftime("%H:%M:%S")%>
+                                              <input class="form-control" id="timepicker-24h1" name="timepicker-24h1" value= <%=Time.now.strftime("%H:%M:%S") %> type="text" onchange="endtimeselect()"><span class="input-group-addon"><i class="icon-time"></i></span></input>
+                                            </div>
+
                                             </p>
                                             <p>
                                             <%= f.submit :"确定", class:"btn btn-primary-outline pull-right" %>

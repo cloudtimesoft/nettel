@@ -22,6 +22,7 @@
     </thead>
 
     <tbody>
+
     <% @make_cards.each do |make_card| %>
         <tr>
           <td width="30px"><i class="heading icon-credit-card "></i></td>
@@ -32,10 +33,6 @@
           <% else %>
               <td class="hidden-xs">&nbsp;</td>
           <% end %>
-
-
-
-
           <%if make_card.card_type==1%>
               <td><%= "开卡截止" %></td>
               <% else%>

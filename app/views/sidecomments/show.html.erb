@@ -14,8 +14,12 @@
 
           <p>
             <span class="col-sm-2" style="text-align: right;">文章名:</span>
-            <%@sidecontent = Sidecontent.find(@sidecomment.sidecontent_id)%>
-            <%= @sidecontent.title%>&nbsp;
+            <%@sidecontent = Sidecontent.find(@sidecomment.sidecontent_id) rescue nil%>
+            <% if @sidecontent %>
+              <td class="hidden-xs"><%= @sidecontent.title%></td>
+          <% else %>
+              <td class="hidden-xs">&nbsp;</td>
+          <% end %>
 
           </p>
 
@@ -32,13 +36,12 @@
           <p>
             <span class="col-sm-2" style="text-align: right;">星级:</span>
           <div id="star1"  data-score=<%= @sidecomment.star %>>&nbsp;</div>
-          <div id="result"></div>
 
           </p>
          <div>
           <p>
             <span class="col-sm-2" style="text-align: right;">时间:</span>
-            <%= @sidecomment.time %>&nbsp;
+            <%= @sidecomment.time.strftime("%Y-%m-%d %H:%M:%S") %>&nbsp;
           </p>
           </div>
           <p>

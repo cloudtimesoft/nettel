@@ -9,52 +9,68 @@
 
 
 
-    <div class="col-lg-5">
+    <div class="col-lg-6">
 
-      <h4 class="heading icon-user">&nbsp;详细介绍</h4><p></p>
+      <h4 class="heading icon-desktop">&nbsp;详细介绍</h4><p></p>
 
 
       <p>
-        <span class="col-sm-2" style="text-align: right;">Sidecla:</span>
+        <span class="col-sm-3" style="text-align: right;">分类:</span>
         <% @sidecla =@sideclas.find(@sidecontent.sidecla_id) %>
         <%= @sidecla.title %>
       </p>
 
       <p>
-        <span class="col-sm-2" style="text-align: right;">Title:</span>
+        <span class="col-sm-3" style="text-align: right;">标题:</span>
         <%= @sidecontent.title %>&nbsp;
       </p>
 
       <p>
-        <span class="col-sm-2" style="text-align: right;">Inpaper:</span>
+        <span class="col-sm-3" style="text-align: right;">摘要:</span>
         <%= @sidecontent.inpaper %>&nbsp;
       </p>
-
       <p>
-        <span class="col-sm-2" style="text-align: right;">Pprice:</span>
+        <span class="col-sm-3" style="text-align: right;">原价:</span>
+        <%= @sidecontent.oprice %>&nbsp;
+      </p>
+      <p>
+        <span class="col-sm-3" style="text-align: right;">现价:</span>
         <%= @sidecontent.pprice %>&nbsp;
       </p>
-
       <p>
-        <span class="col-sm-2" style="text-align: right;">Time:</span>
-        <%= @sidecontent.time %>&nbsp;
+        <span class="col-sm-3" style="text-align: right;">发布时间:</span>
+        <%= @sidecontent.time.strftime("%Y-%m-%d %H:%M:%S") %>&nbsp;
+      </p>
+      <p>
+        <span class="col-sm-3" style="text-align: right;">允许评论:</span>
+        <% if @sidecontent.iscomment==0 %>&nbsp;
+            <%= '不允许' %>
+            <%else %>
+            <%= '允许' %>
+        <%end%>
+
+      </p>
+      <p>
+        <span class="col-sm-3" style="text-align: right;">管理姓名:</span>
+
+        <% @admin=@admins.find(@sidecontent.admin_id) rescue nil %>
+        <% if @admin %>
+          <td class="hidden-xs"><%= @admin.name %></td>
+      <% else %>
+          <td class="hidden-xs">&nbsp;</td>
+      <% end %>
+
       </p>
 
       <p>
-        <span class="col-sm-2" style="text-align: right;">Admin:</span>
-        <%= @sidecontent.admin_id %>&nbsp;
-      </p>
-
-      <p>
-        <%= link_to 'Edit', edit_sidecontent_path(@sidecontent) %> |
-        <%= link_to 'Back', sidecontents_path %>
+        <%= link_to '编辑', edit_sidecontent_path(@sidecontent),class:"btn btn-primary-outline pull-right" ,'data-no-turbolink'=>true %>
       </p>
 
     </div>
 
 
-    <div class="col-lg-7 cts-leftborder-container">
-      <h4 class="heading icon-user">&nbsp;内容</h4><p></p>
+    <div class="col-lg-6 cts-leftborder-container">
+      <h4 class="heading icon-desktop">&nbsp;内容</h4><p></p>
 
       <p>
         <%= @sidecontent.content.html_safe %>
