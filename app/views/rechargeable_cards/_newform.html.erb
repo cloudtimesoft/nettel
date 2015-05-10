@@ -109,7 +109,7 @@
             <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;"> <%= f.label :卡失效 %></td>
                 <td><%= f.hidden_field :failure ,value:@rechargeable_card.failure==0?'0':@rechargeable_card.failure==1?'1':'2',class:"form-control" %>
                   <select id="cardfailure"class="form-control" type="text" onchange="cardfailureselect()">
-                    <option value="０" <%= @rechargeable_card.failure==0?"selected = selected":"" %>>正常</option>
+                    <option value="0" <%= @rechargeable_card.failure==0?"selected = selected":"" %>>正常</option>
                     <option value="1" <%= @rechargeable_card.failure==1?"selected = selected":"" %>>已充值</option>
                     <option value="2" <%= @rechargeable_card.failure==2?"selected = selected":"" %>>系统停用</option>
                   </select>

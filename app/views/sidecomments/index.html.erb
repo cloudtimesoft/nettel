@@ -1,0 +1,62 @@
+
+
+
+<%=render 'head' %>
+
+<div class="container fluid-height clearfix">
+
+  <h2 class="heading">评论设置</h2>
+  <div class="widget-container fluid-height clearfix">
+    <table class="table table-hover table-bordered table-striped">
+      <thead>
+      <tr>
+        <th></th>
+        <th class="heading">文章名</th>
+        <th class="heading">昵称</th>
+        <th class="heading">标题</th>
+        <th class="heading">内容</th>
+        <th class="heading">星级评分</th>
+        <th class="heading">时间</th>
+        <th class="heading">操作</th>
+      </tr>
+      </thead>
+
+
+      <% @sidecomments.each do |sidecomment| %>
+          <tr>
+            <td width="30px"><i class="heading icon-user"></i></td>
+            <% @sidecontent = @sidecontents.find(sidecomment.sidecontent_id) rescue nil%>
+            <% if @sidecontent %>
+                <td class="hidden-xs"><%= @sidecontent.title %></td>
+            <% else %>
+                <td class="hidden-xs">&nbsp;</td>
+            <% end %>
+            <td><%= sidecomment.nickname %></td>
+            <td><%= sidecomment.title %></td>
+            <td><%= sidecomment.content %></td>
+            <td><div class="td"  style="float: left;" data-score=<%= sidecomment.star %> ></div><div class="result" style="float: left;padding-left: 20px"> </div></td>
+
+            <td><%= sidecomment.time %></td>
+
+
+
+            <td width="100px" align="center">
+              <%= link_to '', sidecomment,  class:"icon-eye-open usricons", title: "显示",'data-no-turbolink'=>true %>&nbsp;&nbsp;
+              <%= link_to '', sidecomment, method: :delete, data: { confirm: '确认删除？' },class:"icon-trash usricons", title:"删除",'data-no-turbolink'=>true %></td>
+          </tr>
+      <% end %>
+
+    </table>
+
+    <br>
+
+
+
+
+
+
+
+
+    <%= link_to ' 创建前台信息', new_sidecontent_path, class: "icon-plus btn btn-primary-outline pull-right",'data-no-turbolink'=>true%>
+  </div>
+</div>

@@ -1,6 +1,11 @@
+<%=render 'head' %>
 <h1>Editing sidecontent</h1>
 
-<%= render 'form' %>
+  <div class="widget-container fluid-height clearfix">
 
-<%= link_to 'Show', @sidecontent %> |
-<%= link_to 'Back', sidecontents_path %>
+    <div class="container fluid-height clearfix">
+      <%= render 'form' %>
+      <%= link_to 'Show', @sidecontent %> |
+      <%= link_to 'Back', sidecontents_path %>
+    </div>
+  </div>

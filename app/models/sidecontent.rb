@@ -1,4 +1,5 @@
 class Sidecontent < ActiveRecord::Base
   belongs_to :admin
-  has_many :sidecomment
+  belongs_to :sidecla
+  has_many :sidecomments
 end

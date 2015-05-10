@@ -1,0 +1,135 @@
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sidecla:</strong>
+
+
+  <% @sidecla =@sideclas.find(@sidecontent.sidecla_id) %>
+  <%= @sidecla.title %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @sidecontent.title %>
+</p>
+
+<p>
+  <strong>Inpaper:</strong>
+  <%= @sidecontent.inpaper %>
+</p>
+
+<p>
+  <strong>Oprice:</strong>
+  <%= @sidecontent.oprice %>
+</p>
+
+<p>
+  <strong>Pprice:</strong>
+  <%= @sidecontent.pprice %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @sidecontent.content.html_safe %>
+</p>
+
+
+
+
+
+
+
+<%  @sidecomments.each do |f| %>
+    <% if f.created_at %>
+    <tr>
+      <td width="30px"><i class="heading icon-user"></i></td>
+      <td class="hidden-xs"><%=  f.nickname %></td>
+      <td><%= f.content %></td>
+      <td><%= f.title %></td>
+      <td><%= f.time %></td>
+    </tr>
+<% end %>
+    <%end%>
+
+
+
+
+<script type="text/javascript" language="JavaScript">
+
+    function cardtypeselect(){
+        document.getElementById("sidecontent_sidecla_id").value=document.getElementById("sideclaid").value;
+    }
+</script>
+
+<%= form_for(@sidecomment) do |f| %>
+    <fieldset>
+      <% if @sidecomment.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@sidecomment.errors.count, "error") %> prohibited this sidecontent from being saved:</h2>
+
+            <ul>
+              <% @sidecomment.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+      <table class="col-lg-8">
+        <tr>
+          <div class="form-group">
+            <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;"><%= f.label :sidecontent_id %></td>
+            <td> <%= f.hidden_field :sidecontent_id,value:@sidecontent.id%>
+            </td>
+          </div>
+        </tr>
+        <tr>
+          <div class="form-group">
+            <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;"> <%= f.label :nickname %></td>
+            <td><%= f.text_field :nickname ,:class =>"form-control"%></td>
+          </div>
+        </tr>
+        <tr>
+          <div class="form-group">
+            <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;"> <%= f.label :title %></td>
+            <td><%= f.text_field :title,:class =>"form-control" %></td>
+          </div>
+
+        </tr>
+        <tr>
+          <div class="form-group">
+            <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;"> <%= f.label :content %></td>
+            <td> <%= f.text_field :content,:class =>"form-control" %></td>
+          </div>
+        </tr>
+        <tr>
+          <div class="form-group">
+            <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;"><%= f.label :star %></td>
+            <td style="display: none"><%= f.hidden_field :star ,:class =>"form-control"%></td>
+            <td>
+
+            <div id="star" >
+
+
+            </div>
+
+            </td>
+          </div>
+        </tr>
+
+        <tr>
+          <div class="form-group">
+            <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;">   <%= f.label :time %></td>
+            <td><%= f.datetime_select :time ,:class =>"form-control"%></td>
+          </div>
+        </tr>
+        <tr>
+          <td align="right" colspan="2" style="padding: 0px;"><div class="actions">
+            <%= f.submit :"确定", class:"btn btn-primary-outline pull-right" %></td>
+          </div>
+        </tr>
+      </table>
+    </fieldset>
+<% end %>
+
+

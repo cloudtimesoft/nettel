@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   resources :sidecontents
 
+  resources :sidecomments
+
   resources :sidemessages
 
   resources :sideadvers
@@ -74,6 +76,9 @@ end
   resources :ctsinits
 
   resources :sides
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
