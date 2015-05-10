@@ -1,3 +1,4 @@
+#coding: utf-8
 class SidemessagesController < ApplicationController
   before_action :set_sidemessage, only: [:show, :edit, :update, :destroy]
 
@@ -5,16 +6,21 @@ class SidemessagesController < ApplicationController
   # GET /sidemessages.json
   def index
     @sidemessages = Sidemessage.all
+    @sidemessages = Sidemessage.paginate(page: params[:page])
   end
 
   # GET /sidemessages/1
   # GET /sidemessages/1.json
   def show
+
+
   end
 
   # GET /sidemessages/new
   def new
     @sidemessage = Sidemessage.new
+
+
   end
 
   # GET /sidemessages/1/edit
@@ -25,16 +31,15 @@ class SidemessagesController < ApplicationController
   # POST /sidemessages.json
   def create
     @sidemessage = Sidemessage.new(sidemessage_params)
-
-    respond_to do |format|
       if @sidemessage.save
-        format.html { redirect_to @sidemessage, notice: 'Sidemessage was successfully created.' }
-        format.json { render :show, status: :created, location: @sidemessage }
+
+        redirect_to :back
+        flash[:info]="留言成功"
       else
-        format.html { render :new }
-        format.json { render json: @sidemessage.errors, status: :unprocessable_entity }
+        render new
       end
-    end
+
+
   end
 
   # PATCH/PUT /sidemessages/1

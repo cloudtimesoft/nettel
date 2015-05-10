@@ -1,36 +1,3 @@
-<%= form_for(@sidecla) do |f| %>
-  <% if @sidecla.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@sidecla.errors.count, "error") %> prohibited this sidecla from being saved:</h2>
-
-      <ul>
-      <% @sidecla.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= f.label :keywords %><br>
-    <%= f.text_field :keywords %>
-  </div>
-  <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :renderto %><br>
-    <%= f.text_field :renderto %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
-
-
-
-
 
 
 <%= form_for(@sidecla) do |f| %>
@@ -52,48 +19,23 @@
         <tr>
           <div class="form-group">
             <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;"><%= f.label :关键字 %></td>
-            <td> <%= f.text_field :keywords, class:"form-control" %></td>
+            <td> <%= f.text_field :keywords, class:"form-control" ,onkeyup:"value=value.replace(/[^\a-\z\A-\Z]/g,'')"%></td>
           </div>
         </tr>
         <tr>
           <div class="form-group">
-            <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :密码 %></td>
-            <td><%= f.password_field :password, class:"form-control" %></td>
+            <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :标题 %></td>
+            <td><%= f.text_field :title, class:"form-control" %></td>
           </div>
         </tr>
 
-        <tr>
-          <div class="form-group">
-            <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :password_confirmation, "确认密码" %></td>
-            <td><%= f.password_field :password_confirmation, class:"form-control" %></td>
+        <tr style="display: none">
+          <div style="display: none" class="form-group">
+            <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :渲染%></td>
+            <td><%= f.hidden_field :renderto, class:"form-control" %></td>
           </div>
         </tr>
 
-        <tr>
-          <div class="form-group">
-            <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :备注 %></td>
-            <td ><%= f.text_area :content, class:"form-control", size:'20' %></td>
-          </div>
-        </tr>
-
-        <tr>
-          <div>
-            <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><%= f.label :状态 %></td>
-            <td >
-              <div style="display: none;">
-                <%= f.number_field :status, value:1, class:"form-control" %>
-              </div>
-
-              <div class="toggle-switch text-toggle-switch" data-off-label="停用" data-on="primary" data-on-label="正常">
-                <% if @admin.status == 0 %>
-                    <input id="statuschange" name="statuschange" type="checkbox" onchange="javascript:adminstatuschange()">
-                <% else %>
-                    <input checked="" id="statuschange" name="statuschange" type="checkbox" onchange="javascript:adminstatuschange()">
-                <% end %>
-              </div>
-            </td>
-          </div>
-        </tr>
         <tr>
           <td align="right" colspan="2" style="padding: 0px;"><div class="actions">
             <%= f.submit :"确定", class:"btn btn-primary-outline pull-right" %></td>

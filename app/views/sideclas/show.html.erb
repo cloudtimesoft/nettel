@@ -1,19 +1,29 @@
-<p id="notice"><%= notice %></p>
+<div class="container fluid-height clearfix">
+  <%= render 'head'%>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <h2 class="heading"><i class="icon-random"></i>&nbsp; 类别信息</h2>
+      <div class="widget-container fluid-height clearfix" style="padding: 10px;">
 
 <p>
-  <strong>Keywords:</strong>
+  <strong>关键字:</strong>
   <%= @sidecla.keywords %>
 </p>
 
 <p>
-  <strong>Title:</strong>
+  <strong>标题:</strong>
   <%= @sidecla.title %>
 </p>
 
-<p>
-  <strong>Renderto:</strong>
+<p style="display: none">
+  <strong>渲染:</strong>
   <%= @sidecla.renderto %>
 </p>
 
-<%= link_to 'Edit', edit_sidecla_path(@sidecla) %> |
-<%= link_to 'Back', sideclas_path %>
+<%= link_to '编辑', edit_sidecla_path(@sidecla),class:"btn btn-primary-outline" %>
+<%= link_to '返回', sideclas_path ,class:"btn btn-primary-outline "%>
+</div>
+        </div>
+      </div>
+    </div>

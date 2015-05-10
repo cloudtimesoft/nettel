@@ -3,19 +3,21 @@ class SidesController < ApplicationController
 
   def index
 
+    @sidemessage = Sidemessage.new
+
     @sideclas = Sidecla.all
 
-    @cla = Sidecla.find_by_keywords("news")
-    @sidecontents = @cla.sidecontents
+   @cla = Sidecla.find_by_keywords("news")
+  @sidecontents = @cla.sidecontents
 
-    @admins =Admin.all
+   @admins =Admin.all
 
   end
 
 
-    def new
+  def new
 
-    end
+  end
 
 
 
@@ -23,17 +25,14 @@ class SidesController < ApplicationController
 
     @sidecontent = Sidecontent.find_by(params[:id])
 
-    @sidecomment = Sidecomment.new
-
+  @sidecomment = Sidecomment.new
     @sidecomments = @sidecontent.sidecomments
 
-    @sideclas = Sidecla.all
+   @sideclas = Sidecla.all
 
-    @admins =Admin.all
+   @admins =Admin.all
 
 
   end
-
-
 
 end

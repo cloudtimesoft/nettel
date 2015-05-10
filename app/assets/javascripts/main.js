@@ -1077,6 +1077,26 @@
 
 
 
+      $(".edit_tariff_standard").validate({
+          rules: {
+              'tariff_standard[minus_amount]': {
+                  required: true,
+                  number: true
+
+
+              }
+          },
+          messages: {
+
+              'tariff_standard[minus_amount]': {
+                  required: "负数额度不能为空！",
+                  number: "请输入有效数字！"
+              }
+
+          }
+      });
+
+
 
 
 
@@ -1161,6 +1181,43 @@
           }
       });
 
+      /*
+       # =============================================================================
+       #   留言认证
+       # =============================================================================
+       */
+
+      $(".new_sidemessage").validate({
+          rules: {
+
+              'sidemessage[contact]': {
+                  required:true
+
+              },
+              'sidemessage[tel]': {
+                  required:true
+
+              },
+              'sidemessage[content]': {
+                  required:true
+              }
+          },
+          messages: {
+
+              'sidemessage[contact]': {
+                  required: "联系人不能为空！"
+
+              },
+              'sidemessage[tel]': {
+                  required: "联系电话不能够为空！"
+
+              },
+              'sidemessage[content]': {
+                  required: "内容不能为空！"
+
+              }
+          }
+      });
 
 
 
