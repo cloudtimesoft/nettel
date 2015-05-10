@@ -6,8 +6,6 @@
 
 
 
-
-
 <%=render 'head' %>
 
 <div class="container fluid-height clearfix">
@@ -20,7 +18,6 @@
         <th></th>
         <th class="heading">关键字</th>
         <th class="heading">标题</th>
-        <th class="heading">调转</th>
         <th class="heading">操作</th>
       </tr>
       </thead>
@@ -32,8 +29,8 @@
             <td><%= sidecla.keywords %></td>
             </td>
             <td><%= sidecla.title %></td>
-            <td><%= sidecla.renderto %></td>
-                <td width="100px" align="center"><%= link_to "", sidecla,  class:"icon-pencil usricons", title: "编辑" %>&nbsp;&nbsp;
+           
+                <td width="100px" align="center"><%= link_to "", edit_sidecla_path(sidecla),  class:"icon-pencil usricons", title: "编辑" %>&nbsp;&nbsp;
                   <%= link_to '', sidecla, method: :delete, data: { confirm: '确认删除？' },class:"icon-trash usricons", title:"删除" %></td>
 
           </tr>

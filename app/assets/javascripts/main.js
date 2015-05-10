@@ -1077,6 +1077,26 @@
 
 
 
+      $(".edit_tariff_standard").validate({
+          rules: {
+              'tariff_standard[minus_amount]': {
+                  required: true,
+                  number: true
+
+
+              }
+          },
+          messages: {
+
+              'tariff_standard[minus_amount]': {
+                  required: "负数额度不能为空！",
+                  number: "请输入有效数字！"
+              }
+
+          }
+      });
+
+
 
 
 
