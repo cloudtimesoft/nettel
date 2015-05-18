@@ -76,6 +76,8 @@ end
   resources :ctsinits
 
   resources :sides
+    get 'sides/news'
+
 
 
 

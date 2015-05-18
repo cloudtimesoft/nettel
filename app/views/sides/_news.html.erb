@@ -1,4 +1,4 @@
- <!-- <p xmlns="http://www.w3.org/1999/html">新闻　关键字news</p> -->
+ <p xmlns="http://www.w3.org/1999/html">新闻　关键字news</p>
 
 
 
@@ -11,7 +11,7 @@
           <div class="reviewer-info">
           <td>
             <i class="icon-double-angle-right"></i>
-            <a href="/sides/<%=sidecontent.sidecla_id%>"><%= sidecontent.title %></a>
+            <a href="/sides/<%=sidecontent.id%>"data-no-turbolink="true"><%= sidecontent.title %></a>
           </td>
             <div  class="pull-right" style="color: #888888">时间</span>&nbsp;<%= sidecontent.time.strftime("%Y-%m-%d") %></div>
           </div>
@@ -35,8 +35,19 @@
 <div class="col-md-3 fluid-height clearfix">
 
 
-asdasdasdasd
+
+  <div class="widget-container fluid-height clearfix" style="margin-bottom: 20px">
 
 
+    <%=render 'right_top'%>
+
+
+  </div>
+  <div class="widget-container fluid-height clearfix"style="margin-bottom: 20px">
+    <%=render 'right_middle'%>
+  </div>
+  <div class="widget-container fluid-height clearfix">
+    <%=render 'right_bottom'%>
+  </div>
 
 </div>

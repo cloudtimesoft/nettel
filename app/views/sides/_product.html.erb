@@ -1,1 +1,41 @@
 <p>产品服务　关键字product</p>
+
+
+<div class="col-md-9 fluid-height clearfix" >
+  <div class="widget-container fluid-height clearfix">
+
+    <% @sidecontents.each do |sidecontent| %>
+        <tr>
+
+          <div class="reviewer-info">
+            <td>
+              <i class="icon-double-angle-right"></i>
+              <a href="/sides/<%=sidecontent.id%>"><%= sidecontent.title %></a>
+            </td>
+            <div  class="pull-right" style="color: #888888">时间</span>&nbsp;<%= sidecontent.time.strftime("%Y-%m-%d") %></div>
+          </div>
+          <div class="review-text">
+            <p>
+              &nbsp;&nbsp;&nbsp;<span style="text-align: center"><%= sidecontent.inpaper%></span>
+            </p>
+          </div>
+
+          <p style="border-bottom: 1px solid "> </p>
+        </tr>
+    <% end %>
+
+
+
+  </div>
+
+
+</div>
+
+<div class="col-md-3 fluid-height clearfix">
+
+
+  asdasdasdasd
+
+
+
+</div>

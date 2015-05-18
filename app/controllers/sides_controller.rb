@@ -12,8 +12,9 @@ class SidesController < ApplicationController
 
    @admins =Admin.all
 
-  end
 
+    @keyword = params[:adc];
+  end
 
   def new
 
@@ -23,9 +24,8 @@ class SidesController < ApplicationController
 
   def show
 
-    @sidecontent = Sidecontent.find_by(params[:id])
-
-  @sidecomment = Sidecomment.new
+    @sidecontent = Sidecontent.find(params[:id])
+    @sidecomment = Sidecomment.new
     @sidecomments = @sidecontent.sidecomments
 
    @sideclas = Sidecla.all

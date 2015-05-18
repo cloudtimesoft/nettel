@@ -13,7 +13,7 @@ class SidecontentsController < ApplicationController
   # GET /sidecontents/1.json
   def show
     @sideclas = Sidecla.all
-    @admin  = Admin.all
+    @admins  = Admin.all
   end
 
   # GET /sidecontents/new
