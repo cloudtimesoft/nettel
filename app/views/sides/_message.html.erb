@@ -1,46 +1,48 @@
 <div class="col-lg-9">
   <div class="widget-container fluid-height clearfix">
     <h3 class="heading">留言版</h3>
-    <%= form_for(@sidemessage) do |f| %>
+    <%= form_for(@sidemessage,html:{class:"form-horizontal new_sidemessage"} ) do |f| %>
         <fieldset>
-          <% if @sidemessage.errors.any? %>
-              <div id="error_explanation">
-                <h2><%= pluralize(@sidemessage.errors.count, "error") %> prohibited this sidemessage from being saved:</h2>
 
-                <ul>
-                  <% @sidemessage.errors.full_messages.each do |message| %>
-                      <li><%= message %></li>
-                  <% end %>
-                </ul>
-              </div>
-          <% end %>
-          <table class="col-lg-8">
-            <tr>
-              <div class="form-group">
-                <td style="margin-top: 10px;width:30px;text-align: right;padding: 10px;"> <em style="color: red;font-size: 15px;">*</em><%= f.label :联系人 %></td>
-                <td> <%= f.text_field :contact,class:"form-control" %></td>
-              </div>
-            </tr>
 
-            <tr>
-              <div class="form-group">
-                <td style="margin-top: 10px;width:15px;text-align: right;padding: 10px;"><em style="color: red;font-size: 15px;">*</em><%= f.label :联系方式 %></td>
-                <td>  <%= f.text_field :tel,class:"form-control" %></td>
-              </div>
-            </tr>
-            <tr>
-              <div class="form-group">
-                <td style="margin-top: 10px;width:80px;text-align: right;padding: 10px;"><em style="color: red;font-size: 15px;">*</em><%= f.label :留言内容 %></td>
-                <td> <%= f.text_area :content,class:"form-control",rows:8%></td>
-              </div>
-            </tr>
 
-            <tr>
-              <td align="right" colspan="2" style="padding: 10px;"><div class="actions">
+              <div class="form-group">
+                <div class="control-label col-md-2">
+                <em style="color: red">*</em><%= f.label :联系人 %>
+                </div>
+                <div class="col-md-7">
+                <%= f.text_field :contact,class:"form-control" %>
+                  </div>
+              </div>
+
+
+
+              <div class="form-group">
+                <div class="control-label col-md-2">
+                  <em style="color: red">*</em><%= f.label :联系方式 %>
+                </div>
+                <div class="col-md-7">
+                <%= f.text_field :tel,class:"form-control" %>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="control-label col-md-2">
+                  <em style="color: red;font-size: 15px;">*</em><%= f.label :留言内容 %>
+                </div>
+                <div class="col-md-7">
+                <%= f.text_area :content,class:"form-control",rows:8%>
+                </div>
+              </div>
+
+
+
+            <div class="actions" style="margin-right: 200px;">
                 <%= f.submit :"提交" ,class:"btn btn-primary-outline pull-right"%>
               </div>
-            </tr>
-          </table>
+
+
+
         </fieldset>
     <% end %>
 
@@ -48,8 +50,15 @@
 </div>
 
 
-<div class="col-lg-3" style="background-color: #007020">
-　　
-
+<div class="widget-container fluid-height col-lg-3">
+　　<div class="widget-container fluid-height clearfix" style="background-color: aqua">
+  asdadsa
+  </div>
+  　<div class="widget-container fluid-height clearfix" style="background-color: #8080FF">
+  asdadsa
+</div>
+  　<div class="widget-container fluid-height clearfix" style="background-color: darkgreen">
+  asdadsa
+</div>
   <%= render'contact' %>
 </div>

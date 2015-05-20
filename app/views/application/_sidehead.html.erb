@@ -58,12 +58,21 @@
 <nav class="navbar" style="height: 45px; border-top: 1px solid #007aff">
   <div class=" container container-fluid">
     <ul class="nav navbar-nav">
+<<<<<<< HEAD
       <li class="menunav"> <%= link_to '首页',sides_path(keywords:'index'),class:"menu",'data-no-turbolink'=>true %></li>
       <li class="menunav "> <%= link_to '产品服务',sides_path(keywords:'product'),class:"menu",'data-no-turbolink'=>true %></li><li class="cts-leftborder-container" style="padding-top: 10px;padding-bottom: 10px;margin-top: 12px;"></li>
       <li class="menunav"> <%= link_to '文章新闻',sides_path(keywords:'news'),class:"menu",'data-no-turbolink'=>true%></li><li class="cts-leftborder-container" style="padding-top: 10px;padding-bottom: 10px;margin-top: 12px;"></li>
       <li class="menunav"> <%= link_to '留言板',sides_path(keywords:'message'),class:"menu",'data-no-turbolink'=>true%></li><li class="cts-leftborder-container" style="padding-top: 10px;padding-bottom: 10px;margin-top: 12px;"></li>
       <li class="menunav"> <%= link_to '联系我们',sides_path,class:"menu" %></li><li class="cts-leftborder-container" style="padding-top: 10px;padding-bottom: 10px;margin-top: 12px;"></li>
       <li class="menunav"> <%= link_to '客户评价',sides_path,class:"menu" %></li>
+=======
+      <li class="menunav <%= !params[:keywords]?'current-menu':''%>"> <%= link_to '首页',sides_path,class: !params[:keywords]?'current-link':'menu','data-no-turbolink'=>true %></li>
+      <li class="menunav "> <%= link_to '产品服务',admins_path,class:"menu",'data-no-turbolink'=>true %></li><li class="cts-leftborder-container" style="padding-top: 10px;padding-bottom: 10px;margin-top: 12px;"></li>
+      <li class="menunav <%= params[:keywords]=='news'?'current-menu':''%>"> <%= link_to '文章新闻',sides_path(keywords:"news"),class: params[:keywords]=='news'?'current-link':'menu','data-no-turbolink'=>true %></li><li class="cts-leftborder-container" style="padding-top: 10px;padding-bottom: 10px;margin-top: 12px;"></li>
+      <li class="menunav <%= params[:keywords]=='message'?'current-menu':''%>"> <%= link_to '留言板',sides_path(keywords:"message"),class: params[:keywords]=='message'?'current-link':'menu','data-no-turbolink'=>true %></li><li class="cts-leftborder-container" style="padding-top: 10px;padding-bottom: 10px;margin-top: 12px;"></li>
+      <li class="menunav"> <%= link_to '联系我们',admins_path,class:"menu",'data-no-turbolink'=>true %></li><li class="cts-leftborder-container" style="padding-top: 10px;padding-bottom: 10px;margin-top: 12px;"></li>
+      <li class="menunav"> <%= link_to '客户评价',admins_path,class:"menu" ,'data-no-turbolink'=>true%></li>
+>>>>>>> d6726f3282ab3d603be930c63784cca101ba64fa
     </ul>
   </div>
 </nav>

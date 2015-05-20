@@ -2,7 +2,6 @@ class SidesController < ApplicationController
 
 
   def index
-
     @sidemessage = Sidemessage.new
 
     @sideclas = Sidecla.all

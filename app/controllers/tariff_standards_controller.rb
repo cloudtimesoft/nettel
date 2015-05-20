@@ -7,11 +7,16 @@ class TariffStandardsController < ApplicationController
     @tariff_standards = TariffStandard.all
 end
 
-  def daydefault
+
+  def setdefault
     @tariff_standards = TariffStandard.all
     @tariff_standards.update_all(isdefault:'0')
+    @tariff_standards.update(params[:defaultval],isdefault:'1')
 
   end
+
+
+
   # GET /tariff_standards/1
   # GET /tariff_standards/1.json
   def show
