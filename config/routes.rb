@@ -26,6 +26,7 @@ Rails.application.routes.draw do
 
   resources :tariff_standards do
   get 'check', on: :collection
+  get 'setdefault' ,on: :collection
 end
 
 
@@ -76,6 +77,8 @@ end
   resources :ctsinits
 
   resources :sides
+
+
 
 
 

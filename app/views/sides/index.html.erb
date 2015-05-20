@@ -1,8 +1,9 @@
 <%=render 'sidehead'%>
 <div class="container fluid-height clearfix">
-
-  <%#= render 'message'%>
-
-  <%=render 'news'%>
-
+  <%if !params[:keywords]%>
+      <%= render 'message'%>
+  <%end%>
+  <%if params[:keywords]=="news"%>
+      <%=render 'news'%>
+  <%end%>
 </div>
