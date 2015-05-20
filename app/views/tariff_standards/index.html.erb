@@ -1,18 +1,3 @@
-
-<script type="text/javascript" language="JavaScript">
-
-     function showlablediv(){
-        alert('asdasdasd');
-         $.get("/tariff_standards/daydefault",{
-             user_login:$(this).val()
-         },null,"script");
-     }
-
-
-
-</script>
-
-
 <div class="container fluid-height clearfix" xmlns="http://www.w3.org/1999/html">
 <%= render 'head'%>
 <h2 class="heading">套餐设置</h2>
@@ -32,9 +17,6 @@
     <% @tariff_standards.each do |tariff_standard| %>
       <tr>
         <td width="30px">
-        <label class="radio" for="<%= tariff_standard.id %>">
-          <input type="radio" id="<%= tariff_standard.id %>" value="0" name="options" onclick="showlablediv()"><span ></span>
-        </label>
         </td>
         <td class="hidden-xs"><%= tariff_standard.name %></td>
         <td><%= tariff_standard.content %></td>
