@@ -10,6 +10,17 @@ function adminstatuschange()
 
 }
 
+function tariffchange()
+{
+    if (document.getElementById("isdefaultchange").checked) {
+        document.getElementById("tariff_standard_isdefault").value = "1";
+    }
+    else {
+        document.getElementById("tariff_standard_isdefault").value = "0";
+    }
+
+
+}
 
 
 function makecardgivingchange()

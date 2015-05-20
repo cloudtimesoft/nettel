@@ -949,32 +949,32 @@
 
       $(".new_admin").validate({
           rules: {
-              'admin[name]': {
-                  required: true,
-                  minlength: 5,
-                  remote: {
-                      data: {
-                          user_name: function(){
-                              return $('#admin_name').val();
-                          }
+                          'admin[name]': {
+                              required: true,
+                              minlength: 5,
+                                      remote: {
+                                                  data: {
+                                                              user_name: function(){
+                                                                  return $('#admin_name').val();
+                                                              }
+                                                  },
+                                          url: "/admins/chkrpt",
+                                          type: "get"
+
+
+                                      }
+
+                          },
+
+                      'admin[password]': {
+                          required: true,
+                          minlength: 5
                       },
-                      url: "/admins/chkrpt",
-                      type: "get"
-
-
-                  }
-
-              },
-
-              'admin[password]': {
-                  required: true,
-                  minlength: 5
-              },
-              'admin[password_confirmation]': {
-                  required: true,
-                  minlength: 5,
-                  equalTo: "#admin_password"
-              }
+                          'admin[password_confirmation]': {
+                              required: true,
+                              minlength: 5,
+                              equalTo: "#admin_password"
+                          }
           },
           messages: {
               'admin[name]': {
@@ -1058,20 +1058,21 @@
                   number: true
 
 
-              },
+              }
+          },
               messages: {
-                  'tariff_standard[name]': {
-                      required: "账号不能为空！",
-                      remote: "该账户已存在！"
-                  },
+                              'tariff_standard[name]': {
+                                  required: "账号不能为空！",
+                                  remote: "该账户已存在！"
+                              },
 
-                  'tariff_standard[minus_amount]': {
-                      required: "负数额度不能为空！",
-                      number: "请输入有效数字！"
-                  }
+                                  'tariff_standard[minus_amount]': {
+                                      required: "负数额度不能为空！",
+                                      number: "请输入有效数字！"
+                                  }
 
               }
-          }
+
       });
 
 

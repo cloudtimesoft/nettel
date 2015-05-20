@@ -58,12 +58,16 @@
                     </p>
                     <p>
                       <span class="col-sm-3" style="text-align: right;">默认套餐:</span>
-                      <%= @tariff_standard.isdefault %>
+                      <%if @tariff_standard.isdefault==1%>
+                      <%='是'%>
+                      <%else%>
+                      <%='否'%>
+                      <%end%>
                     </p>
                     <p>
 
                     <div>
-                      <a onclick="showformdiv()" class="btn btn-primary-outline pull-right"><i class="icon-pencil"></i>编辑套餐信息</a>
+                      <a onclick="showformdiv()" class="btn btn-primary-outline pull-right",data-no-turbolink="true" ><i class="icon-pencil"></i>编辑套餐信息</a>
                     </div>
                   </div>
 
@@ -188,7 +192,7 @@
 
                                       <div class="panel">
 
-                                        <input type="button" onclick="show()" value="添加时段套餐" class="btn btn-primary-outline pull-left">
+                                        <input type="button" onclick="show()" value="添加时段套餐" class="btn btn-primary-outline pull-left",data-no-turbolink="true">
 
                                       </div>
                       </div>

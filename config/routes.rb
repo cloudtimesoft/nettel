@@ -26,6 +26,7 @@ Rails.application.routes.draw do
 
   resources :tariff_standards do
   get 'check', on: :collection
+  get 'daydefault', on: :collection
 end
 
 

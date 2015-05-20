@@ -40,8 +40,8 @@
 
   <tr>
     <div class="form-group">
-      <td style="margin-top: 10px;width:80px;text-align: right;padding: 5px;"><%= f.label :默认套餐 %></td>
-      <td><%= f.number_field :isdefault, class:"form-control", size:'20'  %></td>
+      <td style="margin-top: 10px;width:80px;text-align: right;padding: 5px;display: none"><%= f.label :默认套餐 %></td>
+      <td><%= f.hidden_field :isdefault, class:"form-control",value:0  %></td>
 
     </div>
   </tr>
